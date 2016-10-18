@@ -1,0 +1,15 @@
+postgres_host:
+    image: postgres:9.4
+    env_file:
+        - ./docker-base.env
+
+app:
+    build: ./
+    links:
+        - postgres_host
+    volumes:
+        - ./:/opt/app
+    env_file:
+        - ./docker-base.env
+    ports:
+        - 3000:3000
