@@ -1,0 +1,16 @@
+image: ruby:2.1
+services:
+  - postgres
+
+before_script:
+  - bundle install
+  - rake db:create
+  - rake bower:install['--allow-root']
+
+stages:
+  - test
+  
+job1:
+  stage: test
+  script:
+    - rake jasmine:ci test
