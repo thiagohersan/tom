@@ -13,3 +13,6 @@
 //= require jquery
 //= require angular/angular
 //= require_tree .
+
+receta = angular.module('receta',[
+])
