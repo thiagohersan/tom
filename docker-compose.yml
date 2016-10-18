@@ -13,3 +13,4 @@ app:
         - ./docker-base.env
     ports:
         - 3000:3000
+        - 8888:8888

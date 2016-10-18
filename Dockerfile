@@ -1,11 +1,12 @@
 FROM ruby:2.3.1
 
+RUN gem install bundler
+RUN gem install rails
+
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g bower
-
-RUN gem install bundler
-RUN gem install rails
+RUN npm install -g phantomjs
 
 ADD . /opt/app/
 WORKDIR /opt/app/
