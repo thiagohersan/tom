@@ -1,0 +1,17 @@
+language: ruby
+
+services:
+    - postgresql
+
+env:
+    POSTGRES_HOST: localhost
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: 
+    POSTGRES_PORT: 5432
+
+install:
+    - bundle install
+    - rake bower:install db:create db:migrate
+
+script:
+    - rake test jasmine:ci
