@@ -7,13 +7,17 @@ services:
     - postgresql
 
 env:
+    TRAVIS_NODE_VERSION: "0.12"
+    TRAVIS_NODE_VERSION: "4"
     POSTGRES_HOST: localhost
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: 
     POSTGRES_PORT: 5432
 
 install:
+    - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
     - bundle install
+    - npm install bower
     - rake bower:install db:create db:migrate
 
 script:
