@@ -1,5 +1,5 @@
 class IndustriesController < ApplicationController
-  def index 
-      render json: Industry.all
+  def index
+    render json: Industry.all
   end
 end
