@@ -22,4 +22,5 @@ install:
     - rake bower:install db:create db:migrate
 
 script:
-    - rake test jasmine:ci
+    - bundle exec rspec
+    - rake jasmine:ci
