@@ -5,3 +5,5 @@ trendOMeterApp.factory('UserService', function($http){
         }
     } 
 });
+
+
