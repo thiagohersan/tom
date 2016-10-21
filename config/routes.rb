@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users, only: [:create, :update]
+
   get 'occupations' => 'occupations#index'
 
   get 'industries' => 'industries#index'
