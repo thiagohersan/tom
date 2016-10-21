@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require angular/angular
+//= require angular-cookies/angular-cookies
 //= require angular-mocks
 //= require_tree .
