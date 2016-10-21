@@ -15,6 +15,8 @@ describe('UserService', function() {
 
     it('should create an anonymous user when starting the quiz', function(done){
         // Create a response for /users
+        var user_id = Math.ceil(Math.random() * 100);
+
         $httpBackend.when('POST', '/users', {anonym: true}).respond(201, {
             id: user_id,
             anonym: true
@@ -28,15 +30,17 @@ describe('UserService', function() {
 
             // Check if user_if cookies are created
             expect($cookies.get('user_id')).toEqual(user_id.toString());
+            // Finish the test
         }).finally(done);
 
         $httpBackend.flush();
     });
 
-    it('should check if an user is logged', function(done){
+    it('should check if an user is logged', function(){
+        $cookies.remove('user_id');
         expect(UserService.getLoggedID()).toBeUndefined()
         // Create a cookie to simulate a logged user
-        $cookies.set('user_id', user_id);
+        $cookies.put('user_id', user_id);
         expect(UserService.getLoggedID()).toEqual(user_id);
     });
 });
