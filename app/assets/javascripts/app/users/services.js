@@ -1,16 +1,16 @@
 trendOMeterApp.factory('UserService', function($http, $cookies){
     return { 
         createAnonymous: function() {
-            var xhr = $http.post('/users', {anonym: true});
-            // Set the cookie
-            xhr.then(function(response) {
+            return $http.post('/users', {anonym: true}).then(function(response) {
             	$cookies.put('user_id', response.data.id);
+                return response;
             });
-            return xhr;
         },
-
         getLoggedID: function() {
-        	return parseInt($cookies.get('user_id'));
+            var user_id = $cookies.get('user_id');
+            if(user_id !== undefined){
+        	    return parseInt(user_id);
+            }
         }
     } 
 });
