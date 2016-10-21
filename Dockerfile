@@ -11,6 +11,7 @@ RUN npm install -g phantomjs
 ADD . /opt/app/
 WORKDIR /opt/app/
 
+RUN bundle config git.allow_insecure true
 RUN bundle install
 
 CMD ["rails", "server", "-b", "0.0.0.0"]

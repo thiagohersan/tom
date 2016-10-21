@@ -3,9 +3,7 @@
   "dependencies": {
     "angular": "latest",
     "angular-mocks": "latest",
-    "bootstrap-sass-official": "latest",
-    "phantomjs": "latest"
-  },
-  "resolutions": {
+    "angular-cookies": "latest",
+    "bootstrap-sass-official": "latest"
   }
 }
