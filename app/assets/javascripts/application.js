@@ -14,6 +14,3 @@
 //= require angular/angular
 //= require angular-mocks
 //= require_tree .
-
-receta = angular.module('receta',[
-])

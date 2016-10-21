@@ -52,6 +52,7 @@ helpers:
 #
 spec_files:
   - '**/*[sS]pec.js'
+  - '/opt/spec/javascripts/app/users/service_spec.js'
 
 # src_dir
 #
