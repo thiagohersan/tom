@@ -27,16 +27,16 @@ describe('UserService', function() {
             expect(response.data.anonym).toEqual(true);
 
             // Check if user_if cookies are created
-            expect($cookies.get('user_id')).toEqual(user_id);
+            expect($cookies.get('user_id')).toEqual(user_id.toString());
         }).finally(done);
 
         $httpBackend.flush();
     });
 
     it('should check if an user is logged', function(done){
-        expect(UserService.getLogged()).toBeUndefined()
+        expect(UserService.getLoggedID()).toBeUndefined()
         // Create a cookie to simulate a logged user
         $cookies.set('user_id', user_id);
-        expect(UserService.getLogged()).toEqual(user_id);
+        expect(UserService.getLoggedID()).toEqual(user_id);
     });
 });
