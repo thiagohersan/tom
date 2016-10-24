@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   describe "POST #create" do
-      let(:user) { JSON.parse(response.body) }
+    let(:user) { JSON.parse(response.body) }
     it "returns http success" do
       post :create
       expect(response).to have_http_status(:success)
