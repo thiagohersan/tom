@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :duels, only: [:create, :update]
+
   resources :users, only: [:create, :update]
 
   get 'occupations' => 'occupations#index'
