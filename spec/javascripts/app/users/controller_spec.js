@@ -31,7 +31,7 @@ describe('StartController', function() {
                         status: 201,
                         data: {
                             id: 1,
-                            anonym: true
+                            anonymous: true
                         }
                     })
                 }
@@ -78,7 +78,7 @@ describe('StartController', function() {
                         status: 500,
                         data: {
                             id: 1,
-                            anonym: true
+                            anonymous: true
                         }
                     })
                 }
