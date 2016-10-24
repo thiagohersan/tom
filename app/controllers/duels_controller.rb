@@ -1,6 +1,6 @@
 class DuelsController < ApplicationController
   def create
-    return render status: 400 unless params.key?(:user_id)
+    return render text: 'Missing user_id', status: 400 unless params.key?(:user_id)
     render json: buildDuels(params[:user_id])
   end
 

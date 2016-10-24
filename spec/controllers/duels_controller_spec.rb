@@ -34,7 +34,6 @@ RSpec.describe DuelsController, type: :controller do
       duels1 = JSON.parse(response.body)
       post :create, { user_id: user.id }
       duels2 = JSON.parse(response.body)
-      require 'pry'; binding.pry
       expect(
         duels1[0]['first_trend']['id'] !=
           duels2[0]['first_trend']['id'] ||
