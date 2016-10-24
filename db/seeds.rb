@@ -31,3 +31,17 @@ Industry.create([
   { name: 'Viagem, Lazer e Recreação' },
   { name: 'Atacado e Distribuição' },
   { name: 'Outro' }])
+
+Occupation.create([
+  { name: 'Executivo C-Level' },
+  { name: 'VP ou Diretor(a)' },
+  { name: 'Gerente de Projeto' },
+  { name: 'Gerente de Produto' },
+  { name: 'Gerente - Outro' },
+  { name: 'Arquiteto(a)' },
+  { name: 'Desenvolvedor(a)' },
+  { name: 'Analista' },
+  { name: 'Tester' },
+  { name: 'Consultor(a)' },
+  { name: 'Estudante' },
+  { name: 'Outro' }])
