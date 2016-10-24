@@ -6,5 +6,9 @@ FactoryGirl.define do
     completed false
     industry nil
     occupation nil
+
+    factory :anonymous_user do
+      anonymous true
+    end
   end
 end
