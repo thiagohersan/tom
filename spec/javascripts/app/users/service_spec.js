@@ -16,16 +16,16 @@ describe('UserService', function() {
         // Create a response for /users
         var user_id = Math.ceil(Math.random() * 100);
 
-        $httpBackend.when('POST', '/users', {anonym: true}).respond(201, {
+        $httpBackend.when('POST', '/users', {anonymous: true}).respond(201, {
             id: user_id,
-            anonym: true
+            anonymous: true
         });
 
         user = UserService.createAnonymous().then(function(response){
             // Check if request is done
             expect(response.status).toEqual(201);
             expect(response.data.id).toEqual(user_id);
-            expect(response.data.anonym).toEqual(true);
+            expect(response.data.anonymous).toEqual(true);
 
             // Check if user_if cookies are created
             expect($cookies.get('user_id')).toEqual(user_id.toString());
