@@ -4,10 +4,9 @@ describe('UserService', function() {
     // Set the module
     beforeEach(module('trendOMeterApp'));
 
-    // Add globals for any test
+    // Add globals for any testbeforeEach(inject(function($injector) {
     beforeEach(inject(function($injector) {
         user_id = Math.ceil(Math.random() * 100);
-
         $httpBackend = $injector.get('$httpBackend');
         $cookies = $injector.get('$cookies');
         UserService = $injector.get('UserService');
