@@ -12,4 +12,16 @@ RSpec.describe Duel, type: :model do
     duel = Duel.new(first_trend: trend1, second_trend: trend2)
     expect(duel.valid?).to be false
   end
+  it 'fails validation when winner_trend_id and skipped are defined' do
+    duel = Duel.new(first_trend: trend1, second_trend: trend2, winner_trend_id: trend1.id, skipped: true)
+    expect(duel.valid?).to be false
+  end
+  it 'tells whether it was already answered' do
+    duel1 = Duel.new(first_trend: trend1, second_trend: trend2)
+    expect(duel1.answered?).to be false
+    duel2 = Duel.new(first_trend: trend1, second_trend: trend2, winner_trend_id: trend1.id)
+    expect(duel2.answered?).to be true
+    duel3 = Duel.new(first_trend: trend1, second_trend: trend2, skipped: true)
+    expect(duel3.answered?).to be true
+  end
 end
