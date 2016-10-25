@@ -47,7 +47,6 @@ RSpec.describe DuelsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:duel) { create(:duel) }
     it "fails when winner_trend_id or skipped = true is not provided" do
       patch :update, id: 3
       expect(response).to have_http_status(400)
@@ -62,6 +61,12 @@ RSpec.describe DuelsController, type: :controller do
       patch :update, id: 3, skipped: true, winner_trend_id: 15
       expect(response).to have_http_status(400)
       expect(response.body).to eq('Do not provide a winner_trend_id if you are skipping')
+    end
+    it 'fails when a duel was already patched' do
+      duel = create(:answered_duel)
+      patch :update, id: duel.id, winner_trend_id: duel.winner_trend_id 
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Already answered')
     end
   end
 

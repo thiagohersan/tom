@@ -11,6 +11,9 @@ class DuelsController < ApplicationController
       status: 400 if inconsistentSkip(params)
     return render text: 'Do not provide a winner_trend_id if you are skipping',
       status: 400 if params.key?(:winner_trend_id) && params.key?(:skipped)
+    duel = Duel.find(params[:id])
+    return render text: 'Already answered',
+      status: 400 if duel.answered?
   end
 
   def inconsistentSkip(params)
