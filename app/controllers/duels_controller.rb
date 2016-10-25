@@ -5,6 +5,16 @@ class DuelsController < ApplicationController
   end
 
   def update
+    return render text: 'Provide winner_tend_id or skipped = true to update',
+      status: 400 unless params.key?(:winner_trend_id) || params.key?(:skipped) 
+    return render text: 'skipped = false is pointless',
+      status: 400 if inconsistentSkip(params)
+    return render text: 'Do not provide a winner_trend_id if you are skipping',
+      status: 400 if params.key?(:winner_trend_id) && params.key?(:skipped)
+  end
+
+  def inconsistentSkip(params)
+    params.key?(:skipped) && params[:skipped] == 'false'
   end
 
   def duelToJson(duel)

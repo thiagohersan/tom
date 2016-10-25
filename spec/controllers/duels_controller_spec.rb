@@ -47,7 +47,22 @@ RSpec.describe DuelsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    it "is pending"
+    let(:duel) { create(:duel) }
+    it "fails when winner_trend_id or skipped = true is not provided" do
+      patch :update, id: 3
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Provide winner_tend_id or skipped = true to update')
+    end
+    it "fails when skipped = false because it is pointless" do
+      patch :update, id: 3, skipped: false
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('skipped = false is pointless')
+    end
+    it 'fails when skipped = true and winner_trend_id is provided' do
+      patch :update, id: 3, skipped: true, winner_trend_id: 15
+      expect(response).to have_http_status(400)
+      expect(response.body).to eq('Do not provide a winner_trend_id if you are skipping')
+    end
   end
 
 end
