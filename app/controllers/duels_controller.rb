@@ -14,6 +14,15 @@ class DuelsController < ApplicationController
     duel = Duel.find(params[:id])
     return render text: 'Already answered',
       status: 400 if duel.answered?
+    if(params[:skipped])
+      duel.skipped = true
+    else
+      return render text: 'Invalid winner',
+        status: 400 unless duel.valid_winner?(params[:winner_trend_id].to_i)
+      duel.winner_trend_id = params[:winner_trend_id].to_i
+    end 
+    duel.save
+    head :no_content
   end
 
   def inconsistentSkip(params)

@@ -68,6 +68,18 @@ RSpec.describe DuelsController, type: :controller do
       expect(response).to have_http_status(400)
       expect(response.body).to eq('Already answered')
     end
+    it 'fails when a winner is diferent from the two options' do
+      duel1 = create(:duel)
+      duel2 = create(:duel)
+      patch :update, id: duel2.id, winner_trend_id: duel1.first_trend.id
+      expect(response).to have_http_status(400)
+    end
+   it 'updates a duel' do
+      duel = create(:duel)
+      patch :update, id: duel.id, winner_trend_id: duel.first_trend.id
+      puts response.body
+      expect(response).to have_http_status(204)
+      expect(Duel.find(duel.id).winner_trend_id).to eq(duel.first_trend.id)
+    end
   end
-
 end
