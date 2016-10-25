@@ -148,6 +148,49 @@ describe('DuelsController', function(){
                 $scope.saveAction(promise);
                 expect($scope.error).toBeFalsy();
             });
+            
+            it('should consume the service and call saveaction on executing skip', function() {
+                spyOn(DuelService, 'skip').and.returnValue(promise);
+                spyOn($scope, 'saveAction').and.callThrough();
+
+                $scope.skip();
+
+                expect(DuelService.skip.calls.count()).toEqual(1);
+                expect($scope.saveAction.calls.count()).toEqual(1);
+            });
+            
+            it('should use the currentDuel when calling skip service', function() {
+                DuelService.skip = function(duel_id) {
+                    expect(duel_id).toEqual($scope.currentDuel.id);
+                    return promise;
+                }
+                spyOn(DuelService, 'skip').and.callThrough();
+                spyOn($scope, 'saveAction').and.callThrough();
+
+                $scope.skip();
+            });
+            
+            it('should consume the service and call saveAction on executing winner', function() {
+                spyOn(DuelService, 'setWinner').and.returnValue(promise);
+                spyOn($scope, 'saveAction').and.callThrough();
+
+                $scope.winner(dummyDuel.first_trend);
+
+                expect(DuelService.setWinner.calls.count()).toEqual(1);
+                expect($scope.saveAction.calls.count()).toEqual(1);
+            });
+            
+            it('should use the currentDuel when calling setWinner service', function() {
+                DuelService.setWinner = function(duel_id, trend_id) {
+                    expect(duel_id).toEqual($scope.currentDuel.id);
+                    expect(trend_id).toEqual(dummyDuel.first_trend.id);
+                    return promise;
+                }
+                spyOn(DuelService, 'setWinner').and.callThrough();
+                spyOn($scope, 'saveAction').and.callThrough();
+
+                $scope.winner(dummyDuel.first_trend);
+            });
         });
     });
     it('should redirect to /start if there is no user_id', function() {
