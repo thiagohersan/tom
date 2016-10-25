@@ -24,4 +24,10 @@ RSpec.describe Duel, type: :model do
     duel3 = Duel.new(first_trend: trend1, second_trend: trend2, skipped: true)
     expect(duel3.answered?).to be true
   end
+  it 'tells if a winner is valid' do
+    duel = Duel.new(first_trend: trend1, second_trend: trend2)
+    expect(duel.valid_winner?(trend1.id)).to be true 
+    expect(duel.valid_winner?(trend2.id)).to be true 
+    expect(duel.valid_winner?(trend2.id + 100)).to be false 
+  end
 end

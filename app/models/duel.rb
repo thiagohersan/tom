@@ -18,4 +18,8 @@ class Duel < ApplicationRecord
   def answered?
     !!winner_trend_id || !!skipped
   end
+
+  def valid_winner?(id)
+    first_trend_id == id || second_trend_id == id
+  end
 end
