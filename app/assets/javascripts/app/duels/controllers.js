@@ -43,6 +43,14 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
             $scope.saving = false;
         });
     }
+    
+    $scope.skip = function() {
+        $scope.saveAction(DuelService.skip($scope.currentDuel.id));
+    }
+
+    $scope.winner = function(winner_trend) {
+        $scope.saveAction(DuelService.setWinner($scope.currentDuel.id, winner_trend.id));    
+    }
 
     init();
 
