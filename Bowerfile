@@ -1,4 +1,5 @@
 asset 'angular'
 asset 'angular-mocks'
 asset 'angular-cookies'
+asset 'angular-routes'
 asset 'bootstrap-sass-official'
