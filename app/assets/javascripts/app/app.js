@@ -4,9 +4,11 @@ var trendOMeterApp = angular.module('trendOMeterApp', ['ngCookies','ngRoute']);
 trendOMeterApp.config(function($routeProvider) {
     $routeProvider
         .when('/start', {
-            controller: 'StartController'
+            controller: 'StartController',
+            templateUrl: '/templates/start.html'
         })
         .when('/duels', {
-            controller: 'DuelsController'
-        });
+            controller: 'DuelsController',
+            templateUrl: '/templates/duels.html'
+        }).otherwise('/start');
 });
