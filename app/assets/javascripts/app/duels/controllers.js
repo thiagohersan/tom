@@ -15,12 +15,15 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         DuelService.createDuels(user_id).then(function(response) {
             $scope.duels = response.data;
             $scope.loading = false;
+            $scope.getCurrentDuel();
         });
     }
 
     $scope.getCurrentDuel = function() {
         $scope.currentDuel = $scope.duels.shift();
-        $scope.finish();
+        if($scope.duels.length == 0){
+            $scope.finish();
+        }
     };
 
     $scope.finish = function() {
