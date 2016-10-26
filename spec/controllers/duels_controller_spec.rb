@@ -11,7 +11,7 @@ RSpec.describe DuelsController, type: :controller do
       post :create, { user_id: user.id }
       expect(response).to have_http_status(:success)
     end
-    it 'fails withou an user id' do
+    it 'fails without an user id' do
       post :create
       expect(response).to have_http_status(400)
     end
@@ -30,9 +30,10 @@ RSpec.describe DuelsController, type: :controller do
       expect(json[0].key?('second_trend')).to eq(true)
     end
     it 'returns trends in a random order' do
+      user2 = create(:user)
       post :create, { user_id: user.id }
       duels1 = JSON.parse(response.body)
-      post :create, { user_id: user.id }
+      post :create, { user_id: user2.id }
       duels2 = JSON.parse(response.body)
       expect(
         duels1[0]['first_trend']['id'] !=
@@ -43,6 +44,15 @@ RSpec.describe DuelsController, type: :controller do
           duels2[1]['first_trend']['id'] ||
         duels1[1]['second_trend']['id'] !=
           duels2[1]['second_trend']['id']).to eq(true)
+    end
+    context 'user leaves application' do
+      it 'returns unanswered duels' do
+        duel = create(:duel)
+        post :create, { user_id: duel.user_id }
+        duel_list = JSON.parse(response.body)
+        expect(duel_list.length).to eq(1)
+        expect(duel_list[0]['id']).to eq(duel.id)
+      end
     end
   end
 
@@ -77,7 +87,6 @@ RSpec.describe DuelsController, type: :controller do
    it 'updates a duel' do
       duel = create(:duel)
       patch :update, id: duel.id, winner_trend_id: duel.first_trend.id
-      puts response.body
       expect(response).to have_http_status(204)
       expect(Duel.find(duel.id).winner_trend_id).to eq(duel.first_trend.id)
     end

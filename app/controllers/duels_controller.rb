@@ -1,6 +1,8 @@
 class DuelsController < ApplicationController
   def create
     return render text: 'Missing user_id', status: 400 unless params.key?(:user_id)
+    duel_list = Duel.where(winner_trend_id: nil, skipped: nil, user_id: params[:user_id])
+    return render json: duel_list if duel_list.length > 0
     render json: buildDuels(params[:user_id])
   end
 
