@@ -1,0 +1,25 @@
+@import '../utils/*';
+
+.header {
+	text-align: center;
+	width: 45%;
+	min-width: 300px;
+	margin: 20% auto;
+	
+	&-title {
+		border-bottom: 1px solid $black;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		padding-bottom: 0.4em;
+	}
+	
+	&-subtitle {
+		font-weight: 300;
+		font-style: italic;
+		margin-top: 5%;
+	}
+	&-logo {
+		width: 50%;
+	}
+}
+
