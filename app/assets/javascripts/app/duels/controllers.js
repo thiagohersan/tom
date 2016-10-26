@@ -20,10 +20,10 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     }
 
     $scope.getCurrentDuel = function() {
-        $scope.currentDuel = $scope.duels.shift();
         if($scope.duels.length == 0){
             $scope.finish();
         }
+        $scope.currentDuel = $scope.duels.shift();
     };
 
     $scope.finish = function() {

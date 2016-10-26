@@ -1,1 +1,7 @@
-duel: {{currentDuel}}
+<a ng-click="winner(currentDuel.first_trend)">{{ currentDuel.first_trend.name }}</a>
+ou
+<a ng-click="winner(currentDuel.second_trend)">{{ currentDuel.second_trend.name }}</a>?
+
+<hr>
+
+<a ng-click="skip()">Pular</a>
