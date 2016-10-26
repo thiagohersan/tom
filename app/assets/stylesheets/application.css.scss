@@ -21,6 +21,17 @@
 		"components/*",
 		"utils/variables";
 
+html {
+	font-size: 16px;
+}
+
 body {
 	font-family: $font-family;
+}
+
+
+@media (max-width: 600px) {
+	html {
+		font-size: 12px;
+	}
 }
