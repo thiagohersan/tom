@@ -3,7 +3,7 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     $scope.error = false;
 
     $scope.redirect = function(){
-        $location.path('/duel');
+        $location.path('/duels');
     }
 
     $scope.start = function(){ 
@@ -19,6 +19,8 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
                     $scope.error = true;
                 }
             });
+        }else{
+            $scope.redirect();
         }
     }
 });
