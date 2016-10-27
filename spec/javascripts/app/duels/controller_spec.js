@@ -191,8 +191,13 @@ describe('DuelsController', function(){
 
                 $scope.winner(dummyDuel.first_trend);
             });
+
+            it('should return an array of the same length as the parameter', function() {
+                expect($scope.getDuelCount(5).length).toEqual(5);
+            });
         });
     });
+    
     it('should redirect to /start if there is no user_id', function() {
         $cookies.remove('user_id');
         $controller('DuelsController', {$scope: $scope});

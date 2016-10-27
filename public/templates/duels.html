@@ -14,18 +14,7 @@
 			<div class="trend-bar">
 				<div class="trend-bar-counter">{{getCurrentPage()}}/{{totalDuels}}</div>
 				<div class="bars">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
+					<div class="bar" ng-repeat="i in getDuelCount(10)"></div>
 				</div>
 			</div>
 		</div>

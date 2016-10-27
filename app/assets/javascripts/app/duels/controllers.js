@@ -55,6 +55,10 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         $scope.saveAction(DuelService.setWinner($scope.currentDuel.id, winner_trend.id));    
     }
 
+    $scope.getDuelCount = function(size) {
+        return new Array(size);
+    }
+
     init();
 
 });
