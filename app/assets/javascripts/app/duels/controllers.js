@@ -1,10 +1,11 @@
-trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelService, $location) {
+trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelService, $location, $timeout) {
     $scope.loading = true; 
     $scope.duels = [];
     $scope.currentDuel = null;
     $scope.totalDuels = 12;
     $scope.error = false;
     $scope.saving = false;
+    $scope.winnerTrend = null;
 
     function init() {
         var user_id = UserService.getLoggedID();
@@ -51,8 +52,24 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         $scope.saveAction(DuelService.skip($scope.currentDuel.id));
     }
 
-    $scope.winner = function(winner_trend) {
-        $scope.saveAction(DuelService.setWinner($scope.currentDuel.id, winner_trend.id));    
+    $scope.winner = function(winnerTrend) {
+        $scope.saveAction(DuelService.setWinner($scope.currentDuel.id, winnerTrend.id));    
+    }
+
+    $scope.setWinner = function(winnerTrend) {
+        $scope.winnerTrend = winnerTrend;
+        $scope.saving = true;
+
+        $timeout(function() {
+            $scope.winner(winnerTrend);
+        }, 500);
+    }
+
+    $scope.isSelected = function(winnerTrend) {
+        if(winnerTrend !== undefined) {
+            return $scope.winnerTrend === winnerTrend;
+        }
+        return false;
     }
 
     $scope.getDuelCount = function(size) {
