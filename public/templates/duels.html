@@ -1,10 +1,25 @@
 <div ng-include="'templates/partials/navbar.html'"></div>
 
-<div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-12">
+        <div class="square-container">
+            <div class="square" ng-click="setWinner(currentDuel.first_trend)">
+                <div class="block" ng-class="{'loading':saving, 'active': isSelected(currentDuel.first_trend)}">
+                    <div class="centered">
+                        <h1>{{ currentDuel.first_trend.name }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="square" ng-click="setWinner(currentDuel.second_trend)">
+                <div class="block" ng-class="{'loading':saving, 'active': isSelected(currentDuel.second_trend)}">
+                    <div class="centered">
+                        <h1>{{ currentDuel.second_trend.name }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<a ng-click="winner(currentDuel.first_trend)">{{ currentDuel.first_trend.name }}</a>
-	ou
-	<a ng-click="winner(currentDuel.second_trend)">{{ currentDuel.second_trend.name }}</a>?
 
 	<hr>
 
