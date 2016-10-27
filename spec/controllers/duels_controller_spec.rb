@@ -52,6 +52,7 @@ RSpec.describe DuelsController, type: :controller do
         duel_list = JSON.parse(response.body)
         expect(duel_list.length).to eq(1)
         expect(duel_list[0]['id']).to eq(duel.id)
+        expect(duel_list[0].key?('first_trend')).to eq(true)
       end
     end
   end
