@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'panel' => 'panel#index'
+
   resources :duels, only: [:create, :update]
 
   resources :users, only: [:create, :update]
