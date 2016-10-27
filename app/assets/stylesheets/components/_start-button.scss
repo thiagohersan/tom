@@ -1,0 +1,62 @@
+@import '../utils/variables';
+
+.start-button {
+	position: relative;
+	width: $start-button-big;
+	height: $start-button-big;
+	margin: 0 auto;
+	text-align: center;
+	cursor: pointer;
+
+	& .start-button-big {
+		fill: $light-blue;
+	}
+
+	& .start-button-medium {
+		@extend %vertical-align;
+		fill: $medium-blue;
+		width: $start-button-medium;
+	}
+
+	& .start-button-small {
+		@extend %vertical-align;
+		fill: $dark-blue;
+		width: $start-button-small;
+	}
+
+	&-link, &-link:hover {
+		font-size: 1.5rem;
+		font-style: italic;
+		color: $black;
+	}
+}
+
+
+.start-button:hover {
+	& .start-button-big {
+		animation: fillBig 1.5s infinite ease-in-out alternate;
+	}
+
+	& .start-button-medium {
+		animation: fillMedium 1.5s infinite ease-in-out alternate;
+	}
+
+	& .start-button-small {
+		animation: fillSmall 1.5s infinite ease-in-out alternate;
+	}
+}
+
+@keyframes fillBig {
+	0% { fill: $light-blue; }
+	100% { fill: $yellow; }
+}
+
+@keyframes fillMedium {
+	0% { fill: $medium-blue; }
+	100% { fill: $orange; }
+}
+
+@keyframes fillSmall {
+	0% { fill: $dark-blue; }
+	100% { fill: $red; }
+}

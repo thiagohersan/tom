@@ -14,4 +14,17 @@ $black: #000000;
 //font
 $font-family: 'Open Sans', sans-serif;
 
+//size
+$start-button-small: 25px;
+$start-button-medium: $start-button-small * 2.15;
+$start-button-big: $start-button-small * 3;
 
+%vertical-align {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+	background-position: 50% 50%;
+}
