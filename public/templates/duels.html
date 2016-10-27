@@ -1,7 +1,12 @@
-<a ng-click="winner(currentDuel.first_trend)">{{ currentDuel.first_trend.name }}</a>
-ou
-<a ng-click="winner(currentDuel.second_trend)">{{ currentDuel.second_trend.name }}</a>?
+<div ng-include="'templates/partials/navbar.html'"></div>
 
-<hr>
+<div class="container-fluid">
 
-<a ng-click="skip()">Pular</a>
+	<a ng-click="winner(currentDuel.first_trend)">{{ currentDuel.first_trend.name }}</a>
+	ou
+	<a ng-click="winner(currentDuel.second_trend)">{{ currentDuel.second_trend.name }}</a>?
+
+	<hr>
+
+	<a ng-click="skip()">Pular</a>
+</div>
