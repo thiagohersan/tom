@@ -1,15 +1,10 @@
 @import "utils/variables";
 
-.square-container {
-    margin-left: -2%;
-}
-
 .square {
     width: 48%;
-    height: 0; 
-    padding-bottom: 46%; 
-    float: left;
+    padding-bottom: 48%; 
     position: relative;
+    float: left;
 
     & + & {
         margin-left: 4%;
@@ -23,30 +18,46 @@
     width: 100%;
     height: 100%;
     transition: background-color 0.5s ease;
+
+    & .loading {
+        background-color: $light-grey;
+    }
+
+    & .active {
+        background-color: $red;
+    }
+
+    &:hover {
+        background-color: $orange;
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%; 
+        vertical-align: middle;
+        margin-right: -0.25em; 
+    }
 }
 
 .block:hover {
-    background: $orange;
+    background-color: $orange;
 }
 .block.loading {
-    background: $light-grey;
+    background-color: $light-grey;
 }
 .block.active {
-    background: $red;
+    background-color: $red;
 }
  
 .block:before {
-    content: '';
-    display: inline-block;
-    height: 100%; 
-    vertical-align: middle;
-    margin-right: -0.25em;
+    
 }
 
 .centered {
     display: inline-block;
     vertical-align: middle;
-    width: 80%;
+    width: 99%;
     color: $white;
     
     & h1 {
