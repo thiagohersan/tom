@@ -5,12 +5,15 @@
 }
 
 .square {
-    width: 46%;
+    width: 48%;
     height: 0; 
     padding-bottom: 46%; 
-    margin: 2%;
     float: left;
     position: relative;
+
+    & + & {
+        margin-left: 4%;
+    }
 }
 
 .block {
@@ -44,5 +47,12 @@
     display: inline-block;
     vertical-align: middle;
     width: 80%;
-    color: #FFF;
+    color: $white;
+    
+    & h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: $kerning;
+        text-transform: uppercase;
+    }
  }
