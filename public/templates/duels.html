@@ -19,20 +19,21 @@
             </div>
         </div>
     </div>
+</div>
 
-
-	<hr>
-
-
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="trend-bar">
-				<div class="trend-bar-counter">{{getCurrentPage()}}/{{totalDuels}}</div>
-				<div class="bars">
-					<div class="bar" ng-repeat="i in getDuelCount(10)"></div>
-				</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="trend-bar">
+			<div class="trend-bar-counter">{{getCurrentPage()}}/{{totalDuels}}</div>
+			<div class="bars">
+				<div class="bar" ng-repeat="i in getDuelCount(totalDuels) track by $index" ng-class="{'bar-completed': $index < getCurrentPage()}"></div>
 			</div>
 		</div>
 	</div>
-	<a ng-click="skip()">Pular</a>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <a ng-click="skip()">Pular</a>
+    </div>
 </div>
