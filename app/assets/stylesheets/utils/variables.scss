@@ -10,6 +10,7 @@ $light-grey: #F2F2F2;
 $dark-grey: #999999;
 $white: #FFFFFF;
 $black: #000000;
+$trend-bar-completed: #CCCCCC;
 
 //font
 $font-family: 'Open Sans', sans-serif;
@@ -19,6 +20,9 @@ $start-button-small: 25px;
 $start-button-medium: $start-button-small * 2.15;
 $start-button-big: $start-button-small * 3;
 $kerning: -0.03em;
+
+//trend
+$trend-border-definition: 3px solid $dark-grey;
 
 %vertical-align {
 	top: 0;
