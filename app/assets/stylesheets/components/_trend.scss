@@ -1,0 +1,50 @@
+@import "../utils/variables";
+
+.trend-bar {
+	margin: 5rem auto;
+	position: relative;
+	width: 11rem;
+}
+
+.trend-bar-counter {
+		background-color: $dark-grey;
+		color: $white;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		position: absolute;
+		top: -50%;
+		left: -2.7rem;
+		line-height: 3rem;
+		text-align: center;
+		font-size: 0.75rem;
+}
+
+.bars {
+	font-size: 0;
+	width: 12rem;
+	height: 1.5rem;
+}
+
+.bar {
+	width: 8.33%;
+	height: 100%;
+	background-color: $white;
+	display: inline-block;
+	box-sizing: border-box;
+	border: $trend-border-definition;
+	border-left: 0;
+	transition: background-color 1s ease;
+	
+	&:first-child {
+		border-left: $trend-border-definition;
+	}
+	
+	&:last-child {
+		border-radius: 0 50% 50% 0;
+	}
+
+	&-completed {
+		background-color: $trend-bar-completed;
+	}
+}
