@@ -32,31 +32,31 @@
 }
 
 
-.start-button:hover {
+.start-button {
 	& .start-button-big {
-		animation: fillBig 1.5s infinite ease-in-out alternate;
+		animation: fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
 	}
 
 	& .start-button-medium {
-		animation: fillMedium 1.5s infinite ease-in-out alternate;
+		animation: fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
 	}
 
 	& .start-button-small {
-		animation: fillSmall 1.5s infinite ease-in-out alternate;
+		animation: fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
 	}
 }
 
 @keyframes fillBig {
-	0% { fill: $light-blue; }
+    40% { fill: $light-blue; }
 	100% { fill: $yellow; }
 }
 
 @keyframes fillMedium {
-	0% { fill: $medium-blue; }
+    50% { fill: $medium-blue; }
 	100% { fill: $orange; }
 }
 
 @keyframes fillSmall {
-	0% { fill: $dark-blue; }
+    60% { fill: $dark-blue; }
 	100% { fill: $red; }
 }

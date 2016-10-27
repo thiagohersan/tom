@@ -1,0 +1,28 @@
+@-moz-keyframes spin_rotate { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin_rotate { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin_rotate { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@mixin animation($content) {
+	-webkit-animation: $content;
+    -moz-animation:    $content;
+    -o-animation:      $content;
+    animation:         $content;
+}
+.rotate{
+	@include animation(spin_rotate 4s linear infinite);
+}
+.rotate_reverse{
+	@include animation(spin_rotate 4s linear reverse infinite);
+}
+.rotate2x{
+	@include animation(spin_rotate 2s linear infinite);
+}
+.rotate_reverse2x{
+	@include animation(spin_rotate 2s linear reverse infinite);
+}
+.rotate3x{
+	@include animation(spin_rotate 1s linear infinite);
+}
+.rotate_reverse3x{
+	@include animation(spin_rotate 1s linear reverse infinite);
+}
