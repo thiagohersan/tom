@@ -6,5 +6,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    user = User.find(params[:id])
+    parameters = params.permit(:name, :email, :company,
+                               :industry_id, :occupation_id)
+    user.completed = true
+    user.update(parameters)
   end
 end
