@@ -9,6 +9,32 @@
 #   Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
+Trend.create([
+  { name: 'abc1', description: 'xxx' },
+  { name: 'abc2', description: 'xxx' },
+  { name: 'abc3', description: 'xxx' },
+  { name: 'abc4', description: 'xxx' },
+  { name: 'abc5', description: 'xxx' },
+  { name: 'abc6', description: 'xxx' },
+  { name: 'abc7', description: 'xxx' },
+  { name: 'abc8', description: 'xxx' },
+  { name: 'abc9', description: 'xxx' },
+  { name: 'abc10', description: 'xxx' },
+  { name: 'abc11', description: 'xxx' },
+  { name: 'abc12', description: 'xxx' }
+])
+
+Industry.create([
+  { name: 'Agricultura e Mineração' },
+  { name: 'Serviços Empresariais' },
+  { name: 'Computadores e Eletrônicos' },
+  { name: 'Serviços de Consumo' },
+  { name: 'Educação' },
+  { name: 'Energia e Serviços Públicos' },
+  { name: 'Engenharia, Pesquisa e Desenvolvimento' },
+  { name: 'Serviços Financeitos e Seguradoras' },
+])
+
 Industry.create([
   { name: 'Agricultura e Mineração' },
   { name: 'Serviços Empresariais' },
