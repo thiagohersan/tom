@@ -1,6 +1,8 @@
 @import '../utils/variables';
 
 .info {
+	position: relative;
+
 	&-container {
 		width: 50%;
 		display: inline-block;
@@ -10,11 +12,49 @@
 		& + & {
 			margin-left: -4px;
 		}
+
+		& svg {
+			max-width: 40px;
+			fill: $trend-bar-completed;
+		}
 	}
 
-	&-icon {
-		max-width: 40px;
-		fill: $trend-bar-completed;
+	&-title {
+		font-weight: 800;
+		font-size: 1.3rem;
+		letter-spacing: $kerning;
+		color: $black;
+		vertical-align: top;
+	}
+
+	&-description {
+		font-weight: 300;
+		font-size: 1rem;
+		margin-top: 0.8rem;
+		width: 85%;
+	}
+
+	&-text {
+		border: 1px solid $light-grey;
+		background-color: rgba(255,255,255, 0.7);
+		padding: 1rem;
+		position: absolute;
+		z-index: 2;
+	}
+
+	&-close {
+		max-width: 2.2rem;
+		position: absolute;
+		right: 1rem;
+		
+		&-outer {
+			fill: #999999;
+		}
+		&-line {
+			fill:none;
+			stroke: $white;
+			stroke-width: 7px;
+		}
 	}
 }
 
