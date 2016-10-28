@@ -28,6 +28,11 @@ body {
 	font-family: $font-family;
 }
 
+@media (max-width: 768px) {
+	html {
+		font-size: 14px;
+	}
+}
 
 @media (max-width: 600px) {
 	html {
