@@ -1,0 +1,29 @@
+@import '../utils/variables';
+
+.info {
+	&-container {
+		width: 50%;
+		display: inline-block;
+		text-align: center;
+		margin: 1.25rem 0;
+
+		& + & {
+			margin-left: -4px;
+		}
+	}
+
+	&-icon {
+		max-width: 40px;
+		fill: $trend-bar-completed;
+	}
+}
+
+.btn-skip {
+	font-style: italic;
+    font-size: 1.5rem;
+    text-decoration: underline;
+
+    &, &:hover {
+    	color: $dark-grey;
+    }
+}
