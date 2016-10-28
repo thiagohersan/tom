@@ -7,6 +7,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     $scope.saving = false;
     $scope.winnerTrend = null;
     $scope.showTrendInfoBox = false;
+    $scope.trendInfo = null;
 
     function init() {
         var user_id = UserService.getLoggedID();
@@ -76,8 +77,9 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         return new Array(size);
     }
 
-    $scope.showTrendInfo = function(bool) {
-        $scope.showTrendInfoBox = bool;
+    $scope.showTrendInfo = function(isVisible, trend) {
+        $scope.trendInfo = trend;
+        $scope.showTrendInfoBox = isVisible;
     }
 
     init();

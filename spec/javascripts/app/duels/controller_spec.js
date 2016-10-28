@@ -199,10 +199,15 @@ describe('DuelsController', function(){
                 expect($scope.getDuelCount(5).length).toEqual(5);
             });
 
-            it('should open trend information box when clicking on the information button', function() {
+            it('should change trendInfo flag depending on parameter', function() {
                 expect($scope.showTrendInfoBox).toBeFalsy();
                 $scope.showTrendInfo(true); 
                 expect($scope.showTrendInfoBox).toBeTruthy();
+            });
+
+            it('should populate only selected trend information inside scope', function() {
+                $scope.showTrendInfo(true, dummyDuel.first_trend);
+                expect($scope.trendInfo).toEqual(dummyDuel.first_trend);
             });
         });
     });
