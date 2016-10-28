@@ -183,24 +183,6 @@ describe('DuelsController', function(){
                 expect($scope.saveAction.calls.count()).toEqual(1);
             });
             
-            it('should ignore the setWinner when saving', function() {
-                spyOn(DuelService, 'setWinner').and.returnValue(promise);
-                $scope.saving = true;
-
-                $scope.winner(dummyDuel.first_trend);
-
-                expect(DuelService.setWinner.calls.count()).toEqual(0);
-            });
-            
-            it('should ignore the skip when saving', function() {
-                spyOn(DuelService, 'skip').and.returnValue(promise);
-                $scope.saving = true;
-
-                $scope.skip(dummyDuel.first_trend);
-
-                expect(DuelService.skip.calls.count()).toEqual(0);
-            });
-            
             it('should use the currentDuel when calling setWinner service', function() {
                 DuelService.setWinner = function(duel_id, trend_id) {
                     expect(duel_id).toEqual($scope.currentDuel.id);
