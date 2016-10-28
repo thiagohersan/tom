@@ -198,6 +198,12 @@ describe('DuelsController', function(){
             it('should return an array of the same length as the parameter', function() {
                 expect($scope.getDuelCount(5).length).toEqual(5);
             });
+
+            it('should open trend information box when clicking on the information button', function() {
+                expect($scope.showTrendInfoBox).toBeFalsy();
+                $scope.showTrendInfo(true); 
+                expect($scope.showTrendInfoBox).toBeTruthy();
+            });
         });
     });
     
