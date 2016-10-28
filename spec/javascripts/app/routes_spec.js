@@ -5,5 +5,7 @@ describe('Routes', function() {
         expect($route.routes['/start'].templateUrl).toEqual('/templates/start.html');
         expect($route.routes['/duels'].controller).toEqual('DuelsController');
         expect($route.routes['/duels'].templateUrl).toEqual('/templates/duels.html');
+        expect($route.routes['/promoter'].controller).toEqual('PromoterController');
+        expect($route.routes['/promoter'].templateUrl).toEqual('/templates/start.html');
     }));
 });
