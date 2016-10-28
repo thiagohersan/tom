@@ -65,7 +65,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     }
 
     $scope.isSelected = function(winnerTrend) {
-        if(winnerTrend !== undefined) {
+        if(winnerTrend !== undefined && scope.saving) {
             return $scope.winnerTrend === winnerTrend;
         }
         return false;

@@ -11,14 +11,14 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         $scope.loading = true;
 
         if(!user_id){
-            UserService.createAnonymous().then(function(response){
-                $scope.loading = false;
-                if(response.status === 201){
+            UserService.createAnonymous().then(
+                function(response){
+                    $scope.loading = false;
                     $scope.redirect();
-                } else {
+                },
+                function(response){
                     $scope.error = true;
-                }
-            });
+                });
         }else{
             $scope.redirect();
         }

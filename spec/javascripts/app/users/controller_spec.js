@@ -70,11 +70,11 @@ describe('StartController', function() {
     describe('UserService.createAnonymous invalid', function(){
         beforeEach(function(){
             spyOn(UserService, "createAnonymous").and.returnValue({
-                then: function(fn){
+                then: function(success, error){
                     // Check if is loading before response the promise.
                     expect($scope.loading).toEqual(true);
 
-                    return fn({
+                    return error({
                         status: 500,
                         data: {
                             id: 1,
