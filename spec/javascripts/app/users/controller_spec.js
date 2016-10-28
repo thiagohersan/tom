@@ -91,4 +91,28 @@ describe('StartController', function() {
             expect($scope.error).toBeTruthy();
         });
     });
+
+    describe('UserService.createAnonymous on a promoter device', function(){
+        var PromoterService;
+        beforeEach(inject(function(_PromoterService_){
+            PromoterService = _PromoterService_;
+        }));
+        it('should forget previous user_id', function(){
+            spyOn(UserService, "createAnonymous").and.returnValue({
+                then: function(fn){
+                    return fn({
+                        status: 201,
+                        data: {
+                            id: 2,
+                            anonymous: true
+                        }
+                    })
+                }
+            });
+            $cookies.put('user_id', '1');
+            PromoterService.setPromoter();
+            $scope.start();
+            expect(UserService.createAnonymous.calls.count()).toBe(1);
+        });
+    });
 });
