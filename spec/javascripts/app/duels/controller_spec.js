@@ -99,8 +99,11 @@ describe('DuelsController', function(){
             
             beforeEach(function() {
                 promise = { 
-                    then: function(fn) {
-                        fn(response);
+                    then: function(success, error) {
+                        if(response.status == 204)
+                          success(response);
+                        else
+                          error(response);
                     } 
                 };
                 response = {

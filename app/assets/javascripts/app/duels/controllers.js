@@ -38,12 +38,11 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     $scope.saveAction = function(promise) {
         $scope.saving = true;
         promise.then(function(response) {
-            if(response.status == 204) {
-                $scope.error = false;
-                $scope.getCurrentDuel();
-            } else {
-                $scope.error = true;
-            }
+            $scope.error = false;
+            $scope.getCurrentDuel();
+            $scope.saving = false;
+        }, function(response){
+            $scope.error = true;
             $scope.saving = false;
         });
     }
