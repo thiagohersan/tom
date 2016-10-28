@@ -39,10 +39,6 @@
 	&:first-child {
 		border-left: $trend-border-definition;
 	}
-	
-	&:last-child {
-		border-radius: 0 50% 50% 0;
-	}
 
 	&-completed {
 		background-color: $trend-bar-completed;
