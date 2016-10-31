@@ -1,6 +1,6 @@
 class PanelController < ApplicationController
   def index
-    hash = Duel.joins(:winner_trend).group(:name, :description).count
+    hash = Duel.joins(:winner_trend).group(:name, :description).order('count_all desc').count
     list = []
     hash.keys.each do |k|
       list.push({ :name => k[0], :description => k[1], :count => hash[k] })
