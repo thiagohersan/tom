@@ -8,7 +8,7 @@ trendOMeterApp.controller('PanelController', function($scope, PanelService, $loc
         });
     }
 
-    $scope.goToUsers = function() {
+    $scope.users = function() {
         $location.path('/users');
     }
 

@@ -12,10 +12,10 @@ describe('PanelController', function(){
         $cookies = _$cookies_;
         $location = _$location_;
     }));
-    describe('PanelController.goToUsers', function(){
+    describe('PanelController.users', function(){
         it('should go to user register screen', function(){
             $controller('PanelController', {$scope: $scope});
-            $scope.goToUsers();
+            $scope.users();
             expect($location.path()).toEqual('/users');
         });
     });
