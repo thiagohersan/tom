@@ -14,5 +14,9 @@ trendOMeterApp.config(function($routeProvider) {
         .when('/duels', {
             controller: 'DuelsController',
             templateUrl: '/templates/duels.html'
+        })
+        .when('/panel', {
+            controller: 'PanelController',
+            templateUrl: '/templates/panel.html'
         }).otherwise('/start');
 });
