@@ -5,6 +5,20 @@
     <title>Trend-o-Meter</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,800" rel="stylesheet">
 	  <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+      .bubble {
+        opacity: 1;
+        position: absolute;
+        transition: opacity 0.1s ease-in;
+        z-index: 1;
+        }
+
+      .bubble.bubble-remove {
+         position: absolute;
+          opacity: 0;
+        z-index: 2;
+        }
+    </style>
 </head>
 <body>
 	  <script src="assets/javascript/panel.js"></script>
