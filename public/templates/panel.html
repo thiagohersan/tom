@@ -3,10 +3,65 @@
 <div ng-include="'templates/partials/error.html'"></div>
 
 <div ng-hide="loading">
-    {{ panelTrends }}
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2 class="title">Desafio completo! Top de tendências:</h2>
+            <div ng-show="trends.first" class="text-center">
+                <div>
+                    1o
+                </div>
+                <div>
+                    {{ trends.first.name }}
+                </div>
+            </div>
+            <div ng-show="trends.second" class="text-center">
+                <div>
+                    2o
+                </div>
+                <div>
+                    {{ trends.second.name }}
+                </div>
+            </div>
+            <div ng-show="trends.third" class="text-center">
+                <div>
+                    3o
+                </div>
+                <div>
+                    {{ trends.third.name }}
+                </div>
+            </div>
+            <div ng-show="trends.last" class="text-center">
+                ...
+            </div>
+            <div ng-show="trends.antepenult" class="text-center">
+                <div>
+                    20o
+                </div>
+                <div>
+                    {{ trends.antepenult.name }}
+                </div>
+            </div>
+            <div ng-show="trends.penultimate" class="text-center">
+                <div>
+                    21o
+                </div>
+                <div>
+                    {{ trends.penultimate.name }}
+                </div>
+            </div>
+            <div ng-show="trends.last" class="text-center">
+                <div>
+                    22o
+                </div>
+                <div>
+                    {{ trends.last.name }}
+                </div>
+            </div>
 
-	<div class="start-button" ng-click="users()">
-		<span class="start-button-link">resultado completo</span>
+	        <div class="start-button" ng-click="users()">
+	        	<span class="start-button-link">RESULTADO COMPLETO</span>
+            </div>
+        </div>
     </div>
 </div>
 <div ng-show="loading" class="text-center">
