@@ -1,0 +1,30 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "hot",
+   "children": [
+  	{"name": "Gestão 360", "size": 100},
+  	{"name": "Capitalismo Consciente", "size": 90},
+  	{"name": "jasduisahd", "size": 80},
+  	{"name": "adasdas", "size": 70},
+  	{"name": "askdjaios", "size": 60},
+  	{"name": "Gestão 360 2", "size": 100},
+  	{"name": "Capitalismo Consciente 2", "size": 90},
+  	{"name": "jasduisahd 2", "size": 80},
+  	{"name": "Paternidade e Maternidade na Carreira", "size": 70},
+  	{"name": "Realidade virtual/realidade aumentada", "size": 60}
+   ]
+  },
+  {
+   "name": "regular",
+   "children": [
+  	{"name": "Trip dos metaleiros", "size": 50},
+  	{"name": "Mercantilismo", "size": 40},
+  	{"name": "Comunismo", "size": 30},
+  	{"name": "Gestao", "size": 20},
+  	{"name": "Capitalismo", "size": 10}
+   ]
+  }
+ ]
+}
