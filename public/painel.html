@@ -6,21 +6,48 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,700,800" rel="stylesheet">
 	  <script src="//d3js.org/d3.v3.min.js"></script>
     <style>
+      body{
+        overflow: hidden;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        -moz-font-smoothing:grayscale;
+      }
       .bubble {
         opacity: 1;
         position: absolute;
-        transition: opacity 0.1s ease-in;
+        transition: opacity 1.5s ease-out;
         z-index: 1;
-        }
-
+        top: 180px;
+      }
       .bubble.bubble-remove {
-         position: absolute;
-          opacity: 0;
+        opacity: 0;
         z-index: 2;
-        }
+      }
+      .header {
+        text-align: center;
+        padding-top: 50px;
+      }
+      .header-logo-container {
+        width: 15%;
+        margin: 0 auto;
+      }
+      .header-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+        font-size: 56px;
+        margin-top: 0;
+        letter-spacing: -3px;
+      }
     </style>
 </head>
 <body>
-	  <script src="assets/javascript/panel.js"></script>
+	<div class="header">
+		<div class="header-logo-container">
+			<img class="header-logo" src="/images/logo-tw-red.svg">
+		</div>
+		<h1 class="header-title">TREND-O-METER</h1>
+	</div>
+
+  <script src="assets/javascript/panel.js"></script>
 </body>
 </html>

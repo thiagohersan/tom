@@ -69,7 +69,7 @@ function change(svgOld) {
 }
 
 (function() {
-  var height = 1080,
+  var height = 900,
     width = 1920,
     format = d3.format(",d");
 
@@ -146,5 +146,5 @@ function change(svgOld) {
   }
 
   generateChart();
-  setInterval(generateChart, 5000);
+  setInterval(generateChart, 30000);
 })();
