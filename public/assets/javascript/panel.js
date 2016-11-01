@@ -69,7 +69,7 @@ function change(svgOld) {
 }
 
 (function() {
-  var height = 800,
+  var height = 875,
     width = 1920,
     format = d3.format(",d");
 
