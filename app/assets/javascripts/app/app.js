@@ -22,5 +22,10 @@ trendOMeterApp.config(function($routeProvider) {
         .when('/panel', {
             controller: 'PanelController',
             templateUrl: '/templates/panel.html'
+        })
+        .when('/thanks', {
+            controller: 'ThanksController',
+            templateUrl: '/templates/thanks.html'
         }).otherwise('/start');
+
 });

@@ -11,5 +11,7 @@ describe('Routes', function() {
         expect($route.routes['/promoter'].templateUrl).toEqual('/templates/start.html');
         expect($route.routes['/user'].controller).toEqual('UserController');
         expect($route.routes['/user'].templateUrl).toEqual('/templates/user.html');
+        expect($route.routes['/thanks'].controller).toEqual('ThanksController');
+        expect($route.routes['/thanks'].templateUrl).toEqual('/templates/thanks.html');
     }));
 });
