@@ -15,6 +15,10 @@ trendOMeterApp.config(function($routeProvider) {
             controller: 'DuelsController',
             templateUrl: '/templates/duels.html'
         })
+        .when('/user', {
+            controller: 'UserController',
+            templateUrl: '/templates/user.html'
+        })
         .when('/panel', {
             controller: 'PanelController',
             templateUrl: '/templates/panel.html'

@@ -186,7 +186,7 @@ describe('UserController', function() {
     expect(OccupationService.all.calls.count()).toEqual(1);
 
     expect($scope.industries).toEqual(industryData);
-    expect($scope.occupation).toEqual(occupationData);
+    expect($scope.occupations).toEqual(occupationData);
   });
 
   it('should set a error flag on industry service error', function() {

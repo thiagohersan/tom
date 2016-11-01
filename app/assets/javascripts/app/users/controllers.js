@@ -34,7 +34,7 @@ trendOMeterApp.controller('UserController', function($scope, IndustryService, Oc
   });
   OccupationService.all().then(function(response) {
     if(response.status === 200) {
-      $scope.occupation = response.data;
+      $scope.occupations = response.data;
     } else {
       $scope.dependencyError = true;
     }
