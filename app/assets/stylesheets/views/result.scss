@@ -1,0 +1,82 @@
+@import "../utils/variables";
+
+.result-line {
+    padding: 2px 0;
+    text-align: center;
+    display: flex;
+}
+
+.result-position {
+    display: inline-block;
+    width: 30%;
+    padding: 0.7rem;
+    text-align: right;
+}
+
+.result-position-text {
+    padding-right: 1.2rem;
+    color: $white;
+    font-weight: 800;
+}
+
+.result-name {
+    display: inline-block;
+    width: 70%;
+    padding: 0.7rem;
+    text-align: left;
+}
+
+.result-name-text {
+    padding-left: 1.2rem;
+}
+
+.result-position + .result-name {
+    margin-left: -4px;
+}
+
+.result-position-first {
+    background-color: $red;
+}
+
+.result-position-second {
+    background-color: $orange;
+}
+
+.result-position-third {
+    background-color: $yellow;
+}
+
+.result-position-antepenult {
+    background-color: $light-blue;
+}
+
+.result-position-penultimate {
+    background-color: $medium-blue;
+}
+
+.result-position-last {
+    background-color: $dark-blue;
+}
+
+.result-separator {
+    background-color: $light-grey;
+    font-weight: 700;
+    color: $dark-grey;
+    padding-bottom: 0.5rem;
+    margin: 2px 0;
+}
+
+.result-button {
+    background-color: $red;
+    padding: 0.8rem 3.5rem;
+    font-weight: 800;
+    color: $white;
+    letter-spacing: $kerning;
+    cursor: pointer;
+    border: 0;
+}
+
+.result-button-wrapper {
+    margin: 2rem 0;
+    text-align: center;
+}

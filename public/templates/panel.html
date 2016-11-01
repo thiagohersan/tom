@@ -5,61 +5,87 @@
 <div ng-hide="loading">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <h2 class="title">Desafio completo! Top de tendências:</h2>
-            <div ng-show="trends.first" class="text-center">
-                <div>
-                    1o
+            <h2 class="title">Desafio completo!</h2>
+            <h2 class="title">Top de tendências:</h2>
+            <div ng-show="trends.first" class="result-line">
+                <div class="result-position result-position-first">
+                    <span class="result-position-text">
+                        1&deg;
+                    </span>
                 </div>
-                <div>
-                    {{ trends.first.name }}
-                </div>
-            </div>
-            <div ng-show="trends.second" class="text-center">
-                <div>
-                    2o
-                </div>
-                <div>
-                    {{ trends.second.name }}
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.first.name }}
+                    </span>
                 </div>
             </div>
-            <div ng-show="trends.third" class="text-center">
-                <div>
-                    3o
+            <div ng-show="trends.second" class="result-line">
+                <div class="result-position result-position-second">
+                    <span class="result-position-text">
+                        2&deg;
+                    </span>
                 </div>
-                <div>
-                    {{ trends.third.name }}
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.second.name }}
+                    </span>
                 </div>
             </div>
-            <div ng-show="trends.last" class="text-center">
+            <div ng-show="trends.third" class="result-line">
+                <div class="result-position result-position-third">
+                    <span class="result-position-text">
+                        3&deg;
+                    </span>
+                </div>
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.third.name }}
+                    </span>
+                </div>
+            </div>
+            <div ng-show="trends.last" class="result-line result-separator">
                 ...
             </div>
-            <div ng-show="trends.antepenult" class="text-center">
-                <div>
-                    20o
+            <div ng-show="trends.antepenult" class="result-line">
+                <div class="result-position result-position-antepenult">
+                    <span class="result-position-text">
+                        20&deg;
+                    </span>
                 </div>
-                <div>
-                    {{ trends.antepenult.name }}
-                </div>
-            </div>
-            <div ng-show="trends.penultimate" class="text-center">
-                <div>
-                    21o
-                </div>
-                <div>
-                    {{ trends.penultimate.name }}
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.antepenult.name }}
+                    </span>
                 </div>
             </div>
-            <div ng-show="trends.last" class="text-center">
-                <div>
-                    22o
+            <div ng-show="trends.penultimate" class="result-line">
+                <div class="result-position result-position-penultimate">
+                    <span class="result-position-text">
+                        21&deg;
+                    </span>
                 </div>
-                <div>
-                    {{ trends.last.name }}
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.penultimate.name }}
+                    </span>
                 </div>
             </div>
-
-	        <div class="start-button" ng-click="users()">
-	        	<span class="start-button-link">RESULTADO COMPLETO</span>
+            <div ng-show="trends.last" class="result-line">
+                <div class="result-position result-position-last">
+                    <span class="result-position-text">
+                        22&deg;
+                    </span>
+                </div>
+                <div class="result-name">
+                    <span class="result-name-text">
+                        {{ trends.last.name }}
+                    </span>
+                </div>
+            </div>
+            <div class="result-button-wrapper">
+	            <button class="result-button" ng-click="users()">
+	            	RESULTADO COMPLETO
+                </button>
             </div>
         </div>
     </div>
