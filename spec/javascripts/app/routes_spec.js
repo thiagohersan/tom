@@ -9,5 +9,7 @@ describe('Routes', function() {
         expect($route.routes['/panel'].templateUrl).toEqual('/templates/panel.html');
         expect($route.routes['/promoter'].controller).toEqual('PromoterController');
         expect($route.routes['/promoter'].templateUrl).toEqual('/templates/start.html');
+        expect($route.routes['/thanks'].controller).toEqual('ThanksController');
+        expect($route.routes['/thanks'].templateUrl).toEqual('/templates/thanks.html');
     }));
 });
