@@ -22,12 +22,8 @@
 .result-name {
     display: inline-block;
     width: 70%;
-    padding: 0.7rem;
+    padding: 0.7rem 1.3rem;
     text-align: left;
-}
-
-.result-name-text {
-    padding-left: 1.2rem;
 }
 
 .result-position + .result-name {
@@ -64,6 +60,7 @@
     color: $dark-grey;
     padding-bottom: 0.5rem;
     margin: 2px 0;
+    display: block;
 }
 
 .result-button {
