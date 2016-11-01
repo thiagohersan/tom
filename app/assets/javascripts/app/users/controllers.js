@@ -24,3 +24,19 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         }
     }
 });
+trendOMeterApp.controller('UserController', function($scope, IndustryService, OccupationService) {
+  IndustryService.all().then(function(response) {
+    if(response.status === 200) {
+      $scope.industries = response.data;
+    } else {
+      $scope.dependencyError = true;
+    }
+  });
+  OccupationService.all().then(function(response) {
+    if(response.status === 200) {
+      $scope.occupation = response.data;
+    } else {
+      $scope.dependencyError = true;
+    }
+  });
+});

@@ -117,7 +117,9 @@ describe('StartController', function() {
   });
 });
 describe('UserController', function() {
-  var UserController, UserService, IndustryService, OccupationService, $scope, $controller, $rootScope, $cookies, $location;
+  var UserController, UserService, IndustryService, OccupationService, $scope, 
+      $controller, $rootScope, $cookies, $location, industriesStatusCode,
+      occupationStatusCode, industryData, occupationData;
   // Set the module
   beforeEach(module('trendOMeterApp'));
 
@@ -131,37 +133,73 @@ describe('UserController', function() {
     $scope = $rootScope.$new();
     $cookies = _$cookies_;
     $location = _$location_;
-  }));
 
-  xit('should get the industry list on start the controller', function() {
-    var industry_data = [
+    industriesStatusCode = 200;
+    occupationStatusCode = 200;
+
+    industryData = [
       {"id":1,"name":"Agricultura e Mineração"},
       {"id":2,"name":"Serviços Empresariais"},
       {"id":3,"name":"Computadores e Eletrônicos"}
-    ]
-    occupation_data = [
+    ];
+    occupationData = [
       {"id":1,"name":"Executivo C-Level"},
       {"id":2,"name":"VP ou Diretor(a)"},
       {"id":3,"name":"Gerente de Projeto"}
-    ]
+    ];
+
     spyOn(IndustryService, "all").and.returnValue({
       then: function(fn, errFn) {
-        fn({
-          status: 200,
-          data: industry_data 
-        });
+        if(industriesStatusCode === 200) {
+          fn({
+            status: industriesStatusCode,
+            data: industryData 
+          });
+        } else {
+          fn({
+            status: industriesStatusCode,
+            data: industryData 
+          });
+        }
       }
     });    
     spyOn(OccupationService, "all").and.returnValue({
       then: function(fn, errFn) {
-        fn({
-          status: 200,
-          data: occupation_data 
-        });
+        if(occupationStatusCode === 200) {
+          fn({
+            status: occupationStatusCode,
+            data: occupationData 
+          });
+        } else {
+          fn({
+            status: occupationStatusCode,
+            data: occupationData 
+          });
+        }
       }
     });    
+  }));
+
+  it('should get the industry list on start the controller', function() {
     $controller('UserController', {$scope: $scope});
-    expect(IndustryService.all.call.count()).toEqual(1);
-    expect(OccupationService.all.call.count()).toEqual(1);
+    expect(IndustryService.all.calls.count()).toEqual(1);
+    expect(OccupationService.all.calls.count()).toEqual(1);
+
+    expect($scope.industries).toEqual(industryData);
+    expect($scope.occupation).toEqual(occupationData);
+  });
+
+  it('should set a error flag on industry service error', function() {
+    industriesStatusCode = 500;
+    $controller('UserController', {$scope: $scope});
+
+    expect($scope.dependencyError).toEqual(true);
+  });
+
+  it('should set a error flag on occupation service error', function() {
+    occupationStatusCode = 500;
+    $controller('UserController', {$scope: $scope});
+
+    expect($scope.dependencyError).toEqual(true);
   });
 });
