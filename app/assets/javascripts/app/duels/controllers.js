@@ -50,6 +50,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     }
     
     $scope.skip = function() {
+        if($scope.saving) return
         $scope.saveAction(DuelService.skip($scope.currentDuel.id));
     }
 
