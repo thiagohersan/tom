@@ -16,7 +16,7 @@ describe('PanelController', function(){
         it('should go to user register screen', function(){
             $controller('PanelController', {$scope: $scope});
             $scope.users();
-            expect($location.path()).toEqual('/users');
+            expect($location.path()).toEqual('/user');
         });
     });
 });
