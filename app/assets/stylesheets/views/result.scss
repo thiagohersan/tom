@@ -11,12 +11,23 @@
     width: 30%;
     padding: 0.7rem;
     text-align: right;
-}
 
-.result-position-text {
-    padding-right: 1.2rem;
-    color: $white;
-    font-weight: 800;
+    &-text {
+        padding-right: 1.2rem;
+        color: $white;
+        font-weight: 800;
+    }
+
+    & + .result-name {
+        margin-left: -4px;
+    }
+
+    &-first { background-color: $red; }
+    &-second { background-color: $orange; }
+    &-third { background-color: $yellow; }
+    &-antepenult { background-color: $light-blue; }
+    &-penultimate { background-color: $medium-blue; }
+    &-last { background-color: $dark-blue; }
 }
 
 .result-name {
@@ -24,34 +35,6 @@
     width: 70%;
     padding: 0.7rem 1.3rem;
     text-align: left;
-}
-
-.result-position + .result-name {
-    margin-left: -4px;
-}
-
-.result-position-first {
-    background-color: $red;
-}
-
-.result-position-second {
-    background-color: $orange;
-}
-
-.result-position-third {
-    background-color: $yellow;
-}
-
-.result-position-antepenult {
-    background-color: $light-blue;
-}
-
-.result-position-penultimate {
-    background-color: $medium-blue;
-}
-
-.result-position-last {
-    background-color: $dark-blue;
 }
 
 .result-separator {
@@ -71,9 +54,11 @@
     letter-spacing: $kerning;
     cursor: pointer;
     border: 0;
+
+    &-wrapper {
+        margin: 2rem 0;
+        text-align: center;
+    }
 }
 
-.result-button-wrapper {
-    margin: 2rem 0;
-    text-align: center;
-}
+
