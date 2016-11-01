@@ -108,7 +108,7 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "16px")
+          .style("font-size", "14px")
           .text(function(d){ return wrapText(d.className); });
 
       // second line
@@ -119,7 +119,7 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "16px")
+          .style("font-size", "14px")
           .text(function(d){ return wrapText(d.className, true); });
     });
 
