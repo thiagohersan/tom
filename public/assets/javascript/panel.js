@@ -69,7 +69,7 @@ function change(svgOld) {
 }
 
 (function() {
-  var height = 900,
+  var height = 800,
     width = 1920,
     format = d3.format(",d");
 
@@ -108,7 +108,7 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "18px")
+          .style("font-size", "16px")
           .text(function(d){ return wrapText(d.className); });
 
       // second line
@@ -119,7 +119,7 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "18px")
+          .style("font-size", "16px")
           .text(function(d){ return wrapText(d.className, true); });
     });
 
