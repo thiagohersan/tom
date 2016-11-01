@@ -76,9 +76,10 @@ function change(svgOld) {
   var bubble = d3.layout.pack()
       .sort(null)
       .size([width, height])
-      .padding(100);
+      .padding(600);
 
   var svgOld = undefined;
+  var multR = 2.5;
 
   function generateChart(){
     var svg = d3.select("body").append("svg")
@@ -95,7 +96,7 @@ function change(svgOld) {
               .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
       node.append("circle")
-        .attr("r", function(d) { return d.r; })
+        .attr("r", function(d) { return d.r * multR; })
         .style("fill", function(d) { 
           return color(d.packageName); 
         })
@@ -103,7 +104,7 @@ function change(svgOld) {
       // first line
       node.append("text")
           .attr("dy", function(d) {
-            return d.r + 20;
+            return d.r * multR + 20;
           })
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
@@ -114,7 +115,7 @@ function change(svgOld) {
       // second line
       node.append("text")
           .attr("dy", function(d) {
-            return d.r + 40;
+            return d.r * multR + 40;
           })
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
