@@ -14,3 +14,17 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
         }
     } 
 });
+trendOMeterApp.factory('IndustryService', function($http) {
+  return {
+    all: function() {
+      return $http.get('/industries');
+    }
+  }
+});
+trendOMeterApp.factory('OccupationService', function($http) {
+  return {
+    all: function() {
+      return $http.get('/occupations');
+    }
+  }
+});
