@@ -11,7 +11,7 @@
 #
 Trend.create([
   { name: 'Capitalismo Consciente', description: 'Empresas guiadas por valores que promovem a prosperidade e a interligação de toda a cadeia de valor para atingir metas mais amplas.' },
-  { name: 'Maternidade e Paternidade na Carreira', description: 'Novas formas de pensar e abordar materinidade e paternidade dentro das organizações.' },
+  { name: 'Maternidade e Paternidade na Carreira', description: 'Novas formas de pensar e abordar maternidade e paternidade dentro das organizações.' },
   { name: 'Computação Cognitiva', description: 'Expansão da capacidade de uma máquina para que esta consiga pensar (quase) como seres humanos.' },
   { name: 'Customer Experience', description: 'Utilização de tecnologias de coleta e armazenamento de dados para compreensão holística da jornada do consumidor.' },
   { name: 'Economia Circular', description: 'Prática de eliminar o conceito de lixo, enxergando cada material dentro de um fluxo cíclico em um processo de design de produtos e sistemas.' },
@@ -22,7 +22,7 @@ Trend.create([
   { name: 'Morte dos APPs', description: 'O desenvolvimento de novas formas de interação e assistentes virtuais torna alguns aplicativos obsoletos e desnecessários.' },
   { name: 'Gestão Horizontal ou Colaborativa', description: 'Eliminação de uma hierarquia vertical rígida e compartilhamento entre colaboradores da responsabilidade sobre os resultados organizacionais.' },
   { name: 'Internet das Coisas', description: 'Conexão de dispositivos eletrônicos utilizados no dia-a-dia (aparelhos eletrodomésticos, eletroportáteis, etc.) à internet.' },
-  { name: 'Intraempreendedorismo', description: 'Processo de incentivo à criação de novos negócios, atividades e produtos dentro de uma organização já consolidada.' },
+  { name: 'Intrapreneur', description: 'Processo de incentivo à criação de novos negócios, atividades e produtos dentro de uma organização já consolidada.' },
   { name: 'Novas Formas de Trabalho', description: 'Relações flexíveis, trabalho remoto e coletivo, colaboradores buscando mais autonomia e propósito do que um salário ou um grande cargo.' },
   { name: 'Voz como Interface', description: 'Utilização da voz como principal interface para a interação entre pessoas e tecnologia.' },
   { name: 'Plataformas Colaborativas', description: 'Modelo de negócio baseado em permitir e incentivar que os clientes ou consumidores também criem valor, ao invés de só consumir.' },
