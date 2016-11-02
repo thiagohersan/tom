@@ -202,4 +202,26 @@ describe('UserController', function() {
 
     expect($scope.dependencyError).toEqual(true);
   });
+
+  it('should set loading false if industries and occupations are loaded', function() {
+    $controller('UserController', {$scope: $scope});
+    expect($scope.loadingIndustries).toEqual(false);
+    expect($scope.loadingOccupations).toEqual(false);
+    expect($scope.loading()).toEqual(false);
+
+    $scope.loadingIndustries = true;
+    expect($scope.loading()).toEqual(true);
+
+    $scope.loadingOccupations = true;
+    expect($scope.loading()).toEqual(true);
+    
+    $scope.loadingIndustries = false;
+    expect($scope.loading()).toEqual(true);
+
+    // Cancel loading on dependencyError
+    $scope.loadingIndustries = true;
+    $scope.loadingOccupations = true;
+    $scope.dependencyError = true;
+    expect($scope.loading()).toEqual(false);
+  });
 });

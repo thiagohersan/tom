@@ -11,8 +11,14 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
             if(user_id !== undefined){
         	    return parseInt(user_id);
             }
+        },
+        save: function(data) {
+          if(this.getLoggedID() === undefined)
+            throw 'no user_id';
+
+          return $http.patch('/users/' + this.getLoggedID(), data)
         }
-    } 
+    }
 });
 trendOMeterApp.factory('IndustryService', function($http) {
   return {

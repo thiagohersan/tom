@@ -25,18 +25,35 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     }
 });
 trendOMeterApp.controller('UserController', function($scope, IndustryService, OccupationService) {
-  IndustryService.all().then(function(response) {
-    if(response.status === 200) {
-      $scope.industries = response.data;
-    } else {
-      $scope.dependencyError = true;
+  $scope.dependencyError = false;
+  $scope.loadingIndustries = true;
+  $scope.loadingOccupations = true;
+
+  $scope.loading = function() {
+    var loading = $scope.loadingIndustries || $scope.loadingOccupations;
+    if(loading && !$scope.dependencyError) {
+      return true;
     }
-  });
-  OccupationService.all().then(function(response) {
-    if(response.status === 200) {
-      $scope.occupations = response.data;
-    } else {
-      $scope.dependencyError = true;
-    }
-  });
+    return false;
+  }
+
+  function init() {
+    IndustryService.all().then(function(response) {
+      if(response.status === 200) {
+        $scope.industries = response.data;
+        $scope.loadingIndustries = false;
+      } else {
+        $scope.dependencyError = true;
+      }
+    });
+    OccupationService.all().then(function(response) {
+      if(response.status === 200) {
+        $scope.occupations = response.data;
+        $scope.loadingOccupations = false;
+      } else {
+        $scope.dependencyError = true;
+      }
+    });
+  };
+  init();
 });

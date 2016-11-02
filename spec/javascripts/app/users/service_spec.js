@@ -36,12 +36,35 @@ describe('Service of user', function() {
       $httpBackend.flush();
     });
 
-    it('should check if an user is logged', function(){
+    it('should check if an user is logged', function() {
       $cookies.remove('user_id');
       expect(UserService.getLoggedID()).toBeUndefined()
       // Create a cookie to simulate a logged user
       $cookies.put('user_id', user_id);
       expect(UserService.getLoggedID()).toEqual(user_id);
+    });
+
+    it('should update the user data', function() {
+      $cookies.put('user_id', user_id);
+      var data = {
+        name: "User name",
+        email: "user@email.com",
+        company: "User Company",
+        industry_id: 1,
+        occupation_id: 1
+      }
+      $httpBackend.when('PATCH', '/users/' + user_id, data).respond(200, '');
+
+      user = UserService.save(data).then(function(response) {
+        expect(response.status).toEqual(200);
+      }, function(response) {
+        expect(response.status).toEqual(200);
+      });
+    });
+
+    it('should throw error if no user cookie', function() {
+      $cookies.remove('user_id');
+      expect(function() { UserService.save(); }).toThrow('no user_id');
     });
   });
 
