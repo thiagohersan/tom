@@ -242,6 +242,8 @@ describe('UserController', function() {
       return promise;
     });
     $controller('UserController', {$scope: $scope});
+    $scope.user.name = 'Tw Tester';
+    $scope.user.email = 'twt@twt.com';
     $scope.send();
     expect(UserService.save.calls.count()).toEqual(1);
     expect(promise.then.calls.count()).toEqual(1);
@@ -273,5 +275,35 @@ describe('UserController', function() {
     $cookies.remove('user_id');
     $scope.send();
     expect($location.path()).toEqual('/start');
+  });
+  it('should validate user name before send data', function() {
+    $controller('UserController', {$scope: $scope});
+    $scope.user.name = '';
+    expect($scope.formErrors).toEqual({});
+    $scope.send();
+    expect($scope.formErrors.name).toEqual(true);
+  });
+  it('should clean user name validation before send data', function() {
+    $controller('UserController', {$scope: $scope});
+    $scope.formErrors.name = true;
+    $scope.user.name = 'Tw Tester';
+    $scope.send();
+    expect($scope.formErrors.name).toBeFalsy();
+  });
+  it('should validate user email before send data', function() {
+    $controller('UserController', {$scope: $scope});
+    $scope.user.email = 'asdas';
+    $scope.send();
+    expect($scope.formErrors.email).toEqual(true);
+    $scope.user.email = '';
+    $scope.send();
+    expect($scope.formErrors.email).toEqual(true);
+  });
+  it('should clean user email validation before send data', function() {
+    $controller('UserController', {$scope: $scope});
+    $scope.formErrors.email = true;
+    $scope.user.email = 'twt@twt.com';
+    $scope.send();
+    expect($scope.formErrors.email).toBeFalsy();
   });
 });

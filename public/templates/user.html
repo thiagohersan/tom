@@ -16,13 +16,13 @@
 
 <div class="row form-row" ng-hide="loading()">
   <form ng-submit="send()" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': formErrors.name}">
       <label>Nome*</label>
-      <input type="text" ng-model="user.name" class="form-control" required>
+      <input type="text" ng-model="user.name" class="form-control">
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': formErrors.email}">
       <label>E-mail*</label>
-      <input type="email" ng-model="user.email" class="form-control" required>
+      <input type="email" ng-model="user.email" class="form-control">
     </div>
     <div class="form-group">
       <label>Empresa</label>

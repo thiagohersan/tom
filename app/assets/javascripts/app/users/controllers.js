@@ -30,7 +30,11 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
   $scope.loadingOccupations = true;
   $scope.saving = false;
   $scope.error = false;
-  $scope.user = {};
+  $scope.user = {
+    name: '',
+    email: ''
+  };
+  $scope.formErrors = {};
 
   $scope.loading = function() {
     var loading = $scope.loadingIndustries || $scope.loadingOccupations;
@@ -42,7 +46,20 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
 
   $scope.send = function() {
     $scope.saving = true;
+    $scope.formErrors = {};
     $scope.error = false;
+
+    if($scope.user.name.trim().length === 0) {
+      $scope.formErrors.name = true;
+      return false;
+    }
+
+    var reEmail = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+    if(!reEmail.test($scope.user.email)) {
+      $scope.formErrors.email = true;
+      return false;
+    }
+
     try {
       UserService.save($scope.user).then(function(response){
         $scope.saving = false;

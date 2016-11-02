@@ -12,4 +12,10 @@
     border-color: transparent;
     box-shadow: none;
   }
+
+  .has-error {
+    input{
+      border-color: $red;
+    }
+  }
 }
