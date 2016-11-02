@@ -1,4 +1,5 @@
-@import '../utils/variables';
+@import '../utils/variables',
+		'../components/animations';
 
 .start-button {
 	position: relative;
@@ -34,15 +35,24 @@
 
 .start-button {
 	& .start-button-big {
-		animation: fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
+		-webkit-animation: fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
+		-moz-animation:    fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
+		-o-animation:      fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
+		animation:         fillBig 4s infinite ease-in-out alternate, spin_rotate 6s linear infinite;
 	}
 
 	& .start-button-medium {
-		animation: fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
+		-webkit-animation: fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
+	    -moz-animation:    fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
+	    -o-animation:      fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
+	    animation:         fillMedium 4s infinite ease-in-out alternate, spin_rotate 3s linear infinite;
 	}
 
 	& .start-button-small {
-		animation: fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
+		-webkit-animation: fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
+		-moz-animation:    fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
+		-o-animation:      fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
+		animation:         fillSmall 4s infinite ease-in-out alternate, spin_rotate 1.5s linear infinite;
 	}
 }
 
