@@ -2,7 +2,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     $scope.loading = true; 
     $scope.duels = [];
     $scope.currentDuel = null;
-    $scope.totalDuels = 12;
+    $scope.totalDuels = 11;
     $scope.error = false;
     $scope.saving = false;
     $scope.winnerTrend = null;
@@ -26,6 +26,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         if($scope.duels.length == 0){
             $scope.finish();
         }
+        $scope.showTrendInfoBox = false;
         $scope.currentDuel = $scope.duels.shift();
     };
 

@@ -85,7 +85,7 @@ describe('DuelsController', function(){
                 $scope.duels.push(dummyDuel);
             }
 
-            expect($scope.totalDuels).toEqual(12);
+            expect($scope.totalDuels).toEqual(11);
 
             $scope.getCurrentDuel();
             expect($scope.getCurrentPage()).toEqual(1);
