@@ -2,7 +2,7 @@
 
 .header {
 	text-align: center;
-	margin: 20% auto;
+	margin: 20% auto 15%;
 	
 	&-title {
 		border-bottom: 1px solid $black;
@@ -16,7 +16,7 @@
 	
 	&-subtitle {
 		font-weight: 300;
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		font-style: italic;
 		margin-top: 1rem;
 		max-width: 20rem;
@@ -28,7 +28,7 @@
 		margin-bottom: 1rem;
 
 		&-sub {
-			font-size: 1rem;
+			font-size: 1.2rem;
 			font-weight: 300;
 			color: $dark-grey;
 			margin-top: -0.3rem;

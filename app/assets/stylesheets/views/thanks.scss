@@ -1,0 +1,17 @@
+@import '../utils/variables';
+
+.thanks {
+	margin-top: 3rem;
+	text-align: center;
+
+	&-button {
+		color: $dark-grey;
+		text-decoration: underline;
+		font-style: italic;
+		cursor: pointer;
+	}
+
+	&:hover {
+		color: $dark-grey;
+	}
+}
