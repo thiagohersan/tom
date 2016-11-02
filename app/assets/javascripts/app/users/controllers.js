@@ -56,7 +56,12 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
     }
   }
 
-  function init() {
+  $scope.init = function() {
+    $scope.dependencyError = false;
+    $scope.loadingIndustries = true;
+    $scope.loadingOccupations = true;
+    $scope.saving = false;
+    $scope.error = false;
     if(!UserService.getLoggedID())
       return $location.path('/start');
     IndustryService.all().then(function(response) {
@@ -76,5 +81,5 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
       }
     });
   };
-  init();
+  $scope.init();
 });

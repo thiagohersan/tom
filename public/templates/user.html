@@ -2,11 +2,51 @@
 
 <div ng-include="'templates/partials/error.html'"></div>
 
-{{ industries }}
-{{ occupations }}
+<div class="row" ng-show="dependencyError">
+  <div ng-submit="send()" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="alert alert-danger text-center">
+      <p>Ocorreu um erro ao carregar a pagina.</p>
+      <a ng-click="init()" class="btn btn-danger">Clique aqui</a> e tente novamente.
+    </div>
+  </div>
+</div>
 
-<a href="#/thanks">Enviar</a>
+<h2 class="title">Receba o resultado detalhado do</h2>
+<h2 class="title">Trend-O-Meter</h2>
 
-<div ng-show="loading" class="text-center">
+<div class="row form-row" ng-hide="loading()">
+  <form ng-submit="send()" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="form-group">
+      <label>Nome*</label>
+      <input type="text" ng-model="user.name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>E-mail*</label>
+      <input type="email" ng-model="user.email" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Empresa</label>
+      <input type="text" ng-model="user.company" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Cargo</label>
+      <select ng-model="user.occupation_id" class="form-control">
+        <option value="">Selecione</option>
+        <option value="{{occupation.id}}" ng-repeat="occupation in occupations">{{occupation.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Industria</label>
+      <select ng-model="user.industry_id" class="form-control">
+        <option value="">Selecione</option>
+        <option value="{{industry.id}}" ng-repeat="industry in industries">{{industry.name}}</option>
+      </select>
+    </div>
+    <input type="submit" class="result-button" value="Enviar">
+    <a href="#/panel" class="btn btn-link btn-skip pull-right">Voltar</a>
+  </form>
+</div>
+
+<div ng-show="loading()" class="text-center">
     <div ng-include="'templates/partials/loading.html'"></div>
 </div>

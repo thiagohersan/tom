@@ -1,0 +1,15 @@
+@import "../utils/variables";
+
+.form-row{
+  background-color: $light-grey;
+  padding: 1em;
+
+  label {
+    font-weight: normal;
+  }
+  input, select {
+    border-radius: 0;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
