@@ -23,7 +23,7 @@
 
 	&-title {
 		font-weight: 800;
-		font-size: 1.3rem;
+		font-size: 1rem;
 		letter-spacing: $kerning;
 		color: $black;
 		text-transform: uppercase;
@@ -33,13 +33,12 @@
 	&-description {
 		font-weight: 300;
 		font-size: 1rem;
-		margin-top: 0.8rem;
-		width: 85%;
+		margin-top: 0.5rem;
 	}
 
 	&-text {
 		border: 1px solid $light-grey;
-		background-color: rgba(255,255,255, 0.7);
+		background-color: rgba(255,255,255, 0.9);
 		padding: 1rem;
 		position: absolute;
 		width: 100%;
@@ -50,7 +49,8 @@
 	&-close {
 		max-width: 2.2rem;
 		position: absolute;
-		right: 1rem;
+		top: 0.5rem;
+		right: 0.5rem;
 		
 		&-outer {
 			fill: #999999;
