@@ -26,6 +26,7 @@ html {
 
 body {
 	font-family: $font-family;
+	overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
