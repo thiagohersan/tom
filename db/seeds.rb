@@ -28,7 +28,8 @@ Trend.create([
   { name: 'Plataformas Colaborativas', description: 'Modelo de negócio baseado em permitir e incentivar que os clientes ou consumidores também criem valor, ao invés de só consumir.' },
   { name: 'Plataforma como Serviço (PaaS)', description: 'As possibilidades de aumentar a eficiência da TI usando plataformas para criação de soluções de Omnichannel, Análises Preditivas, entre outras.' },
   { name: 'Asistentes Virtuais e BOTs', description: 'Utilização de machine learning para criação de assistentes virtuais e BOT\'s que interagem com os consumidores.' },
-  { name: 'Realidade Virtual e Aumentada', description: 'Tecnologias que ampliam as possibilidades da realidade e podem ser utilizadas para entrenimento, educação, consumo, entre outros.' },
+  { name: 'Assistentes Virtuais e BOTs', description: 'Utilização de machine learning para criação de assistentes virtuais e BOT\'s que interagem com os consumidores.' },
+  { name: 'Realidade Virtual e Aumentada', description: 'Tecnologias que ampliam as possibilidades da realidade e podem ser utilizadas para entretenimento, educação, consumo, entre outros.' },
   { name: 'Personalização', description: 'Possibilidades de personalização de mensagens, produtos e serviços para se adaptarem às necessidades do consumidor.' },
   { name: 'Agile Analytics', description: 'Uma maneira mais ágil e eficiente de trabalhar com dados produzidos por uma organização e/ou seus clientes.' },
   { name: 'Liderança Adaptativa', description: 'Desvincular a atividade da liderança ao status ou autoridade, incentivando a capacidade de mobilizar pessoas para atacar desafios.' }
