@@ -51,12 +51,27 @@
 	100% { fill: $yellow; }
 }
 
+@-webkit-keyframes fillBig {
+    40% { -webkit-fill: $light-blue; }
+	100% { -webkit-fill: $yellow; }
+}
+
 @keyframes fillMedium {
     50% { fill: $medium-blue; }
 	100% { fill: $orange; }
 }
 
+@-webkit-keyframes fillMedium {
+    50% { -webkit-fill: $medium-blue; }
+	100% { -webkit-fill: $orange; }
+}
+
 @keyframes fillSmall {
     60% { fill: $dark-blue; }
 	100% { fill: $red; }
+}
+
+@-webkit-keyframes fillSmall {
+    60% { -webkit-fill: $dark-blue; }
+	100% { -webkit-fill: $red; }
 }
