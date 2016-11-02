@@ -224,4 +224,54 @@ describe('UserController', function() {
     $scope.dependencyError = true;
     expect($scope.loading()).toEqual(false);
   });
+
+  it('should save user using UserService', function() {
+    promise = {
+      then: function(fn) {
+        fn({status: 200});
+        expect($scope.saving).toEqual(false);
+        expect($location.path()).toEqual('/thanks');
+      }
+    }
+    spyOn(promise, 'then').and.callThrough();
+    spyOn(UserService, 'save').and.callFake(function(data) {
+      expect($scope.saving).toEqual(true);
+      expect($scope.error).toEqual(false);
+      expect(data).toBeDefined();
+      expect(data).toEqual($scope.user);
+      return promise;
+    });
+    $controller('UserController', {$scope: $scope});
+    $scope.send();
+    expect(UserService.save.calls.count()).toEqual(1);
+    expect(promise.then.calls.count()).toEqual(1);
+  });
+  it('should show message on save error', function() {
+    promise = {
+      then: function(fn, fnerr) {
+        fnerr({status: 500});
+        expect($scope.error).toEqual(true);
+        expect($scope.saving).toEqual(false);
+      }
+    }
+    spyOn(promise, 'then').and.callThrough();
+    spyOn(UserService, 'save').and.callFake(function(data) {
+      expect($scope.saving).toEqual(true);
+      expect(data).toEqual($scope.user);
+      return promise;
+    });
+    $controller('UserController', {$scope: $scope});
+    $scope.send();
+  });
+  it('should redirect to /start if no cookie', function() {
+    $cookies.remove('user_id');
+    $controller('UserController', {$scope: $scope});
+    expect($location.path()).toEqual('/start');
+  });
+  it('should redirect to /start if no cookie when send', function() {
+    $controller('UserController', {$scope: $scope});
+    $cookies.remove('user_id');
+    $scope.send();
+    expect($location.path()).toEqual('/start');
+  });
 });

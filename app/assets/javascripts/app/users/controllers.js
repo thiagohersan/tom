@@ -24,10 +24,13 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         }
     }
 });
-trendOMeterApp.controller('UserController', function($scope, IndustryService, OccupationService) {
+trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, OccupationService, UserService) {
   $scope.dependencyError = false;
   $scope.loadingIndustries = true;
   $scope.loadingOccupations = true;
+  $scope.saving = false;
+  $scope.error = false;
+  $scope.user = {};
 
   $scope.loading = function() {
     var loading = $scope.loadingIndustries || $scope.loadingOccupations;
@@ -37,7 +40,25 @@ trendOMeterApp.controller('UserController', function($scope, IndustryService, Oc
     return false;
   }
 
+  $scope.send = function() {
+    $scope.saving = true;
+    $scope.error = false;
+    try {
+      UserService.save($scope.user).then(function(response){
+        $scope.saving = false;
+        $location.path('/thanks');
+      },function(error){
+        $scope.saving = false;
+        $scope.error = true;
+      });
+    }catch(e){
+      return $location.path('/start');
+    }
+  }
+
   function init() {
+    if(!UserService.getLoggedID())
+      return $location.path('/start');
     IndustryService.all().then(function(response) {
       if(response.status === 200) {
         $scope.industries = response.data;
