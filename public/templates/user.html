@@ -42,7 +42,7 @@
         <option value="{{industry.id}}" ng-repeat="industry in industries">{{industry.name}}</option>
       </select>
     </div>
-    <input type="submit" class="result-button" value="ENVIAR">
+    <input type="submit" ng-class="{'result-button-disabled': saving}" ng-disabled="saving" class="result-button" value="ENVIAR">
     <a href="#/panel" class="btn btn-link btn-skip pull-right">Voltar</a>
   </form>
 </div>
