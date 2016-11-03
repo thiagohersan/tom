@@ -17,6 +17,16 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
             throw 'no user_id';
 
           return $http.patch('/users/' + this.getLoggedID(), data)
+        },
+        setCompleted: function() {
+          $cookies.put('completed', true);
+        },
+        isCompleted: function() {
+          return $cookies.get('completed') == 'true';
+        },
+        unset: function() {
+          $cookies.remove('user_id');
+          $cookies.remove('completed');
         }
     }
 });

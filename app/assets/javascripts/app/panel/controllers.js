@@ -1,4 +1,4 @@
-trendOMeterApp.controller('PanelController', function($scope, PanelService, $location, $timeout) {
+trendOMeterApp.controller('PanelController', function($scope, PanelService, UserService, $location, $timeout) {
     $scope.loading = true; 
 
     function addPosition(data){
@@ -33,6 +33,9 @@ trendOMeterApp.controller('PanelController', function($scope, PanelService, $loc
         });
     }
 
+    $scope.showUserForm = function() {
+        return !UserService.isCompleted();
+    }
     $scope.users = function() {
         $location.path('/user');
     }

@@ -83,9 +83,12 @@
                 </div>
             </div>
             <div class="result-button-wrapper">
-	            <button class="result-button" ng-click="users()">
+	            <button class="result-button" ng-click="users()" ng-show="showUserForm()">
 	            	RECEBA O RESULTADO COMPLETO
-                </button>
+              </button>
+	            <a href="#/duels" class="result-button" ng-hide="showUserForm()">
+	            	VOTAR NOVAMENTE
+              </a>
             </div>
         </div>
     </div>

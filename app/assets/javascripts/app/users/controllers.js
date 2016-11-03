@@ -11,6 +11,7 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         $scope.loading = true;
 
         if(!user_id || PromoterService.isPromoter()){
+            UserService.unset();
             UserService.createAnonymous().then(
                 function(response){
                     $scope.loading = false;
@@ -63,6 +64,7 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
     try {
       UserService.save($scope.user).then(function(response){
         $scope.saving = false;
+        UserService.setCompleted();
         $location.path('/thanks');
       },function(error){
         $scope.saving = false;
@@ -74,6 +76,8 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
   }
 
   $scope.init = function() {
+    if(UserService.isCompleted())
+      return $location.path('/panel');
     $scope.dependencyError = false;
     $scope.loadingIndustries = true;
     $scope.loadingOccupations = true;
