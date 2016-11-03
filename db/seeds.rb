@@ -34,29 +34,27 @@ Trend.create([
   { name: 'Liderança Adaptativa', description: 'Desvincular a atividade da liderança ao status ou autoridade, incentivando a capacidade de mobilizar pessoas para atacar desafios.' }
 ])
 
-
-
 Industry.create([
   { name: 'Agricultura e Mineração' },
-  { name: 'Serviços Empresariais' },
+  { name: 'Assistência Médica, Indústria Farmacêutica e Biotecnologia' },
+  { name: 'Atacado e Distribuição' },
   { name: 'Computadores e Eletrônicos' },
-  { name: 'Serviços de Consumo' },
   { name: 'Educação' },
   { name: 'Energia e Serviços Públicos' },
   { name: 'Engenharia, Pesquisa e Desenvolvimento' },
-  { name: 'Serviços Financeitos e Seguradoras' },
   { name: 'Governo' },
-  { name: 'Assistência Médica, Industria Farmacêutica e Biotecnologia' },
   { name: 'Manufatura' },
+  { name: 'Mercado Imobiliário e Construções' },
   { name: 'Mídia, Publicação e Entretenimento' },
   { name: 'Sem Finalidade Lucrativa' },
-  { name: 'Mercado Imobiliário e Construções' },
-  { name: 'Varejo' },
+  { name: 'Serviços de Consumo' },
+  { name: 'Serviços Empresariais' },
+  { name: 'Serviços Financeiros e Seguradoras' },
   { name: 'Software e Internet' },
   { name: 'Telecomunicações' },
   { name: 'Transporte e Estocagem' },
+  { name: 'Varejo' },
   { name: 'Viagem, Lazer e Recreação' },
-  { name: 'Atacado e Distribuição' },
   { name: 'Outro' }])
 
 Occupation.create([
