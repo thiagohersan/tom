@@ -1,7 +1,10 @@
 class DuelsController < ApplicationController
   def create
     return render text: 'Missing user_id', status: 400 unless params.key?(:user_id)
-    duel_list = Duel.where(winner_trend_id: nil, skipped: nil, user_id: params[:user_id])
+    user_id = ApplicationHelper::decrypt(params[:user_id]).to_i
+    duel_list = Duel.where(winner_trend_id: nil,
+                           skipped: nil,
+                           user_id: user_id)
     if duel_list.length > 0
         duels = []
         duel_list.each do |duel|
@@ -9,7 +12,8 @@ class DuelsController < ApplicationController
         end
         return render json: duels
     end
-    render json: buildDuels(params[:user_id])
+
+    render json: buildDuels(user_id)
   end
 
   def update
@@ -45,7 +49,7 @@ class DuelsController < ApplicationController
   def buildDuels(user_id)
     duels = []
     Trend.all.shuffle.each_slice(2) do |firstTrend, secondTrend|
-      duel = Duel.new(user_id: params[:user_id], 
+      duel = Duel.new(user_id: user_id, 
                first_trend: firstTrend,
                second_trend: secondTrend)
       duel.save

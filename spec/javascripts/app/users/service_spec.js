@@ -6,7 +6,7 @@ describe('Service of user', function() {
 
   // Add globals for any testbeforeEach(inject(function($injector) {
   beforeEach(inject(function($injector) {
-    user_id = Math.ceil(Math.random() * 100);
+    user_id = 'hashed==';
     $httpBackend = $injector.get('$httpBackend');
     $cookies = $injector.get('$cookies');
     UserService = $injector.get('UserService');
@@ -82,7 +82,7 @@ describe('Service of user', function() {
     });
 
     it('should remove all user cookies', function() {
-      $cookies.put('user_id', 1);
+      $cookies.put('user_id', 'hashed==');
       $cookies.put('completed', true);
 
       UserService.unset();

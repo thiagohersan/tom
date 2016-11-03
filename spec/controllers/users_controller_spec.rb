@@ -15,11 +15,15 @@ RSpec.describe UsersController, type: :controller do
     end
     it "returns an user with an id" do
       post :create
-      expect(user['id']).to be_an(Integer)
+      expect(user['id']).to be_an(String)
     end
     it "returns an anonymous user" do
       post :create
       expect(user['anonymous']).to eq(true)
+    end
+    it "returns an encrypted id" do
+      post :create
+      expect(User.exists?(id: user['id'])).to eq(false)
     end
   end
 
@@ -28,7 +32,7 @@ RSpec.describe UsersController, type: :controller do
       user1 = create(:user)
       industry = create(:industry)
       occupation = create(:occupation)
-      patch :update, id: user1.id,
+      patch :update, id: ApplicationHelper::encrypt(user1.id),
                    name: 'abc',
                    email: 'dev@tw.com',
                    #company: 'tw',

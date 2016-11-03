@@ -14,11 +14,10 @@ describe('DuelsController', function(){
         UserService = _UserService_;
         
         // Set the cookie of user
-        $cookies.put('user_id', 1);
+        $cookies.put('user_id', 'hashed==');
 
         dummyDuel = {
             id: 1,
-            user_id: 1,
             first_trend: {
                 id: 2,
                 name: 'trend1',

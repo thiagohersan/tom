@@ -64,6 +64,7 @@ GEM
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    encrypted_strings (0.3.3)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -237,6 +238,7 @@ DEPENDENCIES
   bower-rails
   byebug
   coffee-rails (~> 4.2)
+  encrypted_strings
   factory_girl_rails (~> 4.0)
   guard
   guard-rspec

@@ -8,7 +8,7 @@ RSpec.describe DuelsController, type: :controller do
     let(:json) { JSON.parse(response.body) }
     let(:duels_count) { trends.length / 2 }
     it 'returns http success' do
-      post :create, { user_id: user.id }
+      post :create, { user_id: ApplicationHelper::encrypt(user.id) }
       expect(response).to have_http_status(:success)
     end
     it 'fails without an user id' do
@@ -17,23 +17,24 @@ RSpec.describe DuelsController, type: :controller do
     end
     it 'creates a set of duels' do
       expect {
-        post :create, { user_id: user.id }
+        post :create, { user_id: ApplicationHelper::encrypt(user.id) }
       }.to change(Duel, :count).by(duels_count)
     end
     it 'returns a list of duels' do
-      post :create, { user_id: user.id }
+      post :create, { user_id: ApplicationHelper::encrypt(user.id) }
       expect(json.length).to eq(duels_count)
     end
     it 'returns trends inside the duels' do
-      post :create, { user_id: user.id }
+      post :create, { user_id: ApplicationHelper::encrypt(user.id) }
       expect(json[0].key?('first_trend')).to eq(true)
       expect(json[0].key?('second_trend')).to eq(true)
     end
     it 'returns trends in a random order' do
       user2 = create(:user)
-      post :create, { user_id: user.id }
+      user2.id = ApplicationHelper::encrypt(user2.id)
+      post :create, { user_id: ApplicationHelper::encrypt(user.id) }
       duels1 = JSON.parse(response.body)
-      post :create, { user_id: user2.id }
+      post :create, { user_id: ApplicationHelper::encrypt(user2.id) }
       duels2 = JSON.parse(response.body)
       expect(
         duels1[0]['first_trend']['id'] !=
@@ -48,7 +49,7 @@ RSpec.describe DuelsController, type: :controller do
     context 'user leaves application' do
       it 'returns unanswered duels' do
         duel = create(:duel)
-        post :create, { user_id: duel.user_id }
+        post :create, { user_id: ApplicationHelper::encrypt(duel.user_id) }
         duel_list = JSON.parse(response.body)
         expect(duel_list.length).to eq(1)
         expect(duel_list[0]['id']).to eq(duel.id)

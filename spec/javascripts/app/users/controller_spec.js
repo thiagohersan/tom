@@ -50,7 +50,7 @@ describe('StartController', function() {
     });
    
     it('should not call createAnonymous when given a cookie before', function() {
-      $cookies.put('user_id',1);
+      $cookies.put('user_id', 'hashed==');
       $scope.start();
       expect(UserService.createAnonymous.calls.count()).toEqual(0);
     });
@@ -115,7 +115,7 @@ describe('StartController', function() {
           })
         }
       });
-      $cookies.put('user_id', '1');
+      $cookies.put('user_id', 'hashed==');
       PromoterService.setPromoter();
       $scope.start();
       expect(UserService.createAnonymous.calls.count()).toBe(1);
@@ -141,7 +141,7 @@ describe('UserController', function() {
     $location = _$location_;
 
     UserService.unset();
-    $cookies.put('user_id', 1);
+    $cookies.put('user_id', 'hashed==');
 
     industriesStatusCode = 200;
     occupationStatusCode = 200;

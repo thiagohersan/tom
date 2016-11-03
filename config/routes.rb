@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   resources :duels, only: [:create, :update]
 
-  resources :users, only: [:create, :update]
+  namespace :users do
+    post '/' => :create
+    patch '/:id' => :update, constraints: {id: /.*/ } 
+  end
 
   namespace :emails do
       get '/' => :index

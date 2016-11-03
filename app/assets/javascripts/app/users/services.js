@@ -9,7 +9,7 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
         getLoggedID: function() {
             var user_id = $cookies.get('user_id');
             if(user_id !== undefined){
-        	    return parseInt(user_id);
+        	    return user_id;
             }
         },
         save: function(data) {
