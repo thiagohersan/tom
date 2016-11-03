@@ -2,14 +2,14 @@
 	"name": "Trend-O-Meter",
 	"icons": [
 		{
-			"src": "\/image\/icons\/android-chrome-192x192.png",
+			"src": "\/images\/icons\/android-chrome-192x192.png",
 			"sizes": "192x192",
-			"type": "image\/png"
+			"type": "images\/png"
 		},
 		{
-			"src": "\/image\/icons\/android-chrome-256x256.png",
+			"src": "\/images\/icons\/android-chrome-256x256.png",
 			"sizes": "256x256",
-			"type": "image\/png"
+			"type": "images\/png"
 		}
 	],
 	"theme_color": "#ffffff",
