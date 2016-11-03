@@ -293,6 +293,7 @@ describe('UserController', function() {
   it('should validate user email before send data', function() {
     $controller('UserController', {$scope: $scope});
     $scope.user.email = 'asdas';
+    $scope.user.name = 'Tw Tester';
     $scope.send();
     expect($scope.formErrors.email).toEqual(true);
     $scope.user.email = '';
