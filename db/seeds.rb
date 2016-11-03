@@ -34,16 +34,7 @@ Trend.create([
   { name: 'Liderança Adaptativa', description: 'Desvincular a atividade da liderança ao status ou autoridade, incentivando a capacidade de mobilizar pessoas para atacar desafios.' }
 ])
 
-Industry.create([
-  { name: 'Agricultura e Mineração' },
-  { name: 'Serviços Empresariais' },
-  { name: 'Computadores e Eletrônicos' },
-  { name: 'Serviços de Consumo' },
-  { name: 'Educação' },
-  { name: 'Energia e Serviços Públicos' },
-  { name: 'Engenharia, Pesquisa e Desenvolvimento' },
-  { name: 'Serviços Financeitos e Seguradoras' },
-])
+
 
 Industry.create([
   { name: 'Agricultura e Mineração' },
