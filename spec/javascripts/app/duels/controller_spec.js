@@ -1,16 +1,17 @@
 describe('DuelsController', function(){
-    var $scope, StartController, DuelService, $controller, $rootScope, $cookies, $location, dummyDuels, dummyDuel;
+    var $scope, StartController, DuelService, $controller, $rootScope, $cookies, $location, dummyDuels, dummyDuel, UserService;
     // Set the module
     beforeEach(module('trendOMeterApp'));
 
     // Add globals for any test
-    beforeEach(inject(function(_$rootScope_, _$controller_, _DuelService_, _$cookies_, _$location_) {
+    beforeEach(inject(function(_$rootScope_, _$controller_, _UserService_, _DuelService_, _$cookies_, _$location_) {
         DuelService = _DuelService_;
         $controller = _$controller_;
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $cookies = _$cookies_;
         $location = _$location_;
+        UserService = _UserService_;
         
         // Set the cookie of user
         $cookies.put('user_id', 1);
@@ -35,7 +36,7 @@ describe('DuelsController', function(){
     }));
 
     afterEach(function(){
-        $cookies.remove('user_id');
+      UserService.unset();
     });
 
     describe('DuelService.createDuels', function(){
@@ -213,7 +214,7 @@ describe('DuelsController', function(){
     });
     
     it('should redirect to /start if there is no user_id', function() {
-        $cookies.remove('user_id');
+        UserService.unset();
         $controller('DuelsController', {$scope: $scope});
         expect($location.path()).toEqual('/start');    
     });

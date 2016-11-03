@@ -39,7 +39,7 @@ describe('StartController', function() {
     });
 
     afterEach(function() {
-      $cookies.remove('user_id');
+      UserService.unset();
     });
 
     it('should set loading equal false on creating a anonymous user', function(){
@@ -53,6 +53,12 @@ describe('StartController', function() {
       $cookies.put('user_id',1);
       $scope.start();
       expect(UserService.createAnonymous.calls.count()).toEqual(0);
+    });
+
+    it('should clean completed cookie if is a promoted device', function() {
+      UserService.setCompleted();
+      $scope.start();
+      expect($cookies.get('completed')).toBeUndefined();
     });
 
     it('should call redirect after starting', function() {
@@ -134,6 +140,9 @@ describe('UserController', function() {
     $cookies = _$cookies_;
     $location = _$location_;
 
+    UserService.unset();
+    $cookies.put('user_id', 1);
+
     industriesStatusCode = 200;
     occupationStatusCode = 200;
 
@@ -179,6 +188,21 @@ describe('UserController', function() {
       }
     });    
   }));
+
+  it('should redirect to /start if no cookie', function() {
+    UserService.unset();
+    $controller('UserController', {$scope: $scope});
+    expect($location.path()).toEqual('/start');
+  });
+
+  it('should redirect to /start if no cookie when send', function() {
+    $controller('UserController', {$scope: $scope});
+    UserService.unset();
+    $scope.user.name = 'Tw Tester';
+    $scope.user.email = 'tw@tw.com';
+    $scope.send();
+    expect($location.path()).toEqual('/start');
+  });
 
   it('should get the industry list on start the controller', function() {
     $controller('UserController', {$scope: $scope});
@@ -230,6 +254,7 @@ describe('UserController', function() {
       then: function(fn) {
         fn({status: 200});
         expect($scope.saving).toEqual(false);
+        expect(UserService.isCompleted()).toEqual(true);
         expect($location.path()).toEqual('/thanks');
       }
     }
@@ -248,6 +273,11 @@ describe('UserController', function() {
     expect(UserService.save.calls.count()).toEqual(1);
     expect(promise.then.calls.count()).toEqual(1);
   });
+  it('should redirect to panel if the user already submit the form', function() {
+    UserService.setCompleted();
+    $controller('UserController', {$scope: $scope});
+    expect($location.path()).toEqual('/panel');
+  });
   it('should show message on save error', function() {
     promise = {
       then: function(fn, fnerr) {
@@ -257,54 +287,48 @@ describe('UserController', function() {
       }
     }
     spyOn(promise, 'then').and.callThrough();
-    spyOn(UserService, 'save').and.callFake(function(data) {
-      expect($scope.saving).toEqual(true);
-      expect(data).toEqual($scope.user);
-      return promise;
+    $controller('UserController', {$scope: $scope});
+    $scope.send();
+  });
+
+  describe('Save User', function() {
+    beforeEach(function() {
+      spyOn(UserService, 'save').and.callFake(function(data) {
+        expect($scope.saving).toEqual(true);
+        expect(data).toEqual($scope.user);
+        return promise;
+      });
     });
-    $controller('UserController', {$scope: $scope});
-    $scope.send();
-  });
-  it('should redirect to /start if no cookie', function() {
-    $cookies.remove('user_id');
-    $controller('UserController', {$scope: $scope});
-    expect($location.path()).toEqual('/start');
-  });
-  it('should redirect to /start if no cookie when send', function() {
-    $controller('UserController', {$scope: $scope});
-    $cookies.remove('user_id');
-    $scope.send();
-    expect($location.path()).toEqual('/start');
-  });
-  it('should validate user name before send data', function() {
-    $controller('UserController', {$scope: $scope});
-    $scope.user.name = '';
-    expect($scope.formErrors).toEqual({});
-    $scope.send();
-    expect($scope.formErrors.name).toEqual(true);
-  });
-  it('should clean user name validation before send data', function() {
-    $controller('UserController', {$scope: $scope});
-    $scope.formErrors.name = true;
-    $scope.user.name = 'Tw Tester';
-    $scope.send();
-    expect($scope.formErrors.name).toBeFalsy();
-  });
-  it('should validate user email before send data', function() {
-    $controller('UserController', {$scope: $scope});
-    $scope.user.email = 'asdas';
-    $scope.user.name = 'Tw Tester';
-    $scope.send();
-    expect($scope.formErrors.email).toEqual(true);
-    $scope.user.email = '';
-    $scope.send();
-    expect($scope.formErrors.email).toEqual(true);
-  });
-  it('should clean user email validation before send data', function() {
-    $controller('UserController', {$scope: $scope});
-    $scope.formErrors.email = true;
-    $scope.user.email = 'twt@twt.com';
-    $scope.send();
-    expect($scope.formErrors.email).toBeFalsy();
+    it('should validate user name before send data', function() {
+      $controller('UserController', {$scope: $scope});
+      $scope.user.name = '';
+      expect($scope.formErrors).toEqual({});
+      $scope.send();
+      expect($scope.formErrors.name).toEqual(true);
+    });
+    it('should clean user name validation before send data', function() {
+      $controller('UserController', {$scope: $scope});
+      $scope.formErrors.name = true;
+      $scope.user.name = 'Tw Tester';
+      $scope.send();
+      expect($scope.formErrors.name).toBeFalsy();
+    });
+    it('should validate user email before send data', function() {
+      $controller('UserController', {$scope: $scope});
+      $scope.user.email = 'asdas';
+      $scope.user.name = 'Tw Tester';
+      $scope.send();
+      expect($scope.formErrors.email).toEqual(true);
+      $scope.user.email = '';
+      $scope.send();
+      expect($scope.formErrors.email).toEqual(true);
+    });
+    it('should clean user email validation before send data', function() {
+      $controller('UserController', {$scope: $scope});
+      $scope.formErrors.email = true;
+      $scope.user.email = 'twt@twt.com';
+      $scope.send();
+      expect($scope.formErrors.email).toBeFalsy();
+    });
   });
 });

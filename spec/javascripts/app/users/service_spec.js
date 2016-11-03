@@ -37,7 +37,7 @@ describe('Service of user', function() {
     });
 
     it('should check if an user is logged', function() {
-      $cookies.remove('user_id');
+      UserService.unset();
       expect(UserService.getLoggedID()).toBeUndefined()
       // Create a cookie to simulate a logged user
       $cookies.put('user_id', user_id);
@@ -60,11 +60,35 @@ describe('Service of user', function() {
       }, function(response) {
         expect(response.status).toEqual(200);
       });
+
+      $httpBackend.flush();
+    });
+
+    it('should set user as completed', function() {
+      UserService.setCompleted();
+      expect(UserService.isCompleted()).toEqual(true);
+    });
+
+    it('should set completed if as completed cookie', function() {
+      $cookies.put('completed', true);
+      expect(UserService.isCompleted()).toEqual(true);
+      $cookies.remove('completed');
+      expect(UserService.isCompleted()).toEqual(false);
     });
 
     it('should throw error if no user cookie', function() {
-      $cookies.remove('user_id');
+      UserService.unset();
       expect(function() { UserService.save(); }).toThrow('no user_id');
+    });
+
+    it('should remove all user cookies', function() {
+      $cookies.put('user_id', 1);
+      $cookies.put('completed', true);
+
+      UserService.unset();
+
+      expect($cookies.get('user_id')).toBeUndefined();
+      expect($cookies.get('completed')).toBeUndefined();
     });
   });
 
