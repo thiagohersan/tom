@@ -1,9 +1,14 @@
 trendOMeterApp.controller('StartController', function($location, $scope, UserService, PromoterService){
     $scope.loading = false;
     $scope.error = false;
+    $scope.isCompleted = UserService.isCompleted();
 
     $scope.redirect = function(){
         $location.path('/duels');
+    }
+
+    $scope.panel = function() {
+        $location.path('/panel');
     }
 
     $scope.start = function(){ 

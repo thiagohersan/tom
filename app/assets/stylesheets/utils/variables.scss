@@ -33,3 +33,10 @@ $trend-border-definition: 2px solid $dark-grey;
 	position: absolute;
 	background-position: 50% 50%;
 }
+
+%simple-link {
+	color: $dark-grey;
+	text-decoration: underline;
+	font-style: italic;
+	cursor: pointer;
+}
