@@ -18,7 +18,7 @@ Trend.create([
   { name: 'Diversidade e Inclusão', description: 'Construção de uma cultura organizacional de diversidade e inclusão, para criar comunidades mais inovadoras através da justiça social.' },
   { name: 'Pessoas e IA', description: 'Colaboração entre humanos e Inteligência Artificial para desenvolver soluções e produzir de forma mais rápida e eficiente.' },
   { name: 'Felicidade e Performance', description: 'Investimentos em práticas que promovam a felicidade individual dos colaboradores para aumentar a performance coletiva.' },
-  { name: 'Gamefication', description: 'Práticas de incentivo e recompensa para ensinar, treinar e engajar colaboradores e consumidores.' },
+  { name: 'Gamification', description: 'Práticas de incentivo e recompensa para ensinar, treinar e engajar colaboradores e consumidores.' },
   { name: 'Morte dos APPs', description: 'O desenvolvimento de novas formas de interação e assistentes virtuais torna alguns aplicativos obsoletos e desnecessários.' },
   { name: 'Gestão Horizontal ou Colaborativa', description: 'Eliminação de uma hierarquia vertical rígida e compartilhamento entre colaboradores da responsabilidade sobre os resultados organizacionais.' },
   { name: 'Internet das Coisas', description: 'Conexão de dispositivos eletrônicos utilizados no dia-a-dia (aparelhos eletrodomésticos, eletroportáteis, etc.) à internet.' },
