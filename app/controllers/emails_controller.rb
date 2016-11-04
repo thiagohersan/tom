@@ -3,7 +3,7 @@ class EmailsController < ApplicationController
   end
 
   def find
-    @result = User.exists?(email: params[:email])
+    @result = (User.exists?(email: params[:email])) ? "Sim" : "Não"
     render 'index'
   end
 end

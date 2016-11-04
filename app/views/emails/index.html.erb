@@ -1,7 +1,14 @@
-<form method="post">
-    <input type="email" name="email" placeholder="email">
-    <input type="submit" value="Submit">
-</form>
-<div>
-    <%= @result %>
+<div class="row email">
+	<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
+		<h1 class="email-title">Este e-mail foi cadastrado?</h1>
+
+		<form class="form-inline" method="post">
+		  <div class="form-group email-form">
+		    <input type="email" class="form-control" name="email" placeholder="E-mail">
+		    <input type="submit" value="Submit" class="btn btn-default">
+		  </div>
+		</form>
+
+		<span class="email-response"><%= @result %></span>
+	</div>
 </div>

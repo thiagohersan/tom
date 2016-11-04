@@ -1,0 +1,21 @@
+@import '../utils/variables';
+
+.email {
+	padding: 20px;
+
+	&-title {
+		font-weight: 800;
+		letter-spacing: $kerning;
+		text-transform: uppercase;
+	}
+
+	&-form {
+		margin-top: 2rem;
+	}
+
+	&-response {
+		display: block;
+		margin-top: 2rem;
+		font-size: 2rem;
+	}
+}
