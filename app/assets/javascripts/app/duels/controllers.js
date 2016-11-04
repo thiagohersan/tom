@@ -52,11 +52,22 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     
     $scope.skip = function() {
         if($scope.saving) return
-        $scope.saveAction(DuelService.skip($scope.currentDuel.id));
+        $scope.saveAction(
+          DuelService.skip(
+            UserService.getLoggedID(),
+            $scope.currentDuel.id
+          )
+        );
     }
 
     $scope.winner = function(winnerTrend) {
-        $scope.saveAction(DuelService.setWinner($scope.currentDuel.id, winnerTrend.id));    
+        $scope.saveAction(
+          DuelService.setWinner(
+            UserService.getLoggedID(),
+            $scope.currentDuel.id,
+            winnerTrend.id
+          )
+        );    
     }
 
     $scope.setWinner = function(winnerTrend) {

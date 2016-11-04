@@ -163,7 +163,8 @@ describe('DuelsController', function(){
             });
             
             it('should use the currentDuel when calling skip service', function() {
-                DuelService.skip = function(duel_id) {
+                DuelService.skip = function(user_id, duel_id) {
+                    expect(user_id).toEqual(UserService.getLoggedID());
                     expect(duel_id).toEqual($scope.currentDuel.id);
                     return promise;
                 }
@@ -184,7 +185,8 @@ describe('DuelsController', function(){
             });
             
             it('should use the currentDuel when calling setWinner service', function() {
-                DuelService.setWinner = function(duel_id, trend_id) {
+                DuelService.setWinner = function(user_id, duel_id, trend_id) {
+                    expect(user_id).toEqual(UserService.getLoggedID());
                     expect(duel_id).toEqual($scope.currentDuel.id);
                     expect(trend_id).toEqual(dummyDuel.first_trend.id);
                     return promise;

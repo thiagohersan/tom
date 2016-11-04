@@ -36,16 +36,22 @@ describe('DuelService', function() {
     });
 
     it('should set the winner trend', function(done) {
-        $httpBackend.when('PATCH', '/duels/' + duel_id, {'winner_trend_id': 1}).respond(204, '');
-        DuelService.setWinner(duel_id, 1).then(function(response){
+        $httpBackend.when('PATCH', '/duels/' + duel_id, {
+          'winner_trend_id': 1,
+          'user_id': 'hashed=='
+        }).respond(204, '');
+        DuelService.setWinner('hashed==', duel_id, 1).then(function(response){
             expect(response.status).toEqual(204);
         }).finally(done);
         $httpBackend.flush();
     });
 
     it('should skip a duel', function(done) {
-        $httpBackend.when('PATCH', '/duels/' + duel_id, {'skipped': true}).respond(204, '');
-        DuelService.skip(duel_id).then(function(response){
+        $httpBackend.when('PATCH', '/duels/' + duel_id, {
+          'skipped': true,
+          'user_id': 'hashed=='
+        }).respond(204, '');
+        DuelService.skip('hashed==', duel_id).then(function(response){
             expect(response.status).toEqual(204);
         }).finally(done);
         $httpBackend.flush();
