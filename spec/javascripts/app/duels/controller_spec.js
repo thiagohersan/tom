@@ -39,16 +39,24 @@ describe('DuelsController', function(){
     });
 
     describe('DuelService.createDuels', function(){
+        var createDuelsStatusCode = 201;
         beforeEach(function(){
+            createDuelsStatusCode = 201;
             spyOn(DuelService, "createDuels").and.returnValue({
-                then: function(fn){
+                then: function(fn, fnerr){
                     // Check if is loading before response the promise.
                     expect($scope.loading).toEqual(true);
 
-                    return fn({
-                        status: 201,
-                        data: dummyDuels
-                    })
+                    if(createDuelsStatusCode >= 200 && createDuelsStatusCode < 300) {
+                      return fn({
+                          status: createDuelsStatusCode,
+                          data: dummyDuels
+                      })
+                    } else {
+                      return fnerr({
+                          status: createDuelsStatusCode
+                      })
+                    }
                 }
             });
             $controller('DuelsController', {$scope: $scope});
@@ -57,6 +65,37 @@ describe('DuelsController', function(){
         it('should set loading to false after call the DuelService.createDuels', function(){
             expect(DuelService.createDuels.calls.count()).toEqual(1);
             expect($scope.loading).toEqual(false);
+        });
+
+        it('should set loading to false when return a permission error', function() {
+            createDuelsStatusCode = 403;
+            $controller('DuelsController', {$scope: $scope});
+            expect($scope.loading).toEqual(false);
+        }); 
+
+        it('should remove all cookies of user if return a permission error', function() {
+            createDuelsStatusCode = 403;
+            $controller('DuelsController', {$scope: $scope});
+            expect(UserService.getLoggedID()).toBeUndefined();
+        }); 
+
+        it('should redirect to start screen if return a permission error', function() {
+            createDuelsStatusCode = 403;
+            $controller('DuelsController', {$scope: $scope});
+            expect($location.path()).toEqual('/start');
+        }); 
+
+        it('should show error message if invalid status_code', function() {
+            createDuelsStatusCode = 0;
+            $controller('DuelsController', {$scope: $scope});
+            expect($scope.serverError).toEqual(true);
+        });
+
+        it('should hide error message if valid status_code', function() {
+            $scope.serverError = true;
+            createDuelsStatusCode = 201;
+            $scope.init();
+            expect($scope.serverError).toEqual(false);
         });
 
         it('should get all duels from the DuelService', function(){

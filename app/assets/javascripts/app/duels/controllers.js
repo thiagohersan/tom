@@ -8,9 +8,13 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     $scope.winnerTrend = null;
     $scope.showTrendInfoBox = false;
     $scope.trendInfo = null;
+    $scope.serverError = false;
 
-    function init() {
+    $scope.init = function() {
         var user_id = UserService.getLoggedID();
+        $scope.loading = true;
+        $scope.serverError = false;
+
         if(!user_id){
             $location.path('/start');
             return;
@@ -19,6 +23,14 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
             $scope.duels = response.data;
             $scope.loading = false;
             $scope.getCurrentDuel();
+        }, function(response){
+            $scope.loading = false;
+            if (response.status == 403) {
+              UserService.unset();
+              $location.path('/start');
+            } else {
+              $scope.serverError = true;
+            }
         });
     }
 
@@ -96,6 +108,6 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
         $scope.showTrendInfoBox = isVisible;
     }
 
-    init();
+    $scope.init();
 
 });

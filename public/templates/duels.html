@@ -2,12 +2,21 @@
 
 <div ng-include="'templates/partials/error.html'"></div>
 
-<div ng-hide="loading">
+
+<div class="row" ng-show="serverError">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="alert alert-danger text-center">
+      <p>Ocorreu um erro ao carregar a pagina.</p>
+      <a ng-click="init()" class="btn btn-danger">Clique aqui</a> e tente novamente.
+    </div>
+  </div>
+</div>
+
+<div ng-hide="loading || serverError">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
           <h2 class="title">Qual tendência provocará o</h2>
           <h2 class="title">maior impacto em seu negócio?</h2>
-          </h2>
             <div class="square-container">
                 <div class="square" ng-click="setWinner(currentDuel.first_trend)">
                     <div class="block" ng-class="{'loading':saving, 'active': isSelected(currentDuel.first_trend)}">
