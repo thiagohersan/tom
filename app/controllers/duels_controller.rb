@@ -23,7 +23,12 @@ class DuelsController < ApplicationController
       status: 400 if inconsistentSkip(params)
     return render text: 'Do not provide a winner_trend_id if you are skipping',
       status: 400 if params.key?(:winner_trend_id) && params.key?(:skipped)
+
+    user_id = params[:user_id] ? ApplicationHelper::decrypt(params[:user_id]).to_i : nil
     duel = Duel.find(params[:id])
+    
+    return render text: 'This duel does not belong to the given user',
+      status: 403 unless user_id == duel.user_id
     return render text: 'Already answered',
       status: 400 if duel.answered?
     if(params[:skipped])

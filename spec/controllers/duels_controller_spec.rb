@@ -74,21 +74,28 @@ RSpec.describe DuelsController, type: :controller do
       expect(response).to have_http_status(400)
       expect(response.body).to eq('Do not provide a winner_trend_id if you are skipping')
     end
+    it 'fails if duel does not belong to user' do
+      user = create(:user)
+      duel = create(:duel)
+      patch :update, id: duel.id, user_id: ApplicationHelper::encrypt(user.id), winner_trend_id: duel.first_trend.id
+      expect(response).to have_http_status(403)
+      expect(response.body).to eq('This duel does not belong to the given user')
+    end
     it 'fails when a duel was already patched' do
       duel = create(:answered_duel)
-      patch :update, id: duel.id, winner_trend_id: duel.winner_trend_id 
+      patch :update, id: duel.id, user_id: ApplicationHelper::encrypt(duel.user.id), winner_trend_id: duel.winner_trend_id 
       expect(response).to have_http_status(400)
       expect(response.body).to eq('Already answered')
     end
     it 'fails when a winner is diferent from the two options' do
       duel1 = create(:duel)
       duel2 = create(:duel)
-      patch :update, id: duel2.id, winner_trend_id: duel1.first_trend.id
+      patch :update, id: duel2.id, user_id: ApplicationHelper::encrypt(duel2.user.id), winner_trend_id: duel1.first_trend.id
       expect(response).to have_http_status(400)
     end
    it 'updates a duel' do
       duel = create(:duel)
-      patch :update, id: duel.id, winner_trend_id: duel.first_trend.id
+      patch :update, id: duel.id, user_id: ApplicationHelper::encrypt(duel.user.id), winner_trend_id: duel.first_trend.id
       expect(response).to have_http_status(204)
       expect(Duel.find(duel.id).winner_trend_id).to eq(duel.first_trend.id)
     end
