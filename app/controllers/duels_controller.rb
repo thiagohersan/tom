@@ -24,7 +24,11 @@ class DuelsController < ApplicationController
     return render text: 'Do not provide a winner_trend_id if you are skipping',
       status: 400 if params.key?(:winner_trend_id) && params.key?(:skipped)
 
-    user_id = params[:user_id] ? ApplicationHelper::decrypt(params[:user_id]).to_i : nil
+    begin
+      user_id = ApplicationHelper::decrypt(params[:user_id]).to_i
+    rescue
+      user_id = nil
+    end
     duel = Duel.find(params[:id])
     
     return render text: 'This duel does not belong to the given user',

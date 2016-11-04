@@ -81,6 +81,16 @@ RSpec.describe DuelsController, type: :controller do
       expect(response).to have_http_status(403)
       expect(response.body).to eq('This duel does not belong to the given user')
     end
+    it 'fails if used_id is not provided' do
+      duel = create(:duel)
+      patch :update, id: duel.id, winner_trend_id: duel.first_trend.id
+      expect(response).to have_http_status(403)
+    end
+    it 'fails if used_id is invalid' do
+      duel = create(:duel)
+      patch :update, id: duel.id, user_id: 1, winner_trend_id: duel.first_trend.id
+      expect(response).to have_http_status(403)
+    end
     it 'fails when a duel was already patched' do
       duel = create(:answered_duel)
       patch :update, id: duel.id, user_id: ApplicationHelper::encrypt(duel.user.id), winner_trend_id: duel.winner_trend_id 
