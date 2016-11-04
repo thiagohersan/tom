@@ -76,10 +76,10 @@ function change(svgOld) {
   var bubble = d3.layout.pack()
       .sort(null)
       .size([width, height])
-      .padding(600);
+      .padding(150);
 
   var svgOld = undefined;
-  var multR = 2.5;
+  var multR = 1;
 
   function generateChart(){
     var svg = d3.select("body").append("svg")
