@@ -22,7 +22,7 @@ Trend.create([
   { name: 'Morte dos APPs', description: 'O desenvolvimento de novas formas de interação e assistentes virtuais torna alguns aplicativos obsoletos e desnecessários.' },
   { name: 'Gestão Horizontal ou Colaborativa', description: 'Eliminação de uma hierarquia vertical rígida e compartilhamento entre colaboradores da responsabilidade sobre os resultados organizacionais.' },
   { name: 'Internet das Coisas', description: 'Conexão de dispositivos eletrônicos utilizados no dia-a-dia (aparelhos eletrodomésticos, eletroportáteis, etc.) à internet.' },
-  { name: 'Intrapreneur', description: 'Processo de incentivo à criação de novos negócios, atividades e produtos dentro de uma organização já consolidada.' },
+  { name: 'Intrapreneurship', description: 'Processo de incentivo à criação de novos negócios, atividades e produtos dentro de uma organização já consolidada.' },
   { name: 'Novas Formas de Trabalho', description: 'Relações flexíveis, trabalho remoto e coletivo, colaboradores buscando mais autonomia e propósito do que um salário ou um grande cargo.' },
   { name: 'Voz como Interface', description: 'Utilização da voz como principal interface para a interação entre pessoas e tecnologia.' },
   { name: 'Plataformas Colaborativas', description: 'Modelo de negócio baseado em permitir e incentivar que os clientes ou consumidores também criem valor, ao invés de só consumir.' },
