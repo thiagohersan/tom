@@ -13,7 +13,11 @@ RSpec.describe DuelsController, type: :controller do
     end
     it 'fails without an user id' do
       post :create
-      expect(response).to have_http_status(400)
+      expect(response).to have_http_status(403)
+    end
+    it 'fails with an invalid user id' do
+      post :create, user_id: 1
+      expect(response).to have_http_status(403)
     end
     it 'creates a set of duels' do
       expect {

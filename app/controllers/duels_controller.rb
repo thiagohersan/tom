@@ -1,7 +1,12 @@
 class DuelsController < ApplicationController
   def create
-    return render text: 'Missing user_id', status: 400 unless params.key?(:user_id)
-    user_id = ApplicationHelper::decrypt(params[:user_id]).to_i
+    begin
+      user_id = ApplicationHelper::decrypt(params[:user_id]).to_i
+    rescue
+      user_id = nil
+    end
+
+    return render text: 'Invalid user_id', status: 403 unless user_id
     duel_list = Duel.where(winner_trend_id: nil,
                            skipped: nil,
                            user_id: user_id)
