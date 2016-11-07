@@ -170,7 +170,7 @@ function change(svgOld) {
 
       node.append("text")
           .attr("dy", function(d) {
-            return 0 + 12;
+            return 0 + d.r * 0.66 / 2;
           })
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
