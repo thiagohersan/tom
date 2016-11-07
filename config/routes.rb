@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :users do
     post '/' => :create
     patch '/' => :update
+    patch '/:id' => :update, constraints: {id: /.*/ } 
   end
 
   namespace :emails do
