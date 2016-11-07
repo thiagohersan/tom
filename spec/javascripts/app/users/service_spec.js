@@ -47,13 +47,14 @@ describe('Service of user', function() {
     it('should update the user data', function() {
       $cookies.put('user_id', user_id);
       var data = {
+        id: UserService.getLoggedID(),
         name: "User name",
         email: "user@email.com",
         company: "User Company",
         industry_id: 1,
         occupation_id: 1
       }
-      $httpBackend.when('PATCH', '/users/' + user_id, data).respond(200, '');
+      $httpBackend.when('PATCH', '/users/', data).respond(200, '');
 
       user = UserService.save(data).then(function(response) {
         expect(response.status).toEqual(200);

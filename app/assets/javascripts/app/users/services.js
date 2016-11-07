@@ -16,7 +16,8 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
           if(this.getLoggedID() === undefined)
             throw 'no user_id';
 
-          return $http.patch('/users/' + this.getLoggedID(), data)
+          data.id = this.getLoggedID();
+          return $http.patch('/users/', data)
         },
         setCompleted: function() {
           $cookies.put('completed', true);
