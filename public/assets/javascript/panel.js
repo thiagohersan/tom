@@ -11,6 +11,9 @@ function color(pkg) {
 }
 
 function createRoot(data) {
+  for(var i=0; i < data.length; i++) {
+    data[i].index = i;
+  }
   var root = {
     name: 'painel',
     children: [{
@@ -76,10 +79,50 @@ function change(svgOld) {
   var bubble = d3.layout.pack()
       .sort(null)
       .size([width, height])
-      .padding(150);
+      .padding(75);
 
   var svgOld = undefined;
   var multR = 1;
+  function getPosition(d){
+    var middlex = width / 2;
+    var middley = height / 2 + 50;
+
+    var basePosition = [
+      {x: middlex + d.r, y: middley - d.r / 2},
+      {x: middlex + d.r - 220, y: middley - d.r / 2 - 100},
+      {x: middlex + d.r + 220, y: middley - d.r / 2 - 100},
+      {x: middlex + d.r, y: middley - d.r / 2 - 250},
+      {x: middlex + d.r - 230, y: middley - d.r / 2 + 100},
+      {x: middlex + d.r + 230, y: middley - d.r / 2 + 100},
+      {x: middlex + d.r, y: middley - d.r / 2 + 250},
+      {x: middlex + d.r - 325, y: middley - d.r / 2 - 275},
+      {x: middlex + d.r - 315, y: middley - d.r / 2 + 275},
+      {x: middlex + d.r + 315, y: middley - d.r / 2 - 275},
+      {x: middlex + d.r + 325, y: middley - d.r / 2 + 275},
+      {x: middlex + d.r - 470, y: middley - d.r / 2 - 95},
+      {x: middlex + d.r - 455, y: middley - d.r / 2 + 95},
+      {x: middlex + d.r + 455, y: middley - d.r / 2 - 95},
+      {x: middlex + d.r + 455, y: middley - d.r / 2 + 95},
+      {x: middlex + d.r - 650, y: middley - d.r / 2 + 25},
+      {x: middlex + d.r - 570, y: middley - d.r / 2 + 225},
+      {x: middlex + d.r + 580, y: middley - d.r / 2 + 250},
+      {x: middlex + d.r + 650, y: middley - d.r / 2 - 130},
+      {x: middlex + d.r + 700, y: middley - d.r / 2 + 70},
+      {x: middlex + d.r - 700, y: middley - d.r / 2 - 170},
+      {x: middlex + d.r - 840, y: middley - d.r / 2},
+    ];
+
+    if(basePosition[d.index]) {
+      d.x = basePosition[d.index].x;
+      d.y = basePosition[d.index].y;
+    }
+    else {
+      d.y = 0;
+      d.x = 0;
+    }
+    return "translate(" + d.x + "," + d.y + ")"; 
+    
+  }
 
   function generateChart(){
     var svg = d3.select("body").append("svg")
@@ -88,12 +131,14 @@ function change(svgOld) {
         .attr("class", "bubble");
     d3.json("/panel/", function(error, data) {
       root = createRoot(data);
+      var nodes = bubble.nodes(classes(root));
+      console.log(nodes);
       var node = svg.selectAll(".node")
-        .data(bubble.nodes(classes(root))
-          .filter(function(d) { return !d.children; }))
+        .data(
+          nodes.filter(function(d) { return !d.children; }))
             .enter().append("g")
               .attr("class", "node")
-              .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+              .attr("transform", getPosition);
 
       node.append("circle")
         .attr("r", function(d) { return d.r * multR; })
@@ -109,7 +154,7 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "14px")
+          .style("font-size", "18px")
           .text(function(d){ return wrapText(d.className); });
 
       // second line
@@ -120,8 +165,23 @@ function change(svgOld) {
           .style("text-anchor", "middle")
           .style("pointer-events", "none")
           .style("font-family", "Open Sans")
-          .style("font-size", "14px")
+          .style("font-size", "18px")
           .text(function(d){ return wrapText(d.className, true); });
+
+      node.append("text")
+          .attr("dy", function(d) {
+            return 0 + 12;
+          })
+          .style("text-anchor", "middle")
+          .style("pointer-events", "none")
+          .style("font-family", "Open Sans")
+          .style("fill", "#FFFFFF")
+          .style("font-weight", "bold")
+          .style("font-size", function(d){
+            var fontSize = d.r * 0.66;
+            return fontSize + "px";
+          })
+          .text(function(d){ return d.index + 1; });
     });
 
     // Returns a flattened hierarchy containing all leaf nodes under the root.
@@ -131,7 +191,7 @@ function change(svgOld) {
       function recurse(name, node) {
         if(node === undefined) return;
         if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-        else classes.push({packageName: name, className: node.name, value: node.count});
+        else classes.push({packageName: name, className: node.name, value: node.count, index: node.index});
       }
 
       recurse(null, root);
@@ -147,5 +207,6 @@ function change(svgOld) {
   }
 
   generateChart();
-  setInterval(generateChart, 30000);
+  // TODO: uncomment
+  // setInterval(generateChart, 30000);
 })();
