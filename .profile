@@ -1,1 +1,1 @@
-#bundle exec rake assets:precompile
+rake assets:precompile
