@@ -1,1 +1,3 @@
-rake assets:precompile
+ls
+echo "---"
+pwd
