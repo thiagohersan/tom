@@ -47,6 +47,17 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       CONGRATULATIONS2: 'are the hottest trends:',
       RESULTS: 'GET THE RESULTS',
       VOTE_AGAIN: 'VOTE AGAIN',
+      //user page
+      CALL_TO_ACTION1: 'Get the results and a detailed',
+      CALL_TO_ACTION2: 'analysis from TREND-O-METER team:',
+      NAME: 'Name*',
+      EMAIL: 'E-mail*',
+      COMPANY: 'Company',
+      ROLE: 'Role',
+      SELECT: 'Select',
+      INDUSTRY: 'Industry',
+      SEND: 'SEND',
+      BACK: 'Back',
       //error partial page
       DEFAULT_ERROR: 'An error has occurred. Try again later.',
       //loading partial page
@@ -69,6 +80,17 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       CONGRATULATIONS2: 'tendências mais quentes:',
       RESULTS: 'RECEBA O RESULTADO COMPLETO',
       VOTE_AGAIN: 'VOTAR NOVAMENTE',
+      //user page
+      CALL_TO_ACTION1: 'Receba o resultado e análise',
+      CALL_TO_ACTION2: 'detalhada do Trend-O-Meter',
+      NAME: 'Nome*',
+      EMAIL: 'E-mail*',
+      COMPANY: 'Empresa',
+      ROLE: 'Cargo',
+      SELECT: 'Selecione',
+      INDUSTRY: 'Indústria',
+      SEND: 'ENVIAR',
+      BACK: 'Voltar',
       //error partial page
       DEFAULT_ERROR: 'Ocorreu um erro! Tente novamente em instantes.',
       //loading partial page

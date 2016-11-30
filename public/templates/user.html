@@ -5,45 +5,48 @@
 <div class="row" ng-show="dependencyError">
   <div ng-submit="send()" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     <div class="alert alert-danger text-center">
-      <p>Ocorreu um erro ao carregar a pagina.</p>
-      <a ng-click="init()" class="btn btn-danger">Clique aqui</a> e tente novamente.
+      <p>{{ 'LOADING_ERROR' | translate }}</p>
+      <a ng-click="init()" class="btn btn-danger">
+        {{ 'LOADING_ERROR_BUTTON' | translate }}
+      </a>
+      {{ 'LOADING_ERROR2' | translate }}
     </div>
   </div>
 </div>
 
-<h2 class="title">Receba o resultado e análise</h2>
-<h2 class="title">detalhada do Trend-O-Meter</h2>
+<h2 class="title">{{ 'CALL_TO_ACTION1' | translate }}</h2>
+<h2 class="title">{{ 'CALL_TO_ACTION2' | translate }}</h2>
 
 <div class="row form-row" ng-hide="loading()">
   <form ng-submit="send()" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     <div class="form-group" ng-class="{'has-error': formErrors.name}">
-      <label>Nome*</label>
+      <label>{{ 'NAME' | translate }}</label>
       <input type="text" ng-model="user.name" class="form-control">
     </div>
     <div class="form-group" ng-class="{'has-error': formErrors.email}">
-      <label>E-mail*</label>
+      <label>{{ 'EMAIL' | translate }}</label>
       <input type="email" ng-model="user.email" class="form-control">
     </div>
     <div class="form-group">
-      <label>Empresa</label>
+      <label>{{ 'COMPANY' | translate }}</label>
       <input type="text" ng-model="user.company" class="form-control">
     </div>
     <div class="form-group">
-      <label>Cargo</label>
+      <label>{{ 'ROLE' | translate }}</label>
       <select ng-model="user.occupation_id" class="form-control">
-        <option value="">Selecione</option>
+        <option value="">{{ 'SELECT' | translate }}</option>
         <option value="{{occupation.id}}" ng-repeat="occupation in occupations">{{occupation.name}}</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Indústria</label>
+      <label>{{ 'INDUSTRY' | translate }}</label>
       <select ng-model="user.industry_id" class="form-control">
-        <option value="">Selecione</option>
+        <option value="">{{ 'SELECT' | translate }}</option>
         <option value="{{industry.id}}" ng-repeat="industry in industries">{{industry.name}}</option>
       </select>
     </div>
-    <input type="submit" ng-class="{'result-button-disabled': saving}" ng-disabled="saving" class="result-button" value="ENVIAR">
-    <a href="#/panel" class="btn btn-link btn-skip pull-right">Voltar</a>
+    <input type="submit" ng-class="{'result-button-disabled': saving}" ng-disabled="saving" class="result-button" value="{{ 'SEND' | translate }}">
+    <a href="#/panel" class="btn btn-link btn-skip pull-right">{{ 'BACK' | translate }}</a>
   </form>
 </div>
 
