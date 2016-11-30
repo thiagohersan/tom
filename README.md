@@ -1,24 +1,52 @@
-# README
+# Trend-o-Meter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trend-o-meter AKA as `TOM` is a platform to validate the hotness of the trends 
+where the user will answer a duel and say what is the hottest trend.
 
-Things you may want to cover:
+For this, randomic duels are generated based on your trends. Each trend will be
+comparated with a another randomic trend, but each trend only will apper one
+times by user. So, an even number of trends is needed.
 
-* Ruby version
+This is a Single Page Application using `AngularJs` with a `Ruby on Rails` REST
+API and a `PostgreSql` database.
 
-* System dependencies
+## Running the development environment
 
-* Configuration
+We :heart: Docker
 
-* Database creation
+You will need to install the `docker` and `docker-compose` in your environment.
 
-* Database initialization
+To create the docker images, run the follow command inside the repository path:
 
-* How to run the test suite
+  $ docker-compose build
 
-* Services (job queues, cache servers, search engines, etc.)
+If you change the `Bowerfile` or the `Gemfile` you should build the docker
+again.
 
-* Deployment instructions
+### Running application commands
 
-* ...
+You can run the rake commands using the docker-compose, the rails application
+is called as `app` inside the `docker-compose.yml`. So:
+
+  $ docker-compose run app ...
+
+#### Setting your trends
+
+To set your trends you need to edit the seeds file. Open the
+`db/migrate/seeds.rb` and update the file. 
+
+In this file you can update the Industry and Occupation list.
+
+### Set up the database
+
+This is just a rake command:
+
+  $ docker-compose run app rake db:create db:migrate db:seeds
+
+### Running the application
+
+Another simple command:
+
+  $ docker-compose up
+
+In few secconds you will be abble to access the http://localhost:3000/.
