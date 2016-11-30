@@ -1,5 +1,7 @@
 # Trend-o-Meter
 
+[![Build Status](https://travis-ci.org/carlosmaniero/tom.svg?branch=master)](https://travis-ci.org/carlosmaniero/tom)
+
 Trend-o-meter AKA as `TOM` is a platform to validate the hotness of the trends 
 where the user will answer a duel and say what is the hottest.
 
