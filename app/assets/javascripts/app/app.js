@@ -30,9 +30,9 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
         }).otherwise('/start');
 
     $translateProvider.translations('en', {
-        JUMP_DUEL: 'Skip this duel'
+        SKIP_DUEL: 'Skip this duel'
     }).translations('pt', {
-        JUMP_DUEL: 'Pular este duelo'
+        SKIP_DUEL: 'Pular este duelo'
     });
-    $translateProvider.preferredLanguage('pt');
+    $translateProvider.preferredLanguage('en');
 });
