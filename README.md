@@ -39,7 +39,7 @@ is called as `app` inside the `docker-compose.yml`. So:
 
     $ docker-compose run app ...
 
-#### Setting your trends
+### Setting your trends
 
 To set your trends you need to edit the seeds file. Open the
 `db/migrate/seeds.rb` and update the file. 
@@ -59,3 +59,12 @@ Another simple command:
     $ docker-compose up
 
 In few secconds you will be abble to access the http://localhost:3000/.
+
+
+## Deploying
+
+Fork the project, do your configurations describe above, edit the app.json
+changing the `repository` value to your new repository. And click in the
+button bellow in your new repository. :smile:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
