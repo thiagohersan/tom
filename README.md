@@ -1,7 +1,7 @@
 # Trend-o-Meter
 
 Trend-o-meter AKA as `TOM` is a platform to validate the hotness of the trends 
-where the user will answer a duel and say what is the hottest trend.
+where the user will answer a duel and say what is the hottest.
 
 For this, randomic duels are generated based on your trends. Each trend will be
 comparated with a another randomic trend, but each trend only will apper one
