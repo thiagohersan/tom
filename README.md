@@ -18,7 +18,7 @@ You will need to install the `docker` and `docker-compose` in your environment.
 
 To create the docker images, run the follow command inside the repository path:
 
-  $ docker-compose build
+    $ docker-compose build
 
 If you change the `Bowerfile` or the `Gemfile` you should build the docker
 again.
@@ -28,7 +28,7 @@ again.
 You can run the rake commands using the docker-compose, the rails application
 is called as `app` inside the `docker-compose.yml`. So:
 
-  $ docker-compose run app ...
+    $ docker-compose run app ...
 
 #### Setting your trends
 
@@ -41,12 +41,12 @@ In this file you can update the Industry and Occupation list.
 
 This is just a rake command:
 
-  $ docker-compose run app rake db:create db:migrate db:seeds
+    $ docker-compose run app rake db:create db:migrate db:seeds
 
 ### Running the application
 
 Another simple command:
 
-  $ docker-compose up
+    $ docker-compose up
 
 In few secconds you will be abble to access the http://localhost:3000/.
