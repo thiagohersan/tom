@@ -4,6 +4,8 @@
     "angular": "latest",
     "angular-mocks": "latest",
     "angular-cookies": "latest",
+    "angular-route": "latest",
+    "angular-translate": "latest",
     "bootstrap-sass-official": "latest"
   }
 }
