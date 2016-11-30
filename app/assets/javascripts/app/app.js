@@ -1,7 +1,8 @@
 // Create the angular application
-var trendOMeterApp = angular.module('trendOMeterApp', ['ngCookies','ngRoute']);
+var trendOMeterApp = angular.module('trendOMeterApp',
+  ['ngCookies','ngRoute', 'pascalprecht.translate']);
 
-trendOMeterApp.config(function($routeProvider) {
+trendOMeterApp.config(function($routeProvider, $translateProvider) {
     $routeProvider
         .when('/promoter', {
             controller: 'PromoterController',
@@ -28,4 +29,10 @@ trendOMeterApp.config(function($routeProvider) {
             templateUrl: '/templates/thanks.html'
         }).otherwise('/start');
 
+    $translateProvider.translations('en', {
+        JUMP_DUEL: 'Skip this duel'
+    }).translations('pt', {
+        JUMP_DUEL: 'Pular este duelo'
+    });
+    $translateProvider.preferredLanguage('pt');
 });

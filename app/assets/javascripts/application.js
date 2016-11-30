@@ -15,4 +15,5 @@
 //= require angular-cookies/angular-cookies
 //= require angular-route
 //= require angular-mocks
+//= require angular-translate
 //= require_tree .
