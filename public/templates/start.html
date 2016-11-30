@@ -1,11 +1,13 @@
 <div class="container-fluid">
-	<div ng-include="'templates/partials/header.html'" onload="subtitle='Como será o futuro do&nbsp;seu&nbsp;negócio?'"></div>
+  <div ng-include="'templates/partials/header.html'" onload="subtitle='START_SUBTITLE'"></div>
   <div ng-include="'templates/partials/error.html'"></div>
-  <div ng-include="'templates/partials/button.html'" onload="cta='começar'"></div>
+  <div ng-include="'templates/partials/button.html'" onload="label='START_BUTTON'"></div>
 	<div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
         	<div class="simple-container">
-				<span ng-click="panel()" ng-show="isCompleted" class="simple-link">Ver termômetro atualizado</span>
+				<span ng-click="panel()" ng-show="isCompleted" class="simple-link">
+          {{ 'RESULT_BUTTON' | translate }}
+        </span>
 			</div>
 		</div>
 	</div>

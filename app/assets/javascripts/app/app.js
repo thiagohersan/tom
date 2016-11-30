@@ -30,9 +30,25 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
         }).otherwise('/start');
 
     $translateProvider.translations('en', {
-        SKIP_DUEL: 'Skip this duel'
+      //start page
+      RESULT_BUTTON: 'Partial results',
+      START_BUTTON: 'start',
+      START_SUBTITLE: 'How the future of your business will be?',
+      SLOGAN: 'Innovation and Technology Consulting',
+      //duel page
+      SKIP_DUEL: 'Skip this duel',
+      //error partial page
+      DEFAULT_ERROR: 'An error has occurred. Try again later.'
     }).translations('pt', {
-        SKIP_DUEL: 'Pular este duelo'
+      //start page
+      RESULT_BUTTON: 'Ver o termômetro atualizado',
+      START_BUTTON: 'começar',
+      START_SUBTITLE: 'Como será o futuro do seu negócio?',
+      SLOGAN: 'Consultoria de Inovação e Tecnologia',
+      //duel page
+      SKIP_DUEL: 'Pular este duelo',
+      //error partial page
+      DEFAULT_ERROR: 'Ocorreu um erro! Tente novamente em instantes.'
     });
     $translateProvider.preferredLanguage('en');
 });
