@@ -5,8 +5,8 @@
 <div ng-hide="loading">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <h2 class="title">Parabéns! Essas são as</h2>
-            <h2 class="title">tendências mais quentes:</h2>
+            <h2 class="title">{{ 'CONGRATULATIONS1' | translate }}</h2>
+            <h2 class="title">{{ 'CONGRATULATIONS2' | translate }}</h2>
             <div ng-show="trends.first" class="result-line">
                 <div class="result-position result-position-first">
                     <span class="result-position-text">
@@ -84,10 +84,10 @@
             </div>
             <div class="result-button-wrapper">
 	            <button class="result-button" ng-click="users()" ng-show="showUserForm()">
-	            	RECEBA O RESULTADO COMPLETO
+                {{ 'RESULTS' | translate }}
               </button>
 	            <a href="#/duels" class="result-button" ng-hide="showUserForm()">
-	            	VOTAR NOVAMENTE
+                {{ 'VOTE_AGAIN' | translate }}
               </a>
             </div>
         </div>

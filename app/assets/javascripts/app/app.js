@@ -42,8 +42,15 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       QUESTION1: 'Which trend will most',
       QUESTION2: 'impact your business?',
       SKIP_DUEL: 'Skip this duel',
+      //panel page
+      CONGRATULATIONS1: 'Congratulations! These',
+      CONGRATULATIONS2: 'are the hottest trends:',
+      RESULTS: 'GET THE RESULTS',
+      VOTE_AGAIN: 'VOTE AGAIN',
       //error partial page
-      DEFAULT_ERROR: 'An error has occurred. Try again later.'
+      DEFAULT_ERROR: 'An error has occurred. Try again later.',
+      //loading partial page
+      LOADING: 'Loading...'
     }).translations('pt', {
       //start page
       RESULT_BUTTON: 'Ver o termômetro atualizado',
@@ -57,8 +64,15 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       QUESTION1: 'Qual tendência provocará o',
       QUESTION2: 'maior impacto em seu negócio?',
       SKIP_DUEL: 'Pular este duelo',
+      //panel page
+      CONGRATULATIONS1: 'Parabéns! Essas são as',
+      CONGRATULATIONS2: 'tendências mais quentes:',
+      RESULTS: 'RECEBA O RESULTADO COMPLETO',
+      VOTE_AGAIN: 'VOTAR NOVAMENTE',
       //error partial page
-      DEFAULT_ERROR: 'Ocorreu um erro! Tente novamente em instantes.'
+      DEFAULT_ERROR: 'Ocorreu um erro! Tente novamente em instantes.',
+      //loading partial page
+      LOADING: 'Carregando...'
     });
     $translateProvider.preferredLanguage('en');
 });
