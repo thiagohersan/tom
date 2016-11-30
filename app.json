@@ -6,24 +6,31 @@
   },
   "env": {
     "ENCRYPTION_PASSWORD": {
+      "generator": "secret",
       "required": true
     },
     "LANG": {
+      "value": "en_US.UTF-8",
       "required": true
     },
     "RACK_ENV": {
+      "value": "production",
       "required": true
     },
     "RAILS_ENV": {
+      "value": "production",
       "required": true
     },
     "RAILS_LOG_TO_STDOUT": {
+      "value": "enabled",
       "required": true
     },
     "RAILS_SERVE_STATIC_FILES": {
+      "value": "enabled",
       "required": true
     },
     "SECRET_KEY_BASE": {
+      "generator": "secret",
       "required": true
     }
   },
