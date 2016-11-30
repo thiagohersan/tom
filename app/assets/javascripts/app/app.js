@@ -58,6 +58,11 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       INDUSTRY: 'Industry',
       SEND: 'SEND',
       BACK: 'Back',
+      //thanks page
+      VOTE_AGAIN_BUTTON: 'vote again',
+      THANKS: 'Soon we\'ll be sending Trend-O-Meter\'s results and detailed analysis.',
+      CHECK_TREND_O_METER: 'Check the updated Trend-O-Meter',
+      NEW_PARTICIPANT: 'NEW PARTICIPANT',
       //error partial page
       DEFAULT_ERROR: 'An error has occurred. Try again later.',
       //loading partial page
@@ -91,6 +96,11 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       INDUSTRY: 'Indústria',
       SEND: 'ENVIAR',
       BACK: 'Voltar',
+      //thanks page
+      VOTE_AGAIN_BUTTON: 'votar novamente',
+      THANKS: 'Em breve enviaremos o resultado e análise detalhada do Trend-O-Meter',
+      CHECK_TREND_O_METER: 'Ver termômetro atualizado',
+      NEW_PARTICIPANT: 'NOVO PARTICIPANTE',
       //error partial page
       DEFAULT_ERROR: 'Ocorreu um erro! Tente novamente em instantes.',
       //loading partial page
