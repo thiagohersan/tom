@@ -10,6 +10,15 @@ times by user. So, an even number of trends is needed.
 This is a Single Page Application using `AngularJs` with a `Ruby on Rails` REST
 API and a `PostgreSql` database.
 
+## Configuration
+
+Edit `db/seeds.rb` and provide the *occupations*, *industries* and *trends* as
+needed. The application will misbehave in case of an odd number of trends.
+
+Before running in production, set `ENCRYPTION_PASSWORD` for preventing user ids
+to be guessed. Refer to `docker-base.env` for the environment variables used
+under `TOM` docker container.
+
 ## Running the development environment
 
 We :heart: Docker
