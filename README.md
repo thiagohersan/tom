@@ -3,12 +3,12 @@
 [![Build Status](https://travis-ci.org/carlosmaniero/tom.svg?branch=master)](https://travis-ci.org/carlosmaniero/tom)
 
 Trend-O-Meter, a.k.a. `TOM`, is a service that allow users to ranking trends according to their perceived hotness.
-The trend's ranking is calculated by placing two trends side-by-side and letting users choose which one is more "hot".
-To that end, random duels are generated based on all stored trends. Each random trend will be    
-compared with another, but each trend will only appear once by user. So, an even number of trends is required.
 
-This is a Single Page Application using `AngularJs` with a `Ruby on Rails` REST
-API and a `PostgreSql` database.
+The trend ranking is calculated through trend duels by placing two trends side-by-side and letting users choose which one is more hot.
+To that end, random duels are generated based on all stored trends. Each trend will be compared with another, but each trend will only appear once by user. So, an even number of trends is required.
+
+This service is a Single Page Application using `AngularJs` with a `Ruby on Rails` REST
+API and `PostgreSql` database.
 
 ## Configuration
 
@@ -46,7 +46,7 @@ To set your trends you need to edit the seeds file. Open the
 
 In this file you can update the Industry and Occupation list.
 
-### Set up the database
+### Setting up database
 
 This is just a rake command:
 
@@ -63,8 +63,10 @@ In few seconds you will be able to access the http://localhost:3000/.
 
 ## Deploying
 
-Fork the project, do your configurations describe above, edit the app.json
-changing the `repository` value to your new repository. And click in the
-button bellow in your new repository. :smile:
+* Fork the project Trend-O-Meter
+* Access your repository
+* Configure the forked project as describe above
+* Edit the `app.json` changing the `repository` value for your new repository
+* Click in the button bellow on your new repository. :smile:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
