@@ -12,8 +12,11 @@ API and `PostgreSql` database.
 
 ## Configuration
 
-Edit `db/seeds.rb` and provide the *occupations*, *industries* and *trends* as you
-needed. The application will misbehave in case of an odd number of trends.
+Create your `db/seeds.rb` file and provide the 
+*occupations*, *industries* and *trends* as you needed. A exemple seeds file
+is founded in `db/seeds.db.exemple`.
+
+The application will misbehave in case of an odd number of trends.
 
 Before running in production, set `ENCRYPTION_PASSWORD` for preventing user ids
 to be guessed. Refer to `docker-base.env` for the environment variables used
@@ -38,13 +41,6 @@ You can run the rake commands using the docker-compose, the rails application
 is called as `app` inside the `docker-compose.yml`. So:
 
     $ docker-compose run app ...
-
-### Setting your trends
-
-To set your trends you need to edit the seeds file. Open the
-`db/migrate/seeds.rb` and update the file.
-
-In this file you can update the Industry and Occupation list.
 
 ### Setting up database
 
