@@ -37,14 +37,14 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       //start page
       RESULT_BUTTON: 'Partial results',
       START_BUTTON: 'start',
-      START_SUBTITLE: 'How the future of your business will be?',
+      START_SUBTITLE: 'What does the future of your business look like?',
       SLOGAN: 'Innovation and Technology Consulting',
       //duel page
       LOADING_ERROR: 'There was an error during page load.',
       LOADING_ERROR2: ' and try again.',
       LOADING_ERROR_BUTTON: 'Click here',
-      QUESTION1: 'Which trend will most',
-      QUESTION2: 'impact your business?',
+      QUESTION1: 'Which trend will have the',
+      QUESTION2: 'biggest impact on your business?',
       SKIP_DUEL: 'Skip this duel',
       //panel page
       CONGRATULATIONS1: 'Congratulations! These',
