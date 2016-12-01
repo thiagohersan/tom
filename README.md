@@ -22,6 +22,12 @@ Before running in production, set `ENCRYPTION_PASSWORD` for preventing user ids
 to be guessed. Refer to `docker-base.env` for the environment variables used
 under `TOM` docker container.
 
+### i18n (internationalization)
+
+This application will use `LANG` environment variable to set the language. 
+Only `en` and `pt` locales are supported right now. For more languages add them
+at `app/assets/javascripts/app/app.js`.
+
 ## Running the development environment
 
 We :heart: Docker
