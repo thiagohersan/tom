@@ -27,7 +27,11 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
         .when('/thanks', {
             controller: 'ThanksController',
             templateUrl: '/templates/thanks.html'
-        }).otherwise('/start');
+        })
+        .when('/locale', {
+            controller: 'LocaleController',
+            templateUrl: '/templates/locale.html'
+        }).otherwise('/locale');
 
     $translateProvider.translations('en', {
       //start page

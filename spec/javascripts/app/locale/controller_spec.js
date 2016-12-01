@@ -20,7 +20,9 @@ describe('LocaleController', function() {
         then: function(fn, fnerr) {
           if(statusCode==200){
             return fn({
-              locale: 'en'
+              data: {
+                locale: 'en'
+              }
             });
           }else{
             return fnerr({
