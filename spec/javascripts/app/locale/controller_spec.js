@@ -1,5 +1,6 @@
 describe('LocaleController', function() {
   var $scope, LocaleService, LocaleController, $rootScope, $location, $controller;
+  var statusCode = 200;
 
   beforeEach(module('trendOMeterApp'));
 
@@ -14,25 +15,39 @@ describe('LocaleController', function() {
 
   describe('LocaleController.init', function() {
     beforeEach(function() {
+      statusCode = 200;
       spyOn(LocaleService, "getLocale").and.returnValue({
         then: function(fn, fnerr) {
-          return fn({
-            locale: 'en'
-          })
+          if(statusCode==200){
+            return fn({
+              locale: 'en'
+            });
+          }else{
+            return fnerr({
+              status: 500 
+            });
+          }
         }
       });
       
-      $scope.init();
     });
 
 
     it('should retrieve locale', function(){
+      $scope.init();
       expect(LocaleService.getLocale.calls.count()).toEqual(1);
     });
 
     it('should set path to start', function() {
+      $scope.init();
       expect($location.path()).toEqual('/start');
-    })
+    });
+
+    it('should set path to locale if there is an error', function() {
+      statusCode = 500;
+      $scope.init();
+      expect($location.path()).toEqual('/locale');
+    });
   });
 
 });

@@ -3,6 +3,8 @@ trendOMeterApp.controller('LocaleController', function($translate, $location, $s
     LocaleService.getLocale().then(function(data){
       $translate.use(data.locale);
       $location.path('/start');
+    },function(){
+      $location.path('/locale');
     });
   };
 
