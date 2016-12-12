@@ -5,7 +5,7 @@ FactoryGirl.define do
     company "MyString"
     completed false
     industry nil
-    occupation nil
+    role nil
 
     factory :anonymous_user do
       anonymous true
