@@ -31,19 +31,19 @@ RSpec.describe UsersController, type: :controller do
     it "updates user data and mark it as completed" do
       user1 = create(:user)
       industry = create(:industry)
-      occupation = create(:occupation)
+      role = create(:role)
       patch :update, id: ApplicationHelper::encrypt(user1.id),
                    name: 'abc',
                    email: 'dev@tw.com',
                    #company: 'tw',
                    industry_id: industry.id,
-                   occupation_id: occupation.id
+                   role_id: role.id
       user2 = User.find(user1.id)
       expect(user2.name).to eq('abc')
       expect(user2.email).to eq('dev@tw.com')
       expect(user2.company).to eq(user1.company)
       expect(user2.industry_id).to eq(industry.id)
-      expect(user2.occupation_id).to eq(occupation.id)
+      expect(user2.role_id).to eq(role.id)
       expect(user2.completed).to eq(true)
       expect(response).to have_http_status(:success)
     end
