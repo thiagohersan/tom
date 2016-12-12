@@ -52,7 +52,7 @@ describe('Service of user', function() {
         email: "user@email.com",
         company: "User Company",
         industry_id: 1,
-        occupation_id: 1
+        role_id: 1
       }
       $httpBackend.when('PATCH', '/users/', data).respond(200, '');
 
@@ -116,20 +116,20 @@ describe('Service of user', function() {
     });
   });
 
-  describe('OccupationService', function() {
-    var OccupationService; 
+  describe('RoleService', function() {
+    var RoleService; 
 
     beforeEach(inject(function($injector) {
-      OccupationService = $injector.get('OccupationService');
+      RoleService = $injector.get('RoleService');
     }));
-    it('should get all industries from /occupations', function() {
-      $httpBackend.when('GET', '/occupations').respond(200, [
+    it('should get all industries from /roles', function() {
+      $httpBackend.when('GET', '/roles').respond(200, [
         {"id":1,"name":"Executivo C-Level"},
         {"id":2,"name":"VP ou Diretor(a)"},
         {"id":3,"name":"Gerente de Projeto"}
       ]);
 
-      OccupationService.all().then(function(response){
+      RoleService.all().then(function(response){
         expect(response.status).toEqual(200);
         expect(response.data.length).toEqual(3);
       }, function(response) {

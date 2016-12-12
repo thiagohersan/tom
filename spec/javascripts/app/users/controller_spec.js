@@ -123,18 +123,18 @@ describe('StartController', function() {
   });
 });
 describe('UserController', function() {
-  var UserController, UserService, IndustryService, OccupationService, $scope, 
+  var UserController, UserService, IndustryService, RoleService, $scope, 
       $controller, $rootScope, $cookies, $location, industriesStatusCode,
-      occupationStatusCode, industryData, occupationData;
+      roleStatusCode, industryData, roleData;
   // Set the module
   beforeEach(module('trendOMeterApp'));
 
   // Add globals for any test
-  beforeEach(inject(function(_$rootScope_, _$controller_, _UserService_, _IndustryService_, _OccupationService_, _$cookies_, _$location_) {
+  beforeEach(inject(function(_$rootScope_, _$controller_, _UserService_, _IndustryService_, _RoleService_, _$cookies_, _$location_) {
     UserService = _UserService_;
     $controller = _$controller_;
     IndustryService = _IndustryService_;
-    OccupationService = _OccupationService_;
+    RoleService = _RoleService_;
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
     $cookies = _$cookies_;
@@ -144,14 +144,14 @@ describe('UserController', function() {
     $cookies.put('user_id', 'hashed==');
 
     industriesStatusCode = 200;
-    occupationStatusCode = 200;
+    roleStatusCode = 200;
 
     industryData = [
       {"id":1,"name":"Agricultura e Mineração"},
       {"id":2,"name":"Serviços Empresariais"},
       {"id":3,"name":"Computadores e Eletrônicos"}
     ];
-    occupationData = [
+    roleData = [
       {"id":1,"name":"Executivo C-Level"},
       {"id":2,"name":"VP ou Diretor(a)"},
       {"id":3,"name":"Gerente de Projeto"}
@@ -172,17 +172,17 @@ describe('UserController', function() {
         }
       }
     });    
-    spyOn(OccupationService, "all").and.returnValue({
+    spyOn(RoleService, "all").and.returnValue({
       then: function(fn, errFn) {
-        if(occupationStatusCode === 200) {
+        if(roleStatusCode === 200) {
           fn({
-            status: occupationStatusCode,
-            data: occupationData 
+            status: roleStatusCode,
+            data: roleData 
           });
         } else {
           fn({
-            status: occupationStatusCode,
-            data: occupationData 
+            status: roleStatusCode,
+            data: roleData 
           });
         }
       }
@@ -207,10 +207,10 @@ describe('UserController', function() {
   it('should get the industry list on start the controller', function() {
     $controller('UserController', {$scope: $scope});
     expect(IndustryService.all.calls.count()).toEqual(1);
-    expect(OccupationService.all.calls.count()).toEqual(1);
+    expect(RoleService.all.calls.count()).toEqual(1);
 
     expect($scope.industries).toEqual(industryData);
-    expect($scope.occupations).toEqual(occupationData);
+    expect($scope.roles).toEqual(roleData);
   });
 
   it('should set a error flag on industry service error', function() {
@@ -220,23 +220,23 @@ describe('UserController', function() {
     expect($scope.dependencyError).toEqual(true);
   });
 
-  it('should set a error flag on occupation service error', function() {
-    occupationStatusCode = 500;
+  it('should set a error flag on role service error', function() {
+    roleStatusCode = 500;
     $controller('UserController', {$scope: $scope});
 
     expect($scope.dependencyError).toEqual(true);
   });
 
-  it('should set loading false if industries and occupations are loaded', function() {
+  it('should set loading false if industries and roles are loaded', function() {
     $controller('UserController', {$scope: $scope});
     expect($scope.loadingIndustries).toEqual(false);
-    expect($scope.loadingOccupations).toEqual(false);
+    expect($scope.loadingRoles).toEqual(false);
     expect($scope.loading()).toEqual(false);
 
     $scope.loadingIndustries = true;
     expect($scope.loading()).toEqual(true);
 
-    $scope.loadingOccupations = true;
+    $scope.loadingRoles = true;
     expect($scope.loading()).toEqual(true);
     
     $scope.loadingIndustries = false;
@@ -244,7 +244,7 @@ describe('UserController', function() {
 
     // Cancel loading on dependencyError
     $scope.loadingIndustries = true;
-    $scope.loadingOccupations = true;
+    $scope.loadingRoles = true;
     $scope.dependencyError = true;
     expect($scope.loading()).toEqual(false);
   });

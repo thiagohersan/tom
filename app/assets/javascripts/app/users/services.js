@@ -38,10 +38,10 @@ trendOMeterApp.factory('IndustryService', function($http) {
     }
   }
 });
-trendOMeterApp.factory('OccupationService', function($http) {
+trendOMeterApp.factory('RoleService', function($http) {
   return {
     all: function() {
-      return $http.get('/occupations');
+      return $http.get('/roles');
     }
   }
 });

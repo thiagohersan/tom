@@ -30,10 +30,10 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         }
     }
 });
-trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, OccupationService, UserService) {
+trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, RoleService, UserService) {
   $scope.dependencyError = false;
   $scope.loadingIndustries = true;
-  $scope.loadingOccupations = true;
+  $scope.loadingRoles = true;
   $scope.saving = false;
   $scope.error = false;
   $scope.user = {
@@ -43,7 +43,7 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
   $scope.formErrors = {};
 
   $scope.loading = function() {
-    var loading = $scope.loadingIndustries || $scope.loadingOccupations;
+    var loading = $scope.loadingIndustries || $scope.loadingRoles;
     if(loading && !$scope.dependencyError) {
       return true;
     }
@@ -87,7 +87,7 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
       return $location.path('/panel');
     $scope.dependencyError = false;
     $scope.loadingIndustries = true;
-    $scope.loadingOccupations = true;
+    $scope.loadingRoles = true;
     $scope.saving = false;
     $scope.error = false;
     if(!UserService.getLoggedID())
@@ -100,10 +100,10 @@ trendOMeterApp.controller('UserController', function($scope, $location, Industry
         $scope.dependencyError = true;
       }
     });
-    OccupationService.all().then(function(response) {
+    RoleService.all().then(function(response) {
       if(response.status === 200) {
-        $scope.occupations = response.data;
-        $scope.loadingOccupations = false;
+        $scope.roles = response.data;
+        $scope.loadingRoles = false;
       } else {
         $scope.dependencyError = true;
       }
