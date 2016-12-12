@@ -57,7 +57,7 @@ Industry.create([
   { name: 'Viagem, Lazer e Recreação' },
   { name: 'Outro' }])
 
-Occupation.create([
+Role.create([
   { name: 'Executivo C-Level' },
   { name: 'VP ou Diretor(a)' },
   { name: 'Gerente de Projeto' },
