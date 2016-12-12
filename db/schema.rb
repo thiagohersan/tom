@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024113922) do
+ActiveRecord::Schema.define(version: 20161212133733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161024113922) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "occupations", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 20161024113922) do
     t.string   "company"
     t.boolean  "completed"
     t.integer  "industry_id"
-    t.integer  "occupation_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "role_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "anonymous"
     t.index ["industry_id"], name: "index_users_on_industry_id", using: :btree
-    t.index ["occupation_id"], name: "index_users_on_occupation_id", using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
   add_foreign_key "duels", "users"
   add_foreign_key "users", "industries"
-  add_foreign_key "users", "occupations"
+  add_foreign_key "users", "roles"
 end
