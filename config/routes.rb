@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       post '/' => :find
   end
 
-  get 'occupations' => 'occupations#index'
+  get 'roles' => 'roles#index'
 
   get 'industries' => 'industries#index'
 
