@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe OccupationsController, type: :controller do
+RSpec.describe RolesController, type: :controller do
   describe 'GET #index' do
-    let!(:expected_occupations) { create_list(:occupation, 10).as_json.map { |e| {
+    let!(:expected_roles) { create_list(:role, 10).as_json.map { |e| {
       'name': e['name'],
       'id': e['id']
     }}}
-    let(:existing_occupations) { JSON.parse(response.body).map { |e| {
+    let(:existing_roles) { JSON.parse(response.body).map { |e| {
         'name': e['name'],
         'id': e['id']
       }}}
@@ -16,9 +16,9 @@ RSpec.describe OccupationsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it 'returns occupation list' do
+    it 'returns role list' do
       get :index
-      expect(existing_occupations).to eq(expected_occupations)
+      expect(existing_roles).to eq(expected_roles)
     end
   end
 end
