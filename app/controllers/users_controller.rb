@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(ApplicationHelper::decrypt(params[:id]))
     parameters = params.permit(:name, :email, :company,
-                               :industry_id, :occupation_id)
+                               :industry_id, :role_id)
     user.completed = true
     user.update(parameters)
   end
