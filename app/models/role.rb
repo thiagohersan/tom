@@ -1,3 +1,3 @@
-class Occupation < ApplicationRecord
+class Role < ApplicationRecord
 	validates :name, presence: true
 end
