@@ -13,7 +13,7 @@ API and `PostgreSql` database.
 ## Configuration
 
 Create your `db/seeds.rb` file and provide the 
-*occupations*, *industries* and *trends* as you needed. A exemple seeds file
+*roles*, *industries* and *trends* as you needed. A exemple seeds file
 is founded in `db/seeds.db.exemple`.
 
 The application will misbehave in case of an odd number of trends.
