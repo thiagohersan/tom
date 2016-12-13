@@ -24,3 +24,4 @@ install:
 script:
     - bundle exec rspec
     - rake jasmine:ci
+    - bundle-audit check --update

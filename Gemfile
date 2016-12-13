@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem "jasmine", github: "pivotal/jasmine-gem"
+gem "jasmine", git: "https://github.com/jasmine/jasmine-gem", tag: 'v2.5.1'
 gem "encrypted_strings"
 
 # Use Capistrano for deployment
@@ -55,6 +55,7 @@ group :development do
   gem 'guard-rspec'
   gem 'rubocop'
   gem 'guard-rubocop'
+  gem 'bundler-audit'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
