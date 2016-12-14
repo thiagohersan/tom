@@ -3,12 +3,17 @@
   <div ng-include="'templates/partials/error.html'"></div>
   <div ng-include="'templates/partials/button.html'" onload="label='START_BUTTON'"></div>
 	<div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
-        	<div class="simple-container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
+      <div class="simple-container">
 				<span ng-click="panel()" ng-show="isCompleted" class="simple-link">
           {{ 'RESULT_BUTTON' | translate }}
         </span>
 			</div>
+      <div class="simple-container">
+        <a class="simple-link" href="https://www.thoughtworks.com/privacy-policy" target="_blank">
+          {{ 'PRIVACY_POLICY' | translate }}
+        </a>
+      </div>
 		</div>
 	</div>
 </div>

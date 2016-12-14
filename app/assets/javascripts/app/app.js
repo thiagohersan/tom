@@ -39,6 +39,7 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       START_BUTTON: 'start',
       START_SUBTITLE: 'What does the future of your business look like?',
       SLOGAN: 'Innovation and Technology Consulting',
+      PRIVACY_POLICY: 'Privacy Policy',
       //duel page
       LOADING_ERROR: 'There was an error during page load.',
       LOADING_ERROR2: ' and try again.',
@@ -77,6 +78,7 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       START_BUTTON: 'começar',
       START_SUBTITLE: 'Como será o futuro do seu negócio?',
       SLOGAN: 'Consultoria de Inovação e Tecnologia',
+      PRIVACY_POLICY: 'Política de Privacidade',
       //duel page
       LOADING_ERROR: 'Ocorreu um erro ao carregar a pagina.',
       LOADING_ERROR2: ' e tente novamente.',
