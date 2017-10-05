@@ -70,3 +70,14 @@ Role.create([
   { name: 'Consultor(a)' },
   { name: 'Estudante' },
   { name: 'Outro' }])
+
+  Area.create([
+  { name: 'Technology' },
+  { name: 'Digital / Innovation' },
+  { name: 'Strategy / Business Leadership' },
+  { name: 'Product Management' },
+  { name: 'Marketing' },
+  { name: 'Customer Experience / Loyalty' },
+  { name: 'Supply Chain / Merchandising / Operations' },
+  { name: 'Governance / Risk Management / Compliance' },
+  { name: 'Other' }])
