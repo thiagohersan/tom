@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'industries' => 'industries#index'
 
+  get 'areas' => 'areas#index'
+
   get 'locale' => 'locale#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

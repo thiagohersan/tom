@@ -65,6 +65,7 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       ROLE: 'Role',
       SELECT: 'Select',
       INDUSTRY: 'Industry',
+      AREA: 'Area',
       SEND: 'SEND',
       BACK: 'Back',
       //thanks page
@@ -104,6 +105,7 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
       ROLE: 'Cargo',
       SELECT: 'Selecione',
       INDUSTRY: 'Indústria',
+      AREA: 'Área',
       SEND: 'ENVIAR',
       BACK: 'Voltar',
       //thanks page
