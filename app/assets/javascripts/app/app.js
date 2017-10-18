@@ -12,10 +12,6 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
             controller: 'StartController',
             templateUrl: '/templates/start.html'
         })
-        .when('/interview', {
-            controller: 'InterviewController',
-            templateUrl: '/templates/interview.html'
-        })
         .when('/duels', {
             controller: 'DuelsController',
             templateUrl: '/templates/duels.html'

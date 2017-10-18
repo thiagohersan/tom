@@ -4,7 +4,7 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     $scope.isCompleted = UserService.isCompleted();
 
     $scope.redirect = function(){
-        $location.path('/interview');
+        $location.path('/duels');
     }
 
     $scope.panel = function() {
