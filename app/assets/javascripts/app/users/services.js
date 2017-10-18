@@ -38,13 +38,6 @@ trendOMeterApp.factory('IndustryService', function($http) {
     }
   }
 });
-trendOMeterApp.factory('AreaService', function ($http) {
-    return {
-        all: function () {
-            return $http.get('/areas');
-        }
-    }
-});
 trendOMeterApp.factory('RoleService', function($http) {
   return {
     all: function() {

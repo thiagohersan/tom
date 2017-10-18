@@ -1,4 +1,4 @@
-trendOMeterApp.controller('InterviewController', function($location, $scope, IndustryService, AreaService, UserService){
+trendOMeterApp.controller('InterviewController', function($location, $scope, IndustryService, UserService){
     $scope.loading = false;
     $scope.error = false;
     $scope.user = {
@@ -33,11 +33,6 @@ trendOMeterApp.controller('InterviewController', function($location, $scope, Ind
             if(response.status === 200) {
                 $scope.industries = response.data;
             }
-        });
-        AreaService.all().then(function (response) {
-          if(response.status === 200) {
-            $scope.areas = response.data;
-          }
         });
     }
 
