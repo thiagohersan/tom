@@ -1,6 +1,6 @@
 # Trend-O-Meter
 
-[![Build Status](https://travis-ci.org/ThoughtWorksInc/tom.svg?branch=master)](https://travis-ci.org/ThoughtWorksInc/tom)
+[![Build Status](https://travis-ci.org/pmaia/tom.svg?branch=master)](https://travis-ci.org/pmaia/tom)
 
 Trend-O-Meter, a.k.a. `TOM`, is a service that allow users to ranking trends according to their perceived hotness.
 
