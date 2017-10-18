@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem "jasmine", git: "https://github.com/jasmine/jasmine-gem", tag: 'v2.5.1'
+gem "jasmine", git: "https://github.com/jasmine/jasmine-gem", tag: 'v2.8.0'
 gem "encrypted_strings"
 
 # Use Capistrano for deployment
