@@ -3,6 +3,7 @@
   "description": "Validate the hotness of your trends",
   "repository": "https://github.com/pmaia/tom",
   "scripts": {
+      "postdeploy": "cp db/seeds.rb.example db/seeds.rb && rake db:seed"
   },
   "env": {
     "ENCRYPTION_PASSWORD": {
