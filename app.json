@@ -47,7 +47,7 @@
   ],
   "buildpacks": [
     {
-      "url": "ddollar/heroku-buildpack-multi"
+      "url": "heroku/ruby"
     }
   ]
 }
