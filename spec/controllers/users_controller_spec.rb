@@ -49,4 +49,32 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe "PATCH #add_image" do
+    before(:context) do
+      ENV['USER_IMAGES_FOLDER'] = Dir.mktmpdir
+    end
+
+    it "sets user image field with a path for a JPG image" do
+      user = create(:user)
+      base64_image = Base64.encode64(file_fixture('img_example1.jpg').read)
+      patch :add_image, id: ApplicationHelper::encrypt(user.id),
+                        image_base64: base64_image
+
+      user.reload
+
+      expect(user.image).to eq("#{ENV['USER_IMAGES_FOLDER']}/#{user.id}.jpg")
+    end
+
+    it "decodes base64 image into binary jpg file" do
+      user = create(:user)
+      base64_image = Base64.encode64(file_fixture('img_example1.jpg').read)
+      patch :add_image, id: ApplicationHelper::encrypt(user.id),
+                        image_base64: base64_image
+
+      user.reload
+
+      expect(file_fixture('img_example1.jpg').read).to eq(File.read(user.image))
+    end
+  end
+
 end
