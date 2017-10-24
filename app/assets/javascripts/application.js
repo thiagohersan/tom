@@ -16,4 +16,6 @@
 //= require angular-route
 //= require angular-mocks
 //= require angular-translate
+//= require webcamjs
+//= require ng-webcam
 //= require_tree .

@@ -1,6 +1,6 @@
 // Create the angular application
 var trendOMeterApp = angular.module('trendOMeterApp',
-  ['ngCookies','ngRoute', 'pascalprecht.translate']);
+  ['ngCookies','ngRoute', 'pascalprecht.translate', 'ng-webcam']);
 
 trendOMeterApp.config(function($routeProvider, $translateProvider) {
     $routeProvider

@@ -5,6 +5,14 @@
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
             <div class="simple-container">
                 <span>Capture</span>
+                <ng-webcam 
+                config="vm.config"
+                on-error="vm.onError(err)"
+                on-load="vm.onLoad()"
+                on-live="vm.onLive()"
+                on-capture-progress="vm.onCaptureProgress(src, progress)"
+                on-capture-complete="vm.onCaptureComplete(src)">
+                </ng-webcam>
             </div>
             <div class="simple-container">
                 <a class="simple-link" href="https://www.thoughtworks.com/privacy-policy" target="_blank">
