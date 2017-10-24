@@ -3,6 +3,8 @@ describe('Routes', function() {
     it('should map routes to controllers', inject(function($route) {
         expect($route.routes['/start'].controller).toEqual('StartController');
         expect($route.routes['/start'].templateUrl).toEqual('/templates/start.html');
+        expect($route.routes['/capture'].controller).toEqual('CaptureController');
+        expect($route.routes['/capture'].templateUrl).toEqual('/templates/capture.html');
         expect($route.routes['/duels'].controller).toEqual('DuelsController');
         expect($route.routes['/duels'].templateUrl).toEqual('/templates/duels.html');
         expect($route.routes['/panel'].controller).toEqual('PanelController');

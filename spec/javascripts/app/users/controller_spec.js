@@ -122,6 +122,23 @@ describe('StartController', function() {
     });
   });
 });
+describe('CaptureController', function() {
+  var $scope, CaptureController, $rootScope, $controller, $cookies, $location;
+  // Set the module
+  beforeEach(module('trendOMeterApp'));
+
+  // Add globals for any test
+  beforeEach(inject(function(_$rootScope_, _$controller_) {
+    $rootScope = _$rootScope_;
+    $scope = $rootScope.$new();
+    $controller = _$controller_;
+    CaptureController = $controller('CaptureController', {$scope: $scope});
+  }));
+
+  it('should exist', function(){
+    expect(CaptureController).toBeDefined();
+  });
+});
 describe('UserController', function() {
   var UserController, UserService, IndustryService, RoleService, $scope, 
       $controller, $rootScope, $cookies, $location, industriesStatusCode,

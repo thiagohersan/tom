@@ -12,6 +12,10 @@ trendOMeterApp.config(function($routeProvider, $translateProvider) {
             controller: 'StartController',
             templateUrl: '/templates/start.html'
         })
+        .when('/capture', {
+            controller: 'CaptureController',
+            templateUrl: '/templates/capture.html'
+        })
         .when('/duels', {
             controller: 'DuelsController',
             templateUrl: '/templates/duels.html'

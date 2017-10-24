@@ -30,6 +30,9 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         }
     }
 });
+trendOMeterApp.controller('CaptureController', function($scope, $location) {
+    
+});
 trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, RoleService, UserService) {
   $scope.dependencyError = false;
   $scope.loadingIndustries = true;
