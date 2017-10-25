@@ -31,7 +31,40 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     }
 });
 trendOMeterApp.controller('CaptureController', function($scope, $location) {
-    
+  $scope.vm = (function(){
+    var vm = {};
+
+    vm.config = {
+      flashNotDetectedText: 'Seu browser não atende os requisitos mínimos para utilização da camera. '
+    };
+
+    vm.captureButtonEnable = false;
+
+    vm.onCaptureComplete = function(src) {
+      var el = document.getElementById('result');
+      var img = document.createElement('img');
+      img.src = src[vm.config.shots-1];
+      img.width = 240;
+      img.height = 180;
+      el.appendChild(img);
+      vm.off();
+    };
+
+    vm.onLive = function() {
+      vm.captureButtonEnable = true;
+    };
+
+    vm.capture = function() {
+      $scope.$broadcast('ngWebcam_capture');
+    };
+
+    vm.off = function() {
+      $scope.$broadcast('ngWebcam_off');
+      vm.captureButtonEnable = false;
+    };
+
+    return vm;
+  })();
 });
 trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, RoleService, UserService) {
   $scope.dependencyError = false;
