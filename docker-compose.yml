@@ -2,6 +2,8 @@ postgres_host:
     image: postgres:9.4
     env_file:
         - ./docker-base.env
+    ports:
+        - 49153:5432
 
 app:
     build: ./
