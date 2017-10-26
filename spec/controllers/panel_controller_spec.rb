@@ -18,4 +18,34 @@ RSpec.describe PanelController, type: :controller do
     end
   end
 
+  describe "GET #cubes" do
+    it "returns cube/trend relative hotness" do
+      a = create(:trend, name: 'a')
+      b = create(:trend, name: 'b')
+      create(:duel, first_trend: a, second_trend: b, winner_trend: a)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: b)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: b)
+
+      get :cubes, id: a.id
+      json = JSON.parse(response.body)
+      expect(json['hotness']).to eq(50)
+
+      get :cubes, id: b.id
+      json = JSON.parse(response.body)
+      expect(json['hotness']).to eq(100)
+    end
+
+    it "ignores skipped duels" do
+      a = create(:trend, name: 'a')
+      b = create(:trend, name: 'b')
+      create(:duel, first_trend: a, second_trend: b, winner_trend: a)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: nil)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: nil)
+
+      get :cubes, id: a.id
+      json = JSON.parse(response.body)
+      expect(json['hotness']).to eq(100)
+    end
+  end
+
 end

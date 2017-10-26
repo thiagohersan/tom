@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'panel' => 'panel#index'
+  namespace :panel do
+    get '/' => :index
+    get '/cubes/:id' => :cubes
+  end
 
   resources :duels, only: [:create, :update]
 
