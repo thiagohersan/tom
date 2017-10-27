@@ -6,7 +6,7 @@ class DuelsController < ApplicationController
       user_id = nil
     end
 
-    return render text: 'Invalid user_id', status: 403 unless user_id
+    return render html: 'Invalid user_id', status: 403 unless user_id
     duel_list = Duel.where(winner_trend_id: nil,
                            skipped: nil,
                            user_id: user_id)
@@ -22,11 +22,11 @@ class DuelsController < ApplicationController
   end
 
   def update
-    return render text: 'Provide winner_tend_id or skipped = true to update',
+    return render html: 'Provide winner_tend_id or skipped = true to update',
       status: 400 unless params.key?(:winner_trend_id) || params.key?(:skipped) 
-    return render text: 'skipped = false is pointless',
+    return render html: 'skipped = false is pointless',
       status: 400 if inconsistentSkip(params)
-    return render text: 'Do not provide a winner_trend_id if you are skipping',
+    return render html: 'Do not provide a winner_trend_id if you are skipping',
       status: 400 if params.key?(:winner_trend_id) && params.key?(:skipped)
 
     begin
@@ -36,14 +36,14 @@ class DuelsController < ApplicationController
     end
     duel = Duel.find(params[:id])
     
-    return render text: 'This duel does not belong to the given user',
+    return render html: 'This duel does not belong to the given user',
       status: 403 unless user_id == duel.user_id
-    return render text: 'Already answered',
+    return render html: 'Already answered',
       status: 400 if duel.answered?
     if(params[:skipped])
       duel.skipped = true
     else
-      return render text: 'Invalid winner',
+      return render html: 'Invalid winner',
         status: 400 unless duel.valid_winner?(params[:winner_trend_id].to_i)
       duel.winner_trend_id = params[:winner_trend_id].to_i
     end 

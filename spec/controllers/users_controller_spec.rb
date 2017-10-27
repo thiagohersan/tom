@@ -32,12 +32,12 @@ RSpec.describe UsersController, type: :controller do
       user1 = create(:user)
       industry = create(:industry)
       role = create(:role)
-      patch :update, id: ApplicationHelper::encrypt(user1.id),
+      patch :update, params: { id: ApplicationHelper::encrypt(user1.id),
                    name: 'abc',
                    email: 'dev@tw.com',
                    #company: 'tw',
                    industry_id: industry.id,
-                   role_id: role.id
+                   role_id: role.id }
       user2 = User.find(user1.id)
       expect(user2.name).to eq('abc')
       expect(user2.email).to eq('dev@tw.com')
@@ -57,8 +57,8 @@ RSpec.describe UsersController, type: :controller do
     it "sets user image field with a path for a JPG image" do
       user = create(:user)
       base64_image = Base64.encode64(file_fixture('img_example1.jpg').read)
-      patch :add_image, id: ApplicationHelper::encrypt(user.id),
-                        image_base64: base64_image
+      patch :add_image, params: { id: ApplicationHelper::encrypt(user.id),
+                                  image_base64: base64_image }
 
       user.reload
 
@@ -68,8 +68,8 @@ RSpec.describe UsersController, type: :controller do
     it "decodes base64 image into binary jpg file" do
       user = create(:user)
       base64_image = Base64.encode64(file_fixture('img_example1.jpg').read)
-      patch :add_image, id: ApplicationHelper::encrypt(user.id),
-                        image_base64: base64_image
+      patch :add_image, params: { id: ApplicationHelper::encrypt(user.id),
+                                  image_base64: base64_image }
 
       user.reload
 

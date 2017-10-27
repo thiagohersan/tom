@@ -9,11 +9,11 @@ RSpec.describe EmailsController, type: :controller do
     end
     it "stores a new user in the database"do
       user = create(:user)
-      post :find, email: user.email
+      post :find, params: { email: user.email }
       expect(assigns(:result)).to eq("Sim")
     end
     it "returns false if email does not exist"do
-      post :find, email: 'crazy@mail.com' 
+      post :find, params: { email: 'crazy@mail.com' }
       expect(assigns(:result)).to eq("Não")
     end
   end
