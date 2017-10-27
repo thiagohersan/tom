@@ -65,6 +65,22 @@ describe('Service of user', function() {
       $httpBackend.flush();
     });
 
+    it('should save user image', function() {
+      $cookies.put('user_id', user_id);
+      var data = {
+        image: 'image'
+      };
+      $httpBackend.when('PATCH', '/users/'+ encodeURIComponent(user_id) + '/image', data).respond(200, '');
+
+      user = UserService.saveImage(data).then(function(response) {
+        expect(response.status).toEqual(200);
+      }, function(response) {
+        expect(response.status).toEqual(200);
+      });
+
+      $httpBackend.flush();
+    });
+
     it('should set user as completed', function() {
       UserService.setCompleted();
       expect(UserService.isCompleted()).toEqual(true);

@@ -30,7 +30,7 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
         }
     }
 });
-trendOMeterApp.controller('CaptureController', function($scope, $location) {
+trendOMeterApp.controller('CaptureController', function($scope, $location, UserService) {
   $scope.vm = (function(){
     var vm = {};
 
@@ -48,6 +48,19 @@ trendOMeterApp.controller('CaptureController', function($scope, $location) {
       img.height = 180;
       el.appendChild(img);
       vm.off();
+
+      var imageBase64 = img.src.split(",")[1];
+
+      try {
+        UserService.saveImage({ 'image_base64': imageBase64 }).then(function(response){
+          $location.path('/duels');
+        },function(error){
+          console.log(error);
+        });
+      }catch(e){
+        console.log(e);
+        return $location.path('/start');
+      }
     };
 
     vm.onLive = function() {

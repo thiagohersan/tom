@@ -19,6 +19,13 @@ trendOMeterApp.factory('UserService', function($http, $cookies){
           data.id = this.getLoggedID();
           return $http.patch('/users/', data)
         },
+        saveImage: function(data) {
+          if(this.getLoggedID() === undefined)
+            throw 'no user_id';
+
+          var userId = encodeURIComponent(this.getLoggedID());
+          return $http.patch('/users/' + userId + '/image', data);
+        },
         setCompleted: function() {
           $cookies.put('completed', true);
         },
