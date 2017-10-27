@@ -27,12 +27,10 @@ RSpec.describe PanelController, type: :controller do
       create(:duel, first_trend: a, second_trend: b, winner_trend: b)
 
       get :cubes, id: a.id
-      json = JSON.parse(response.body)
-      expect(json['hotness']).to eq(50)
+      expect(response.body.to_i).to eq(50)
 
       get :cubes, id: b.id
-      json = JSON.parse(response.body)
-      expect(json['hotness']).to eq(100)
+      expect(response.body.to_i).to eq(100)
     end
 
     it "ignores skipped duels" do
@@ -43,8 +41,7 @@ RSpec.describe PanelController, type: :controller do
       create(:duel, first_trend: a, second_trend: b, winner_trend: nil)
 
       get :cubes, id: a.id
-      json = JSON.parse(response.body)
-      expect(json['hotness']).to eq(100)
+      expect(response.body.to_i).to eq(100)
     end
   end
 
