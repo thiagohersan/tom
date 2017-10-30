@@ -56,11 +56,13 @@ RSpec.describe PanelController, type: :controller do
       get :treemap
       json = JSON.parse(response.body)
       expect(json[0][0]).to eq('b')
-      expect(json[0][1]).to eq(2)
-      expect(json[0][2]).to eq(100)
+      expect(json[0][1]).to eq('Trend-O-Meter')
+      expect(json[0][2]).to eq(2)
+      expect(json[0][3]).to eq(100)
       expect(json[1][0]).to eq('a')
-      expect(json[1][1]).to eq(1)
-      expect(json[1][2]).to eq(50)
+      expect(json[0][1]).to eq('Trend-O-Meter')
+      expect(json[1][2]).to eq(1)
+      expect(json[1][3]).to eq(50)
     end
   end
 

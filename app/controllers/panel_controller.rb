@@ -22,7 +22,7 @@ class PanelController < ApplicationController
     big_winner_wins = hash.values.max
     treemap_data = hash.map do |name, wins|
       trend_hotness = (wins.to_f / big_winner_wins) * 100
-      [ name, wins, trend_hotness.to_i ]
+      [ name, 'Trend-O-Meter', wins, trend_hotness.to_i ]
     end
     render json: treemap_data.to_json
   end
