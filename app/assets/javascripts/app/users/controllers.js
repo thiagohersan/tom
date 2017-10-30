@@ -31,27 +31,30 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     }
 });
 trendOMeterApp.controller('CaptureController', function($scope, $location, UserService) {
-  $scope.vm = (function(){
-    window.onload = function() {
+  $scope.init = function() {
+    angular.element(document).ready(function () {
       var image = document.getElementById('ng-webcam-container-ios_img');
-      image.onload =  function() {
-        console.log('ios load image', image);
-        var imageBase64 = image.src.split(",")[1];
+      if (image) {
+        image.onload =  function() {
+          console.log('ios load image', image);
+          var imageBase64 = image.src.split(",")[1];
 
-        try {
-          UserService.saveImage({ 'image_base64': imageBase64 }).then(function(response){
-            $location.path('/duels');
-          },function(error){
-            console.log(error);
-          });
-        }catch(e){
-          console.log(e);
-          return $location.path('/start');
-        }
-      };
+          try {
+            UserService.saveImage({ 'image_base64': imageBase64 }).then(function(response){
+              $location.path('/duels');
+            },function(error){
+              console.log(error);
+            });
+          }catch(e){
+            console.log(e);
+            return $location.path('/start');
+          }
+        };
+      }
+    });
+  };
 
-    }
-
+  $scope.vm = (function(){
     var vm = {};
 
     vm.config = {
@@ -98,6 +101,8 @@ trendOMeterApp.controller('CaptureController', function($scope, $location, UserS
 
     return vm;
   })();
+
+  $scope.init();
 });
 trendOMeterApp.controller('UserController', function($scope, $location, IndustryService, RoleService, UserService) {
   $scope.dependencyError = false;
