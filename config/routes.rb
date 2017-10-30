@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :panel do
     get '/' => :index
     get '/cubes/:id' => :cubes
+    get '/treemap' => :treemap
   end
 
   resources :duels, only: [:create, :update]

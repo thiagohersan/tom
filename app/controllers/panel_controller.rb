@@ -16,4 +16,14 @@ class PanelController < ApplicationController
 
     render text: trend_hotness.to_i
   end
+
+  def treemap
+    hash = Duel.joins(:winner_trend).group(:name).order('count_all desc').count
+    big_winner_wins = hash.values.max
+    treemap_data = hash.map do |name, wins|
+      trend_hotness = (wins.to_f / big_winner_wins) * 100
+      { :name => name, :wins => wins, :hotness => trend_hotness.to_i}
+    end
+    render json: treemap_data.to_json
+  end
 end

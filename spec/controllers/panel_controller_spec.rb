@@ -45,4 +45,23 @@ RSpec.describe PanelController, type: :controller do
     end
   end
 
+  describe "GET #treemap" do
+    it "returns a list of all trends with number of wins and hotness" do
+      a = create(:trend, name: 'a')
+      b = create(:trend, name: 'b')
+      create(:duel, first_trend: a, second_trend: b, winner_trend: a)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: b)
+      create(:duel, first_trend: a, second_trend: b, winner_trend: b)
+
+      get :treemap
+      json = JSON.parse(response.body)
+      expect(json[0]['name']).to eq('b')
+      expect(json[0]['wins']).to eq(2)
+      expect(json[0]['hotness']).to eq(100)
+      expect(json[1]['name']).to eq('a')
+      expect(json[1]['wins']).to eq(1)
+      expect(json[1]['hotness']).to eq(50)
+    end
+  end
+
 end
