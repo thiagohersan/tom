@@ -2,6 +2,22 @@
 @-webkit-keyframes spin_rotate { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin_rotate { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+@-webkit-keyframes wave {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes wave {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes wave {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 @mixin animation($content) {
 	-webkit-animation: $content;
     -moz-animation:    $content;
@@ -25,4 +41,7 @@
 }
 .rotate_reverse3x{
 	@include animation(spin_rotate 1s linear reverse infinite);
+}
+.ease_wave{
+	@include animation(wave 8s ease infinite);
 }

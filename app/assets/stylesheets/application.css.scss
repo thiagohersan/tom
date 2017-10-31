@@ -23,7 +23,8 @@
 body {
 	color: #fff;
 	font-family: $font-family;
-	background-image:linear-gradient(-235deg, #35aaff 0%, #ff4399 100%);
+	background-image: linear-gradient(-235deg, #35aaff, #ff4399);
+	background-size: 200%;
 }
 
 .trend-container {
