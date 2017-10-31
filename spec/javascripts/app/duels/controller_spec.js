@@ -114,7 +114,7 @@ describe('DuelsController', function(){
             $scope.duels = [];
             $scope.getCurrentDuel();
             expect($scope.finish.calls.count()).toEqual(1);
-            expect($location.path()).toEqual('/panel');
+            expect($location.path()).toEqual('/thanks');
         });
 
         it('should paginate duels according to their position', function() {

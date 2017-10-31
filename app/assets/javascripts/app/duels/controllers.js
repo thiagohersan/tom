@@ -43,7 +43,7 @@ trendOMeterApp.controller('DuelsController', function($scope,UserService, DuelSe
     };
 
     $scope.finish = function() {
-        $location.path('/panel');
+        $location.path('/thanks');
     };
 
     $scope.getCurrentPage = function() {

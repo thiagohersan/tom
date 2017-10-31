@@ -4,3 +4,8 @@
     -o-animation:      $content;
     animation:         $content;
 }
+
+@mixin blur($content) {
+    -webkit-filter: blur($content);
+    filter:         blur($content);
+}

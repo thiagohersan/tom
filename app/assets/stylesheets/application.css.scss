@@ -28,13 +28,17 @@ body {
 }
 
 .trend-container {
-	height: 100vh;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-
+	
 	&-column {
+		height: 100vh;
 		flex-direction: column;
+	}
+
+	&-row {
+		width: 100vw;
 	}
 
 	div {
@@ -53,6 +57,29 @@ body {
 		text-align: center;
 		font-size: 24px;
 		font-weight: 200;
+	}
+
+	.duels {
+		min-height: 450px;
+		width: 35%;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&-title {
+			font-size:36px;
+			font-weight: 800;
+			letter-spacing:-1px;
+		}
+
+		&-subtitle {
+			font-size:16px;
+			font-weight: 200;
+			letter-spacing:0;
+		}
+
+		&-blur {
+			@include blur(5px);
+		}
 	}
 }
 
