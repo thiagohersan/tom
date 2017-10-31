@@ -1,19 +1,9 @@
-<div class="container-fluid">
-  <div ng-include="'templates/partials/header.html'" onload="subtitle='START_SUBTITLE'"></div>
-  <div ng-include="'templates/partials/error.html'"></div>
-  <div ng-include="'templates/partials/button.html'" onload="label='START_BUTTON'"></div>
-	<div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center">
-      <div class="simple-container">
-				<span ng-click="panel()" ng-show="isCompleted" class="simple-link">
-          {{ 'RESULT_BUTTON' | translate }}
-        </span>
-			</div>
-      <div class="simple-container">
-        <a class="simple-link" href="https://www.thoughtworks.com/privacy-policy" target="_blank">
-          {{ 'PRIVACY_POLICY' | translate }}
-        </a>
-      </div>
-		</div>
-	</div>
+<div>
+  <div ng-hide="isCompleted">
+    <p class="trend-title">Vote na tendência que você acredita ser a mais forte em 2018 para os negócios</p>
+    <div ng-include="'templates/partials/button.html'"></div>
+  </div>
+  <span ng-click="panel()" ng-show="isCompleted" class="simple-link">
+    {{ 'RESULT_BUTTON' | translate }}
+  </span>
 </div>
