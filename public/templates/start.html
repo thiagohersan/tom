@@ -1,9 +1,6 @@
 <div>
   <div ng-hide="isCompleted">
-    <p class="trend-title">Vote na tendência que você acredita ser a mais forte em 2018 para os negócios</p>
+    <h1 class="trend-title" style="padding: 37px 98px;">Vote na tendência que você acredita ser a mais forte em 2018 para os negócios</h1>
     <div ng-include="'templates/partials/button.html'"></div>
   </div>
-  <span ng-click="panel()" ng-show="isCompleted" class="simple-link">
-    {{ 'RESULT_BUTTON' | translate }}
-  </span>
 </div>
