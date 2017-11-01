@@ -1,17 +1,45 @@
+<!doctype html>
 <html>
   <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#chart_div').height(screen.height).width(screen.width);
-      });
-      google.charts.load('current', {'packages':['treemap']});
-      google.charts.setOnLoadCallback(setup);
+    <meta charset="utf-8">
+    <script src="assets/javascript/d3plus-hierarchy.v0.3.full.min.js"></script>
+    <script src="assets/javascript/jquery-3.2.1.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Open Sans';
+      }
+    </style>
+  </head>
+
+<body></body>
+
+<script>
+      $(document).ready(setup);
 
       function setup() {
         getDataAndDraw();
         setInterval(getDataAndDraw, 120000);
+      }
+
+      function lerpValue(y0, y1, pos) {
+        return (y0 + pos * (y1 - y0));
+      }
+
+      function trendLerp(pos) {
+        pos = pos / 100;
+        var c0 = parseInt('36A9FE', 16);
+        var c1 = parseInt('FF4399', 16);
+        var red = lerpValue((c0 >> 16 & 0xff), (c1 >> 16 & 0xff), pos) & 0xff;
+        var green = lerpValue((c0 >> 8 & 0xff), (c1 >> 8 & 0xff), pos) & 0xff;
+        var blue = lerpValue((c0 >> 0 & 0xff), (c1 >> 0 & 0xff), pos) & 0xff;
+
+        return "#"+red.toString(16)+green.toString(16)+blue.toString(16);
+      }
+
+      function toD3plusFormat(item) {
+        return { color: trendLerp(item[3]), parent: item[1], id: item[0], value: item[2] };
       }
 
       function getDataAndDraw() {
@@ -25,28 +53,13 @@
       }
 
       function drawChart(trendsData) {
-        var baseData = [
-          ['Location', 'Parent', 'Number of wins', 'Hotness (color)'],
-          ['Trend-O-Meter', null, 0, 0],
-        ];
-        var dataTable = google.visualization.arrayToDataTable(baseData.concat(trendsData));
-
-        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
-
-        tree.draw(dataTable, {
-          minColor: '#147abc',
-          midColor: '#6f2868',
-          maxColor: '#eb3438',
-          headerHeight: 0,
-          fontColor: 'white',
-          fontFamily: 'Open Sans',
-          fontSize: 20,
-          showScale: false
-        });
+        new d3plus.Treemap()
+          .data(trendsData.map(toD3plusFormat))
+          .groupBy(["parent", "id"])
+          .shapeConfig({fill: function(d) { return d.color; }})
+          .render();
       }
-    </script>
-  </head>
-  <body>
-    <div id="chart_div"></div>
-  </body>
+
+</script>
+
 </html>
