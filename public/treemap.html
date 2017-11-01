@@ -61,13 +61,26 @@
         });
       }
 
+      function adjustTextStyle() {
+        $('[id$="_0"] text').attr('y', function(i, paddingTop) {
+          return parseInt(paddingTop) + 10;
+        });
+        $('[id$="_0"] text').attr('x', function(i, paddingLeft) {
+          return parseInt(paddingLeft) + 10;
+        });
+        $('[id$="_0"] text').css('font-size', function(i, fontSize) {
+          return Math.round(parseInt(fontSize) * 0.8) + 'px';
+        });
+        $('[id$="_0"] text').css('font-weight', 600);
+      }
+
       function drawChart(trendsData) {
         new d3plus.Treemap()
           .data(trendsData.map(toD3plusFormat))
           .groupBy(["parent", "id"])
           .legend(false)
           .shapeConfig({fill: function(d) { return d.color; }})
-          .render();
+          .render(adjustTextStyle);
       }
 
 </script>
