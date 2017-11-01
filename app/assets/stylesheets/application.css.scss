@@ -82,6 +82,13 @@ body {
 			@include blur(5px);
 		}
 	}
+
+	.capture {
+		&-title {
+			font-size:12px;
+			letter-spacing:3.43px;
+		}
+	}
 }
 
 .row {

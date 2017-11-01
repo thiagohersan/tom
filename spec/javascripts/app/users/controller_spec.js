@@ -67,9 +67,9 @@ describe('StartController', function() {
       expect($scope.redirect.calls.count()).toEqual(1);
     });
 
-    it('should redirect to /duels on redirect call', function() {
+    it('should redirect to /capture on redirect call', function() {
       $scope.redirect();
-      expect($location.path()).toEqual('/duels');
+      expect($location.path()).toEqual('/capture');
     });
   });
 

@@ -4,7 +4,7 @@ trendOMeterApp.controller('StartController', function($location, $scope, UserSer
     $scope.isCompleted = UserService.isCompleted();
 
     $scope.redirect = function(){
-        $location.path('/duels');
+        $location.path('/capture');
     }
 
     $scope.panel = function() {
@@ -53,6 +53,10 @@ trendOMeterApp.controller('CaptureController', function($scope, $location, UserS
       }
     });
   };
+
+  $scope.goToDuels = function() {
+    $location.path('/duels');
+  }
 
   $scope.vm = (function(){
     var vm = {};
