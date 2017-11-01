@@ -19,9 +19,6 @@
         display: none;
       }
 
-     .d3plus-Legend {
-        display: none;
-      }
     </style>
   </head>
 
@@ -68,6 +65,7 @@
         new d3plus.Treemap()
           .data(trendsData.map(toD3plusFormat))
           .groupBy(["parent", "id"])
+          .legend(false)
           .shapeConfig({fill: function(d) { return d.color; }})
           .render();
       }
