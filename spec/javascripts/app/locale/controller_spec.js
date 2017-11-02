@@ -42,7 +42,7 @@ describe('LocaleController', function() {
 
     it('should set path to start', function() {
       $scope.init();
-      expect($location.path()).toEqual('/start');
+      expect($location.path()).toEqual('/promoter');
     });
 
     it('should set path to locale if there is an error', function() {

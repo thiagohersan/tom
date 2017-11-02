@@ -2,7 +2,7 @@ trendOMeterApp.controller('LocaleController', function($translate, $location, $s
   $scope.init = function(){
     LocaleService.getLocale().then(function(response){
       $translate.use(response.data.locale);
-      $location.path('/start');
+      $location.path('/promoter');
     },function(){
       $location.path('/locale');
     });
