@@ -62,6 +62,8 @@ trendOMeterApp.controller('CaptureController', function($scope, $location, UserS
     var vm = {};
 
     vm.config = {
+      outputWidth: 1280,
+      outputHeight: 960,
       flashNotDetectedText: 'Seu browser não atende os requisitos mínimos para utilização da camera. '
     };
 
