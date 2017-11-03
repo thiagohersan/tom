@@ -14,7 +14,7 @@ class PanelController < ApplicationController
     most_voted_votes = trends_by_win_frequency.values.max
     trend_hotness = (trend_win_frequency.to_f / most_voted_votes) * 100
 
-    render text: trend_hotness.to_i
+    render plain: trend_hotness.to_i
   end
 
   def treemap
