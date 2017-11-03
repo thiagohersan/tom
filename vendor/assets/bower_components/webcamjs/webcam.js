@@ -61,7 +61,7 @@ var Webcam = {
 		flashNotDetectedText: 'ERROR: No Adobe Flash Player detected.  Webcam.js relies on Flash for browsers that do not support getUserMedia (like yours).',
 		noInterfaceFoundText: 'No supported webcam interface found.',
 		unfreeze_snap: true,    // Whether to unfreeze the camera after snap (defaults to true)
-		iosPlaceholderText: 'Click here to open camera.',
+		iosPlaceholderText: '',
 		user_callback: null,    // callback function for snapshot (used if no user_callback parameter given to snap function)
 		user_canvas: null       // user provided canvas for snapshot (used if no user_canvas parameter given to snap function)
 	},
@@ -383,7 +383,7 @@ var Webcam = {
 
 						var dataURL = canvas.toDataURL();
 						img.src = dataURL;
-						div.style.backgroundImage = "url('"+dataURL+"')";
+						// div.style.backgroundImage = "url('"+dataURL+"')";
 					}, false);
 					
 					// read EXIF data

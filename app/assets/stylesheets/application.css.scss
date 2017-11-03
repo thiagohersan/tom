@@ -89,6 +89,17 @@ body {
 			letter-spacing:3.43px;
 		}
 	}
+
+	.webcamjs-ios-text {
+		width: 230px;
+		height: 230px;
+		display: block;
+		background-image: url('/images/icon_picture.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
 }
 
 .row {
