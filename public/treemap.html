@@ -29,7 +29,7 @@
 
       function setup() {
         getDataAndDraw();
-        setInterval(getDataAndDraw, 120000);
+        setTimeout(location.reload.bind(location), 120000);
       }
 
       function lerpValue(y0, y1, pos) {
