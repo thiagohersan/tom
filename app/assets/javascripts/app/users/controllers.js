@@ -36,12 +36,12 @@ trendOMeterApp.controller('CaptureController', function($scope, $location, UserS
       var image = document.getElementById('ng-webcam-container-ios_img');
       if (image) {
         image.onload =  function() {
-          console.log('ios load image', image);
           var imageBase64 = image.src.split(",")[1];
 
           try {
+            $location.path('/duels');
             UserService.saveImage({ 'image_base64': imageBase64 }).then(function(response){
-              $location.path('/duels');
+              console.log('save image');
             },function(error){
               console.log(error);
             });
