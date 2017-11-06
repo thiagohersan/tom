@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $APP_HOME
 TIMESTAMP=`date +"%s"`
 BACKUP_FOLDER=$DEST/$TIMESTAMP
 mkdir $BACKUP_FOLDER
