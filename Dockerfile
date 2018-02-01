@@ -8,10 +8,12 @@ RUN apt-get install -y nodejs
 RUN npm install -g bower
 ## RUN npm install -g phantomjs
 
-ADD . /opt/app/
-WORKDIR /opt/app/
-
+COPY Gemfile* /tmp/
+WORKDIR /tmp
 RUN bundle config git.allow_insecure true
 RUN bundle install
+
+ADD . /opt/app/
+WORKDIR /opt/app/
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
