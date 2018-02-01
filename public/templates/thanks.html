@@ -1,4 +1,16 @@
 <div>
-    <h1 class="trend-title">Agradecemos a participação</h1>
-    <h2 class="trend-subtitle">Veja o ranking atualizado com as tendências no painel</h2>
+  <h1 class="trend-title">Agradecemos sua participação</h1>
+  <h2 class="trend-subtitle">Calculando o ranking atualizado das tendências </h2>
+  <h2 id="ticker">. </h2>
 </div>
+
+<script>
+  (function() {
+    setTimeout(function(){
+      window.location.href = "/treemap.html";
+    }, 3500);
+    setInterval(function(){
+      document.getElementById('ticker').innerHTML += ". ";
+    }, 800);
+  })();
+</script>
