@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+db/seeds.rb
+
 # Ignore Byebug command history file.
 .byebug_history
 *.swp
