@@ -89,7 +89,13 @@
       }
 
       function toD3plusFormat(item) {
-        return { color: trendLerp(item[3]), parent: item[1], id: item[0], value: item[2] };
+        return {
+          color: trendLerp(item[3]),
+          parent: item[1],
+          id: item[0],
+          value: item[2],
+          description: item[4]
+        };
       }
 
       function getDataAndDraw() {
@@ -126,6 +132,15 @@
             fill: function(d) { return d.color; },
             labelConfig: {
               fontFamily: "Open Sans"
+            }
+          })
+          .tooltipConfig({
+            width: function(d) { return '20%'; },
+            body: function(d) {
+              return d.description;
+            },
+            title: function(d) {
+              return d.id;
             }
           })
           .render(adjustTextStyle);
