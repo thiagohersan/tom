@@ -32,7 +32,8 @@
 
       text {
         fill: white;
-        font-family: 'Open Sans' !important;
+        font-style: italic;
+        text-transform: uppercase;
       }
 
       [id$="_1"] {
@@ -106,10 +107,10 @@
           return parseInt(paddingTop) + 10;
         });
         $('[id$="_0"] text').attr('x', function(i, paddingLeft) {
-          return parseInt(paddingLeft) + 10;
+          return parseInt(paddingLeft) + 5;
         });
         $('[id$="_0"] text').css('font-size', function(i, fontSize) {
-          return Math.round(parseInt(fontSize) * 0.8) + 'px';
+          return Math.round(parseInt(fontSize) * 0.75) + 'px';
         });
         $('[id$="_0"] text').css('font-weight', 600);
       }
@@ -120,7 +121,12 @@
           .data(trendsData.map(toD3plusFormat))
           .groupBy(["parent", "id"])
           .legend(false)
-          .shapeConfig({fill: function(d) { return d.color; }})
+          .shapeConfig({
+            fill: function(d) { return d.color; },
+            labelConfig: {
+              fontFamily: "Open Sans"
+            }
+          })
           .render(adjustTextStyle);
       }
 
