@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <script src="assets/javascript/d3plus-hierarchy.v0.3.full.min.js"></script>
     <script src="assets/javascript/jquery-3.2.1.min.js"></script>
+    <link href="assets/fonts/Open_Sans/font.css" rel="stylesheet">
     <style>
       body {
         margin: 0;
@@ -110,7 +111,7 @@
           return parseInt(paddingLeft) + 5;
         });
         $('[id$="_0"] text').css('font-size', function(i, fontSize) {
-          return Math.round(parseInt(fontSize) * 0.75) + 'px';
+          return Math.round(parseInt(fontSize) * 0.666) + 'px';
         });
         $('[id$="_0"] text').css('font-weight', 600);
       }
@@ -124,7 +125,7 @@
           .shapeConfig({
             fill: function(d) { return d.color; },
             labelConfig: {
-              fontFamily: "Open Sans"
+              fontFamily: "OpenSansItalic"
             }
           })
           .render(adjustTextStyle);
